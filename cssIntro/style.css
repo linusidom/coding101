@@ -1,0 +1,139 @@
+/*
+h1 {
+	font-family: sans-serif;
+}
+
+section	{
+	display: block;
+	margin: 100px;
+	width: 10%;
+}
+*/
+
+
+/*This will be the default for all elements */
+/*Master Container */
+body {
+
+	/*Text Color*/
+
+	/* attribute: value; */
+	/* attribute colon (:) value semicolon (;)*/
+	
+	/*This is wrong*/
+	/*color red*/
+
+	/*This is correct */
+	
+	/* Text Color will use the parameter Color */
+	color: red;
+
+
+	/* Colors are done in Hexadecimal */
+	
+	/*RBG (Red Blue Green) - has 2 values per color */
+	/* #000 = black */
+	/* #FFF = white */
+
+	/* Hexadecimal 0 - F = 16 numbers */
+	/* 0 1 2 3 4 5 6 7 8 9 A B C D E F */
+
+	/* Background will the paramerter or attribute of Background */
+	background: #ccc;
+
+	/* Color as a specific value - Hex Values*/
+	/*background: #aabbcc;*/
+	
+	/* Red Blue Green as Numeric numbers */
+	/*background: rgb(34, 45, 255);*/
+
+	/* Red Blue Green as Numeric with Opacity */
+	/*background: rgba(34, 45, 255, 0.9);*/
+
+}
+
+/*section {
+	background: #aaa;
+}
+*/
+
+
+
+/*Section 1*/
+
+/*This is how to call ID's */
+#sec1 {
+	background: #aaa;
+	text-align: center;	
+}
+
+/*This is how to call classes*/
+.sec1h1 {
+	color: blue;
+	/*text-align: center;*/
+	/*padding-top: 30px;*/
+	padding: 30px 0 0 0;
+}
+
+/*This is my paragraph tag in section 1*/
+.sec1p {
+	color: purple;
+	/*margin: 50px;*/
+	padding: 50px;
+	/*text-align: center;*/
+}
+
+
+
+/*Section 2*/
+
+#sec2 {
+	background: #333;	
+}
+
+.sec2h1 {
+	padding: 50px 0 0 100px;
+}
+
+.sec2p {
+	padding: 50px 0 50px 150px;
+}
+
+
+
+
+/*h1 {*/
+
+	/*Margin is outside the border - gives space from other objects */
+
+	/* Padding is outside the content - gives space around the object */
+
+	/* Margin and padding equal all around */
+	/*padding: 50px;*/
+	/*margin: 50px;*/
+
+
+	/* Specific Side Margin and Padding */
+	/* 2 values = Top/Bottom and Left/Right */
+	/*padding: 50px 10px;*/
+
+	/* Top Left Bottom Right - Clockwise */
+/*	padding: 10px 20px 30px 40px;
+
+	margin: 10px 20px 30px 40px;
+
+
+
+	text-align: right;
+}
+*/
+
+
+
+
+
+
+
+
+
+
