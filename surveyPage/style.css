@@ -1,0 +1,88 @@
+* {
+
+	/*Margin: Top/Bottom Left/Right*/
+	margin: 0 auto;
+	padding: 0;
+
+	/*Standard in most all CSS*/
+	box-sizing: border-box;
+}
+
+body {
+	background: #aaa;
+	font-family: Arial, sans-serif;
+	background: #ff8585;
+}
+
+
+#header {
+	text-align: center;
+	margin: 60px 0 40px 0;
+}
+
+.container {
+	background: #fff;
+	width: 80%;
+	border-radius: 10px;
+	padding: 30px;
+	background: #fff5c0;
+}
+
+p {
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.name input, .email input, .age input, .role select, .favorite select {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 20px;
+}
+
+.recommend, .improvements, .feedback {
+	margin-bottom: 20px;
+}
+
+.recommend input, .improvements input{
+	margin: 5px; 
+}
+
+
+/*Calling out the individual element by the class name is best practice*/
+.feedbackTextArea{
+	border-radius: 10px;
+	width: 100%;
+
+	/*1 Rem = 16 px */
+	height: 6rem;
+	padding: 0.8rem;
+}
+
+.submitButton {
+	width: 100%;
+	padding: 10px;
+	border-radius: 10px;
+	background: #ffb396;
+}
+
+.submitButton:hover {
+	background: #ff4646;
+}
+
+/*Thank you Page */
+
+#thankYou {
+	margin-top: 100px;
+}
+
+#thankYou a{
+	margin: 20px;
+}
+
+
+
+
+
+
+
+
