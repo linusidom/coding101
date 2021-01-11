@@ -1,0 +1,80 @@
+
+* {
+	/* "*" means apply to everything  OR wildcard OR Default */
+
+	/* Set every element to have No Padding and no Margin */
+	/* Makes it easier to work with elements as we approach them*/
+	padding: 0;
+	margin: 0;
+
+	/* Smooth Scrolling */
+	scroll-behavior: smooth;
+
+
+}
+
+
+
+body {
+	background: #ccc;
+	font-family: sans-serif;
+
+}
+
+/* Utility Class */
+
+.container {
+	width: 60%;
+	margin: 0 auto;
+}
+
+/*Nav Section*/
+.navLogo {
+	float: left;
+	margin: 20px 0;
+}
+
+.navLinks {
+	float: right;
+}
+
+.navLinks li {
+	float: left;
+
+	/*Top/bottom and left/right*/
+	margin: 30px 30px;
+
+	/* Remove Bullets next to list item */
+	list-style: none;
+
+
+	font-size: 20px;
+	text-transform: uppercase;
+
+}
+
+.navLinks a {
+	
+	/* Remove Underline from Links */
+	text-decoration: none;
+	color: #fff;
+}
+
+
+
+/*Showcase Section*/
+
+#showcase {
+	background: url('../images/banner.png') center/cover;
+}
+
+
+
+
+
+
+
+
+
+
+
