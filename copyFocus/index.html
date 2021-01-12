@@ -28,6 +28,9 @@
     
             <!-- Nav -->
             <section id='nav' class='container'>
+
+                <div class="clearFloat"></div>
+
                 <div class="navLogo">
                     <image src='images/logo.png'></image>
                 </div>
@@ -39,6 +42,9 @@
                         <li class='navLink'><a href='#contact'>Contact Us</a></li>
                     </ul>
                 </div>
+                
+                <div class="clearFloat"></div>
+
             </section>
 
 
@@ -46,20 +52,31 @@
             <!-- <div class="showcaseBackground">
                 <image src='images/banner.png'></image>
             </div> -->
-            <div class="showcaseWoofer">
-                <image src='images/woofer.png'></image>
-            </div>
-            <div class="showcaseText">
-                <h1 class="showcaseTitle">Unlimited Web Hosting</h1>
-                <p class="showcasePara">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.Donec nec justoeget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
-                <button class='showcaseGetStarted'>Get Started</button>
-                <button class="showcaseContactUs">Contact Us</button>
-            </div>
-            <div class="showcaseForm">
-                <form>
-                    <input type="text" name="domain" placeholder="Enter Domain name here">
-                    <input type="submit" value="Search">
-                </form>
+
+            <!-- With Floats if we turn them on, we have to turn them off -->
+
+            <!-- Turn off Floats with a div -->
+            <div class="container">
+                <div class="clearFloat"></div>
+
+                <div class="showcaseWoofer">
+                    <image src='images/woofer.png'></image>
+                </div>
+                <div class="showcaseText">
+                    <h1 class="showcaseTitle">Unlimited Web Hosting</h1>
+                    <p class="showcasePara">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.Donec nec justoeget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
+                    <button class='showcaseGetStarted button'>Get Started</button>
+                    <button class="showcaseContactUs button">Contact Us</button>
+                </div>
+
+                <div class="clearFloat"></div>
+                
+                <div class="showcaseForm">
+                    <form>
+                        <input class='showcaseFormText' type="text" name="domain" placeholder="Enter Domain name here">
+                        <input class='showcaseFormSubmit' type="submit" value="Search">
+                    </form>
+                </div>
             </div>
         </section>
             

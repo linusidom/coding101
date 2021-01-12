@@ -1,3 +1,15 @@
+/*CSS Variables*/
+
+:root {
+
+	/* --variableName: property */
+	--primaryColor: #29ad7b;
+	--secondaryColor: #343a40;
+	--tertiaryColor: #ce4109;
+	--black: #000;
+};
+
+
 
 * {
 	/* "*" means apply to everything  OR wildcard OR Default */
@@ -27,6 +39,20 @@ body {
 	width: 60%;
 	margin: 0 auto;
 }
+
+/*Off Button for Float*/
+.clearFloat {
+	clear: both;
+}
+
+.button {
+	padding: 20px 40px;
+	font-size: 20px;
+	color: #fff;
+	border: none;
+	border-radius: 10px;
+}
+
 
 /*Nav Section*/
 .navLogo {
@@ -66,14 +92,59 @@ body {
 
 #showcase {
 	background: url('../images/banner.png') center/cover;
+	min-height: 900px;
 }
 
+/*If you're going to use Floats */
+/* Remember if you turn them on, Turn them Off*/
 
+.showcaseWoofer {
+	float:right;
+}
 
+.showcaseText {
+	float: left;
+	width: 50%;
+	margin-top: 250px;
+}
 
+.showcaseTitle {
+	font-size: 45px;
+}
 
+.showcasePara {
+	width: 60%;
+	line-height: 2;
+	margin: 20px 0 50px 0;
+}
 
+.showcaseGetStarted {
+	background: var(--primaryColor);
+	margin-right: 20px;
+}
 
+.showcaseContactUs {
+	background: var(--secondaryColor);
+}
+
+.showcaseForm {
+	margin-top: 50px;
+}
+
+.showcaseFormText {
+	width: 80%;
+	padding: 20px;
+	border-radius: 50px;
+}
+
+.showcaseFormSubmit{
+	border-top-right-radius: 50px;
+	border-bottom-right-radius: 50px;
+	padding: 20px;
+	background: var(--black);
+	color: #fff;
+	margin: -50px;
+}
 
 
 
