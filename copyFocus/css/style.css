@@ -31,6 +31,7 @@
 body {
 	background: #fff;
 	font-family: sans-serif;
+	letter-spacing: 1px;
 
 }
 
@@ -268,16 +269,53 @@ body {
 
 
 
+/*About Offer*/
 
+.aboutOffer {
+	background: var(--primaryColor);
+}
 
+.aboutOfferBackground {
+	line-height: 0;
+}
 
+.aboutOfferBackground img {
+	width: 100%;
+}
 
+.aboutOfferContent {
+	display: flex;
+	justify-content: center;
+}
 
+.aboutOfferLeft img {
+	width: 650px;
+}
 
+.aboutOfferArrow {
+	width: 200px;
+	margin: 150px 0 0 -150px;
+}
 
+.aboutOfferRight {
+	width: 550px;
+	background: #fff;
+	padding: 0 50px 0 30px;
+}
 
+.aboutOfferRightTitle {
+	font-size: 50px;
+}
 
+.aboutOfferRightSubHeading {
+	font-size: 30px;
+	font-weight: normal;
+}
 
+.aboutOfferRightPara {
+	line-height: 1.5;
+
+}
 
 
 
