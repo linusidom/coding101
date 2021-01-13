@@ -7,6 +7,7 @@
 	--secondaryColor: #343a40;
 	--tertiaryColor: #ce4109;
 	--black: #000;
+	--boxColor: #2aaf80;
 };
 
 
@@ -28,7 +29,7 @@
 
 
 body {
-	background: #ccc;
+	background: #fff;
 	font-family: sans-serif;
 
 }
@@ -53,6 +54,10 @@ body {
 	border-radius: 10px;
 }
 
+
+.greenSpan {
+	color: var(--primaryColor);
+}
 
 /*Nav Section*/
 .navLogo {
@@ -145,6 +150,141 @@ body {
 	color: #fff;
 	margin: -50px;
 }
+
+
+
+/*About*/
+
+#about {
+	margin-top: 100px;
+}
+
+.aboutIntro {
+	text-align: center;
+}
+
+.aboutTitle {
+	font-size: 50px;
+}
+
+.aboutPara {
+	font-size: 20px;
+	width: 75%;
+	margin: 0 auto;
+	line-height: 1.5;
+}
+
+
+
+/* Grid Example */
+
+/*.aboutCards {
+	display: grid;
+*/
+	/* Each fr gets divided into 12 sections*/
+	/*grid-template-columns: repeat(3, 1fr);*/
+/*	grid-template-columns: repeat(auto-fit, minmax(450px, 3fr));
+	text-align: center;
+	grid-gap: 50px;
+	margin: 50px 0;
+}*/
+/*
+.aboutCardInnerFirst {
+	background: var(--boxColor);
+	color: #fff;
+}
+
+.aboutCardInner {
+	border-radius: 30px;
+	padding: 100px 20px 100px 20px;
+}
+
+
+.aboutCardInner {
+	border: 1px solid grey;
+}
+
+.aboutCardTitle {
+	font-size: 40px;
+	font-weight: normal;
+}
+
+.aboutCardPara {
+	font-size: 20px;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.aboutCardButton {
+	background: var(--black);
+	margin-top: 30px;
+}
+*/
+
+
+
+/* Flex Example */
+
+
+.aboutCards {
+	display: flex;
+	text-align: center;
+	margin: 50px 0 50px 0;
+
+}
+
+
+.aboutCardInnerFirst {
+	background: var(--boxColor);
+	color: #fff;
+}
+
+.aboutCardInner {
+	border-radius: 30px;
+	padding: 100px 20px 100px 20px;
+	margin: 0 20px;
+}
+
+
+.aboutCardInner {
+	border: 1px solid grey;
+}
+
+.aboutCardTitle {
+	font-size: 40px;
+	font-weight: normal;
+}
+
+.aboutCardPara {
+	font-size: 20px;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.aboutCardButton {
+	background: var(--black);
+	margin-top: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
