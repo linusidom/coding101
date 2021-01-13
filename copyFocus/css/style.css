@@ -319,11 +319,58 @@ body {
 
 
 
+/* Services */
+
+#services {
+	margin: 100px auto;
+	text-align: center;
+}
 
 
+.servicesTitle {
+	font-size: 50px;
+}
+
+.servicesPara {
+	font-size: 20px;
+	width: 75%;
+	margin: 0 auto;
+	line-height: 1.5;
+}
+
+.servicesCards {
+	display: grid;
+	grid-gap: 30px;
+	grid-template-columns: 1fr 1fr 1fr;
+	margin: 50px 0;
+}
+
+.servicesCard {
+	border: 1px solid var(--primaryColor);
+	border-radius: 30px;
+	padding: 50px 30px;
+}
+
+.servicesCardSecond {
+	background: var(--boxColor);
+	border: 1px solid grey;
+
+}
+
+.servicesCardTitle {
+	font-weight: normal;
+	margin-top: 40px;
+}
+
+.servicesCardPara {
+	line-height: 1.5;
+	margin-top: 60px;
+}
 
 
-
+.servicesButton {
+	background: var(--black);
+}
 
 
 
