@@ -23,6 +23,8 @@
 	/* Smooth Scrolling */
 	scroll-behavior: smooth;
 
+	box-sizing: border-box;
+
 
 }
 
@@ -371,6 +373,128 @@ body {
 .servicesButton {
 	background: var(--black);
 }
+
+/*Contact*/
+
+/*'images/contact-bg.png'*/
+
+
+#contact {
+	margin-top: 100px;
+}
+
+.contactIntro {
+	text-align: center;
+}
+
+.contactTitle {
+	font-size: 50px;
+}
+
+.contactPara {
+	font-size: 20px;
+	width: 75%;
+	margin: 0 auto;
+	line-height: 1.5;
+}
+
+.contactForm {
+	background: url('../images/contact-bg.png');
+	background-size: cover;
+	padding: 150px 0;
+	text-align: center;
+}
+
+
+.contactFormContent {
+	display: flex;
+	justify-content: center;
+	column-gap: 50px;
+
+
+}
+
+
+.contactFormInput {
+	width: 550px;
+	background: #fff;
+	padding: 30px 50px 0 30px;
+	background: #fff;
+	border-radius: 20px;
+
+	
+}
+
+.contactFormInput input {
+	width: 100%;
+	padding: 20px 0 20px 15px;
+	margin: 15px 0;
+
+	background: #eee;
+	border: none;
+	border-radius: 10px;
+	font-size: 20px;
+}
+
+.contactFormInput textarea {
+	width: 100%;
+	padding: 20px 0 20px 15px;
+	margin: 15px 0;
+
+	background: #eee;
+	border: none;
+	border-radius: 10px;
+	height: 100px;
+	font-size: 20px;
+}
+
+.contactFormButton {
+	background: var(--tertiaryColor);
+	margin-top: 30px;
+}
+
+.contactFormImage img {
+	width: 650px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
