@@ -1,5 +1,12 @@
 /*CSS Variables*/
 
+
+
+/*Font Import*/
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+
 :root {
 
 	/* --variableName: property */
@@ -8,6 +15,7 @@
 	--tertiaryColor: #ce4109;
 	--black: #000;
 	--boxColor: #2aaf80;
+	--footerColor: #2c2c2c;
 };
 
 
@@ -32,7 +40,7 @@
 
 body {
 	background: #fff;
-	font-family: sans-serif;
+	font-family: 'Raleway', sans-serif;
 	letter-spacing: 1px;
 
 }
@@ -455,6 +463,107 @@ body {
 
 .contactFormImage img {
 	width: 650px;
+}
+
+
+
+/* Footer */
+
+#footer {
+	background: var(--footerColor);
+	padding: 50px 0;
+}
+
+.footerContact {
+	display: flex;
+	background: #fff;
+	text-align: center;
+	width: 50%;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+	border-radius: 50px;
+	column-gap: 100px;
+}
+
+.footerContactItem {
+	display: flex;
+	padding: 20px;
+	column-gap: 20px;
+	color: #aaa;
+}
+
+.footerContactItem img {
+	align-self: center;
+}
+
+
+.footerSiteNav {
+	display: grid;
+	grid-template-columns: 1fr 1fr 2fr;
+	text-align: center;
+	color: #fff;
+	padding-top: 50px;
+}
+
+.footerSiteNav img {
+	width: 50%;
+	margin-top: 100px;
+}
+
+.footerUseful, .footerProduct {
+	text-align: left;
+	font-size: 20px;
+	color: #fff;
+}
+
+.footerTitle {
+	text-transform: uppercase;
+	font-size: 25px;
+}
+
+
+.footerUseful li, .footerProduct li {
+	list-style-image: url('../images/bulit-icon.png');
+	margin-bottom: 10px;
+}
+
+.footerUsefulLinks a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.footerProductLinks {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.footerFormInput {
+	width: 50%;
+	padding: 20px 20px 19px 20px;
+	border-radius: 50px;
+	font-size: 20px;
+}
+
+.footerFormSubscribe {
+	background: var(--primaryColor);
+	border-top-right-radius: 50px;
+	border-bottom-right-radius: 50px;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px; 
+	margin-left: -50px;
+}
+
+.footerCopyright {
+	background: var(--primaryColor);
+	text-align: center;
+}
+
+.footerCopyright p{
+	margin: 0 auto;
+	padding: 30px;
+	color: #fff;
+	font-size: 20px;
 }
 
 

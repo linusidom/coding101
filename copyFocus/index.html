@@ -248,53 +248,70 @@
         <!-- Footer -->
         
         <footer id="footer">
-            <div class="footerContact">
-                <div class="footerLoc">
-                    <img src='images/map-icon.png'></img>
-                    <p class="footerLocText">London 145 United Kingdom</p>
-                </div>
-                <div class="footerPhone">
-                    <img src='images/phone-icon.png'></img>
-                    <p class="footerLocText">+123-456-7890</p>
-                </div>
-                <div class="footerEmail">
-                    <img src='images/email-icon.png'></img>
-                    <p class="footerLocText">name@domain.com</p>
-                </div>
-            </div>
-            <div class="footerSiteNav">
-                <div class="footerSiteNavLogo">
-                    <img src='images/footer-logo.png'></img>
-                </div>
-                <div class="footerUseful">
-                    <h1 class="footerUsefulTitle">Useful Links</h1>
-                    <ul class="footerUsefulLinks">
-                        <li class='footerUsefulLink'><a href='#showcase'>Home</a></li>
-                    <li class='footerUsefulLink'><a href='#about'>About</a></li>
-                    <li class='footerUsefulLink'><a href='#services'>Services</a></li>
-                    <li class='footerUsefulLink'><a href='#contact'>Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="footerProduct">
-                    <h1 class="footerProductTitle">Product</h1>
-                    <ul class="footerProductLinks">
-                        <li class="footerProductLink">Webhosting</li>
-                        <li class="footerProductLink">Wordpress Hosting</li>
-                        <li class="footerProductLink">Reseller Hosting</li>
-                        <li class="footerProductLink">Dedicated Hosting</li>
-                        <li class="footerProductLink">VPS Hosting</li>
-                        <li class="footerProductLink">Windows Hosting</li>
-                    </ul>
-                </div>
-                <form>
-                    <input type="text" name="subscribe" placeholder="Enter your Email">
-                    <input type="submit" value="Subscribe">
-                </form>
-            </div>
+            <div class="container">
 
-            <div class="footerCopyright">
-                <p class="footerCopyrightText">&copy 2021 All Rights Reserved. HTML.Design</p>
+                <div class="footerContact">
+                    <div class="footerLoc footerContactItem">
+                        <img src='images/map-icon.png'></img>
+                        <p class="footerLocText">London 145 United Kingdom</p>
+                    </div>
+
+                    <div class="footerPhone footerContactItem">
+                        <img src='images/phone-icon.png'></img>
+                        <p class="footerLocText">+123-456-7890</p>
+                    </div>
+                    
+                    <div class="footerEmail footerContactItem">
+                        <img src='images/email-icon.png'></img>
+                        <p class="footerLocText">name@domain.com</p>
+                    </div>
+
+                </div>
+                <div class="footerSiteNav">
+                    <div class="footerSiteNavLogo">
+                        <img src='images/footer-logo.png'></img>
+                    </div>
+
+                    <div class="footerUseful">
+                        <h1 class="footerTitle">Useful Links</h1>
+                        <ul class="footerUsefulLinks">
+                            <li class='footerUsefulLink'><a href='#showcase'>Home</a></li>
+                            <li class='footerUsefulLink'><a href='#about'>About</a></li>
+                            <li class='footerUsefulLink'><a href='#services'>Services</a></li>
+                            <li class='footerUsefulLink'><a href='#contact'>Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footerProduct">
+                        <h1 class="footerTitle">Product</h1>
+                        <ul class="footerProductLinks">
+                            <li class="footerProductLink">Webhosting</li>
+                            <li class="footerProductLink">Wordpress Hosting</li>
+                            <li class="footerProductLink">Reseller Hosting</li>
+                            <li class="footerProductLink">Dedicated Hosting</li>
+                            <li class="footerProductLink">VPS Hosting</li>
+                            <li class="footerProductLink">Windows Hosting</li>
+                        </ul>
+                        <form>
+                            <input class='footerFormInput' type="text" name="subscribe" placeholder="Enter your Email">
+
+                            <!-- It's a good idea to use Buttons instead of Inputs for Submit -->
+                            <!-- Buttons Give more control -->
+                            <!-- <input type="submit" value="Subscribe"> -->
+                            <button class="button footerFormSubscribe">Subscribe</button>
+                        </form>
+                    </div>
+
+                    
+                </div>
+
+                
             </div>
         </footer>
+        <div class="footerCopyright">
+            <div class="container">
+                <p class="footerCopyrightText">&copy 2021 All Rights Reserved. HTML.Design</p>
+            </div>
+        </div>
     </body>
 </html>
