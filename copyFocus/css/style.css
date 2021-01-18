@@ -567,9 +567,61 @@ body {
 }
 
 
+@media (max-width: 768px){
+	
+	/*Utility Classes*/
+
+	.container {
+		width: 90%;
+		margin: 0 auto;
+	}
+
+	/*Nav Section*/
+	.navLogo {
+		float: left;
+		margin: 15px 0px 30px 0px;
+	}
+
+	.navLogo img {
+		width: 50%;
+	}
+
+	.navLinks li {
+		/*Top/bottom and left/right*/
+		margin: 10px 10px;
+		/* Remove Bullets next to list item */
+		font-size: 15px;
+		
+	}
 
 
 
+
+	/*Showcase Section*/
+
+
+
+	/*If you're going to use Floats */
+	/* Remember if you turn them on, Turn them Off*/
+
+	.showcaseWoofer {
+		display: none;
+	}
+
+	.showcaseText {
+		display: inline;
+		width: 100%;
+		margin: 0px auto;
+	}
+
+	.showcasePara {
+		width: 100%;
+		line-height: 2;
+		margin: 20px 0 50px 0;
+		font-weight: bold;
+	}
+
+}
 
 
 
