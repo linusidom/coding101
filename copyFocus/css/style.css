@@ -704,6 +704,37 @@ body {
 		margin-left: 30px;
 	}
 
+
+	/* Target different elements */
+
+	/*Target Odd Items*/
+/*	.servicesCard:nth-child(odd){
+		background-color: var(--tertiaryColor);
+	}
+
+	.servicesCard:nth-child(even){
+		background-color: var(--secondaryColor);
+	}*/
+
+	.servicesCards {
+		grid-template-columns: 1fr;
+		/*grid-template-columns: 2fr 1fr;*/
+
+		/*Flex*/
+/*		display: flex;
+		flex-wrap: wrap;
+*/	}
+
+/*	.servicesCard:nth-child(odd){
+		flex-basis: 45%;
+	}
+
+	.servicesCard:nth-child(even){
+		flex-basis: 25%;
+		flex-grow: 1;
+	}*/
+
+
 }
 
 
