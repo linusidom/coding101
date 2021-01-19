@@ -576,6 +576,14 @@ body {
 		margin: 0 auto;
 	}
 
+	.button {
+		padding: 10px 20px;
+		font-size: 20px;
+		color: #fff;
+		border: none;
+		border-radius: 10px;
+	}
+
 	/*Nav Section*/
 	.navLogo {
 		float: left;
@@ -599,10 +607,12 @@ body {
 
 	/*Showcase Section*/
 
-
-
 	/*If you're going to use Floats */
 	/* Remember if you turn them on, Turn them Off*/
+
+	#showcase {
+		min-height: 300px;
+	}
 
 	.showcaseWoofer {
 		display: none;
@@ -619,6 +629,79 @@ body {
 		line-height: 2;
 		margin: 20px 0 50px 0;
 		font-weight: bold;
+	}
+
+	/*About*/
+/*	#about {
+		margin-top: 100px;
+	}*/
+
+/*	.aboutIntro {
+		text-align: center;
+	}
+*/
+	.aboutTitle {
+		font-size: 40px;
+	}
+
+	.aboutPara {
+		font-size: 15px;
+	}
+
+	.aboutCards {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 3fr));
+	}
+	.aboutCardInner {
+		padding: 50px 20px 50px 20px;
+	}
+	.aboutCardTitle {
+		font-size: 25px;
+	}
+
+	.aboutCardPara {
+		font-size: 15px;
+	}
+
+	.aboutOfferContent {
+
+		/*Flex*/
+
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+
+		margin: 50px auto;
+
+
+
+		/*Grid*/
+
+		/*display: grid;
+		grid-template-columns: 1fr;
+		text-align: center;
+		margin-top: 50px;*/
+
+
+	}
+
+	.aboutOfferArrow {
+		display: none;
+	}
+
+	.aboutOfferLeft img {
+		width: 70%;
+	}
+
+	.aboutOfferRight {
+		padding: 0;
+		width: 70%;
+		text-align: left;
+		margin-top: 50px;
+	}
+
+	.aboutOfferRightTitle, .aboutOfferRightSubHeading, .aboutOfferRightPara {
+		margin-left: 30px;
 	}
 
 }
