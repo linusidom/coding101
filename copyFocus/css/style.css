@@ -758,11 +758,84 @@ textarea {
 		margin-top: 50px;
 	}
 
+	/* Footer Section */
+	.footerContact {
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 15px;
+	}
 
+	.footerContactItem {
+		padding: 0px;
+		column-gap: 10px; 
+	}
+
+	.footerSiteNav {
+		grid-template-columns: 1fr;
+	}
+
+	.footerSiteNavLogo img {
+		margin-top: 0px;
+		width: 30%;
+	}
+
+	.footerProductLinks {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.footerFormSubscribe {
+		border-top-right-radius: 50px;
+		border-bottom-right-radius: 50px;
+		border-top-left-radius: 0px;
+		border-bottom-left-radius: 0px;
+	}
+
+	.footerFormInput {
+		padding: 10px 20px 9px 20px;
+	}
 }
 
 
+@media (max-width: 420px){
 
+	.container {
+		width: 90%;
+	}
+
+
+	.navLogo {
+		float: left;
+		margin: 10px 0px 15px 0px;
+	}
+
+	.navLogo img {
+		width: 30px;
+	}
+
+	.navLinks li {
+		/*Top/bottom and left/right*/
+		margin: 5px 5px;
+		/* Remove Bullets next to list item */
+		font-size: 10px;
+		
+	}
+
+	.aboutCards {
+		grid-template-columns: 1fr;
+	}
+
+	.aboutCard {
+		margin-top: 30px;
+	}
+
+	.contactFormInput {
+		width: 350px;
+	}
+
+	.contactFormImage img{
+		width: 350px;
+	}
+}
 
 
 
