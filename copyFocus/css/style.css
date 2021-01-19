@@ -45,6 +45,11 @@ body {
 
 }
 
+textarea {
+	font-family: inherit;
+	letter-spacing: inherit;
+}
+
 /* Utility Class */
 
 .container {
@@ -733,6 +738,25 @@ body {
 		flex-basis: 25%;
 		flex-grow: 1;
 	}*/
+
+	.contactFormContent {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.contactFormInput {
+		padding: 30px 0;
+		width: 500px;
+	}
+
+	.contactFormInput input, .contactFormInput textarea {
+		width: 85%;
+	}
+	.contactFormImage img {
+		width: 500px;
+		margin-top: 50px;
+	}
 
 
 }
