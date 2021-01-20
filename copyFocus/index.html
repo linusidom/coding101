@@ -4,314 +4,112 @@
         <meta charset="utf-8">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Copy of Focus Templates</title>
+        <title>CopyFocus Bootstrap</title>
         
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <!-- Script tags below Title and Above CSS -->
 
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+
+        <!-- Link/CSS tags should come after script/JS tags-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="css/style.css">
+        
     </head>
-
-<!--     <style>
-        body {
-            background: #ccc;
-        }
-
-    </style>
- -->
-
     <body>
         
         
+    	<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+		  <div class="container">
+		    <img class="showcaseNavLogo" src="images/logo.png"></img>
+		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		      <span class="navbar-toggler-icon"></span>
+		    </button>
+		    <div class="collapse navbar-collapse" id="navbarNav">
+		      <ul class="navbar-nav">
+		        <li class="nav-item">
+		          <a class="nav-link active" aria-current="page" href="#showcase">Home</a>
+		        </li>
+		        <li class="nav-item">
+		          <a class="nav-link" href="#about">About</a>
+		        </li>
+		        <li class="nav-item">
+		          <a class="nav-link" href="#services">Services</a>
+		        </li>
+		        <li class="nav-item">
+		          <a class="nav-link" href="#contact">Contact</a>
+		        </li>
+		      </ul>
+		    </div>
+		  </div>
+		</nav>
 
-        <!-- Showcase -->
-    
-        <section id="showcase">
-    
-            <!-- Nav -->
-            <section id='nav' class='container'>
-
-                <div class="clearFloat"></div>
-
-                <div class="navLogo">
-                    <img src='images/logo.png'></img>
-                </div>
-                <div class="navLinks">
-                    <ul class='navList'>
-                        <li class='navLink'><a href='#showcase'>Home</a></li>
-                        <li class='navLink'><a href='#about'>About</a></li>
-                        <li class='navLink'><a href='#services'>Services</a></li>
-                        <li class='navLink'><a href='#contact'>Contact Us</a></li>
-                    </ul>
-                </div>
-                
-                <div class="clearFloat"></div>
-
-            </section>
-
-
-
-            <!-- <div class="showcaseBackground">
-                <img src='images/banner.png'></img>
-            </div> -->
-
-            <!-- With Floats if we turn them on, we have to turn them off -->
-
-            <!-- Turn off Floats with a div -->
-            <div class="container">
-                <div class="clearFloat"></div>
-
-                <div class="showcaseWoofer">
-                    <img src='images/woofer.png'></img>
-                </div>
-                <div class="showcaseText">
-                    <h1 class="showcaseTitle">Unlimited Web Hosting</h1>
-                    <p class="showcasePara">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.Donec nec justoeget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
-                    <button class='showcaseGetStarted button'>Get Started</button>
-                    <button class="showcaseContactUs button">Contact Us</button>
-                </div>
-
-                <div class="clearFloat"></div>
-                
-                <div class="showcaseForm">
-                    <form>
-                        <input class='showcaseFormText' type="text" name="domain" placeholder="Enter Domain name here">
-                        <input class='showcaseFormSubmit' type="submit" value="Search">
-                    </form>
-                </div>
-            </div>
-        </section>
-            
-        
-        <!-- About Us -->
-
-        <section id="about">
-            <div class="container">
-                <div class="aboutIntro">
-                    <h1 class="aboutTitle">Why you should <span class='greenSpan'>choose us</span></h1>
-                    <p class="aboutPara">Making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover any web sites still</p>
-                </div>
-                <div class="aboutCards">
-                    <div class="aboutCard">
-                        <div class="aboutCardInner aboutCardInnerFirst">
-                            <img src='images/power-full-icon.png'></img>
-                            <h3 class='aboutCardTitle'>Powerful Features</h3>
-                            <p class="aboutCardPara">making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still</p>
-                        </div>
-                        <button class="aboutCardButton button">Read More</button>
-                    </div>
-
-
-                    <div class="aboutCard">
-                        <div class="aboutCardInner">
-                            <img src='images/optimised-icon.png'></img>
-                            <h3 class='aboutCardTitle'>Today Optimised</h3>
-                            <p class="aboutCardPara">making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still</p>
-                        </div>
-                        <button class="aboutCardButton  button">Read More</button>
-                    </div>
-
-
-                    <div class="aboutCard">
-                        <div class="aboutCardInner">
-                            <img src='images/headfone-icon.png'></img>
-                            <h3 class='aboutCardTitle'>WorldWide Support</h3>
-                            <p class="aboutCardPara">making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still</p>
-                        </div>
-                        <button class="aboutCardButton  button">Read More</button>
-                    </div>
-                </div>
-            </div>
+		<!-- Showcase -->
+		<section id="showcase">
+			<div class="showcaseContext">
+				<div class="showcaseText">
+					<h1 class="showcaseTitle Title">Unlimited Web Hosting</h1>
+					<p class="showcasePara Para">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.Donec nec justoeget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
+					<button class="showcaseButtonGetStarted button">Get Started</button>
+					<button class="showcaseButtonContactUs button">Contact Us</button>
+				</div>
+				<div class="showcaseImage">
+					<img src="images/woofer.png" alt="">
+				</div>
+			</div>
+			<div class="showcaseSearch">
+				<form>
+					<input type="text" placeholder="Enter Domain Name Here">
+					<button class="button showcaseSearchButton">Search</button>
+				</form>
+			</div>
+		</section>
 
 
 
-            <div class="aboutOffer">
-                <div class="aboutOfferBackground">
-                    <img src='images/about-top-bg.png'></img>
 
-                </div>
-                <div class="aboutOfferContent container">
-                    <div class="aboutOfferLeft">
-                        <img src='images/img-1.png'></img>
-
-                    </div>
-
-                    <div class="aboutOfferArrow">
-                        <img src='images/right-aerow.png'></img>
-                    </div>
-
-                    <div class="aboutOfferRight">
-                        <h1 class="aboutOfferRightTitle greenSpan">599.00* .com</h1>
-                        <h4 class='aboutOfferRightSubHeading'>Special Offer For Limited Time. 30% Discount On All Hosting Plans</h4>
-                        <p class="aboutOfferRightPara">making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still</p>
-                    </div>
-
-
-                </div>
-
-                <div class="aboutOfferBackground">
-                    <img src='images/about-bottom-bg.png'></img>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Services -->
-        <section id="services">
-            <div class="container servicesContent">
-                <div class="servicesIntro">
-                    <h1 class="servicesTitle">Our <span class='greenSpan'>Service</span></h1>
-                    <p class="servicesPara">Lorem ipsum dolor sittem ametamngcing elit, per sed do eiusmoad teimpor sittem elit inuning ut sed.</p>
-                </div>
-                
-                <div class="servicesCards">
-                    
-                    <div class="servicesCard">
-                        <img src='images/icon-1.png'></img>
-                        <h1 class="servicesCardTitle">Shared Hosting</h1>
-                        <p class="servicesCardPara">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
-                    </div>
-                    
-                    <div class="servicesCard servicesCardSecond">
-                        <img src='images/icon-2.png'></img>
-                        <h1 class="servicesCardTitle">Dedicated Hosting</h1>
-                        <p class="servicesCardPara">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
-                    </div>
-                    
-                    <div class="servicesCard">
-                        <img src='images/icon-3.png'></img>
-                        <h1 class="servicesCardTitle">Domain Registration</h1>
-                        <p class="servicesCardPara">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
-                    </div>
-                    
-                    <div class="servicesCard">
-                        <img src='images/icon-4.png'></img>
-                        <h1 class="servicesCardTitle">Shared Hosting</h1>
-                        <p class="servicesCardPara">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
-                    </div>
-                    
-                    <div class="servicesCard">
-                        <img src='images/icon-5.png'></img>
-                        <h1 class="servicesCardTitle">Shared Hosting</h1>
-                        <p class="servicesCardPara">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
-                    </div>
-                    
-                    <div class="servicesCard">
-                        <img src='images/icon-6.png'></img>
-                        <h1 class="servicesCardTitle">Shared Hosting</h1>
-                        <p class="servicesCardPara">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
-                    </div>
-                </div>
-            <button class="servicesButton button">Read More</button>    
-            </div>
-        </section>
-
-
-        <!-- Contact Us -->
-        <section id="contact">
-            <!-- <div class="contactBackground">
-                <img src='images/contact-bg.png'></img>
-            </div> -->
-
-            <div class="container">
-                <div class="contactIntro">
-                    <h1 class="contactTitle">Request a <span class='greenSpan'>Call Back</span></h1>
-                    <p class='contactPara'>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
-                </div>
-            </div>
+		<!-- About -->
 
 
 
-            <div class="contactForm">
-                <div class="container">
-                    <div class="contactFormContent">
-                        
-                        <form class='contactFormInput'>
-                            <input type="text" name="name" placeholder="Name"><br>
-                            <input type="email" name="email" placeholder="Email"><br>
-                            <input type="text" name="phone" placeholder="Phone"><br>
-                            <textarea placeholder="Message" name='message'></textarea><br>
-                            
-                            <button class="button contactFormButton">Send</button>
-
-                        </form>
-                        
-                        <div class="contactFormImage">
-                            <img src='images/img-2.png'></img>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-        </section>
 
 
-        <!-- Footer -->
-        
-        <footer id="footer">
-            <div class="container">
+		<!-- Services -->
 
-                <div class="footerContact">
-                    <div class="footerLoc footerContactItem">
-                        <img src='images/map-icon.png'></img>
-                        <p class="footerLocText">London 145 United Kingdom</p>
-                    </div>
 
-                    <div class="footerPhone footerContactItem">
-                        <img src='images/phone-icon.png'></img>
-                        <p class="footerLocText">+123-456-7890</p>
-                    </div>
-                    
-                    <div class="footerEmail footerContactItem">
-                        <img src='images/email-icon.png'></img>
-                        <p class="footerLocText">name@domain.com</p>
-                    </div>
 
-                </div>
-                <div class="footerSiteNav">
-                    <div class="footerSiteNavLogo">
-                        <img src='images/footer-logo.png'></img>
-                    </div>
 
-                    <div class="footerUseful">
-                        <h1 class="footerTitle">Useful Links</h1>
-                        <ul class="footerUsefulLinks">
-                            <li class='footerUsefulLink'><a href='#showcase'>Home</a></li>
-                            <li class='footerUsefulLink'><a href='#about'>About</a></li>
-                            <li class='footerUsefulLink'><a href='#services'>Services</a></li>
-                            <li class='footerUsefulLink'><a href='#contact'>Contact Us</a></li>
-                        </ul>
-                    </div>
 
-                    <div class="footerProduct">
-                        <h1 class="footerTitle">Product</h1>
-                        <ul class="footerProductLinks">
-                            <li class="footerProductLink">Webhosting</li>
-                            <li class="footerProductLink">Wordpress Hosting</li>
-                            <li class="footerProductLink">Reseller Hosting</li>
-                            <li class="footerProductLink">Dedicated Hosting</li>
-                            <li class="footerProductLink">VPS Hosting</li>
-                            <li class="footerProductLink">Windows Hosting</li>
-                        </ul>
-                        <form>
-                            <input class='footerFormInput' type="text" name="subscribe" placeholder="Enter your Email">
+		<!-- Contact -->
 
-                            <!-- It's a good idea to use Buttons instead of Inputs for Submit -->
-                            <!-- Buttons Give more control -->
-                            <!-- <input type="submit" value="Subscribe"> -->
-                            <button class="button footerFormSubscribe">Subscribe</button>
-                        </form>
-                    </div>
 
-                    
-                </div>
 
-                
-            </div>
-        </footer>
-        <div class="footerCopyright">
-            <div class="container">
-                <p class="footerCopyrightText">&copy 2021 All Rights Reserved. HTML.Design</p>
-            </div>
-        </div>
+
+		<!-- Footer -->
     </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
