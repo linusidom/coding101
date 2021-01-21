@@ -1,9 +1,17 @@
+/*Fonts*/
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
+
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
 
+body {
+	font-family: 'Raleway', sans-serif;
+}
 
 .showcaseNavLogo {
 	width: 20%;
@@ -12,4 +20,18 @@
 #showcase {
 	background: url('../images/banner.png') no-repeat;
 	background-size: cover;
+}
+
+
+/* d-none from bootstrap class is the same as doing "display: none"*/
+/*.showcaseImageContainer {
+	display: none;
+}*/
+
+.showcaseButtonGetStarted {
+	background: #2ba879;
+}
+
+.showcaseButtonContactUs {
+	background: #343a40;
 }

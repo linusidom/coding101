@@ -47,23 +47,39 @@
 
 		<!-- Showcase -->
 		<section id="showcase">
-			<div class="showcaseContext">
-				<div class="showcaseText">
-					<h1 class="showcaseTitle Title">Unlimited Web Hosting</h1>
-					<p class="showcasePara Para">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.Donec nec justoeget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
-					<button class="showcaseButtonGetStarted button">Get Started</button>
-					<button class="showcaseButtonContactUs button">Contact Us</button>
+			<div class="showcaseContext container pt-5">
+				<div class="row">
+
+					<!-- using just col will auto adjust to take up as much width as possible -->
+					<div class="col">
+						<div class="showcaseText">
+							<h1 class="showcaseTitle Title">Unlimited Web Hosting</h1>
+							<p class="showcasePara Para">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.Donec nec justoeget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
+							<button class="btn text-light showcaseButtonGetStarted me-3">Get Started</button>
+							<button class="btn text-light showcaseButtonContactUs">Contact Us</button>
+						</div>
+					</div>
+
+					<!-- Using col-6 will force the element to stay with 6 sections of the 12 alloted or 50% of the width -->
+					<div class="col-6 d-none d-md-block">
+				
+						<div class="showcaseImage">
+							<img class='w-100' src="images/woofer.png" alt="">
+						</div>
+					</div>	
+
 				</div>
-				<div class="showcaseImage">
-					<img src="images/woofer.png" alt="">
-				</div>
+			
+
 			</div>
+
 			<div class="showcaseSearch">
-				<form>
-					<input type="text" placeholder="Enter Domain Name Here">
-					<button class="button showcaseSearchButton">Search</button>
+				<form class='input-group w-75 m-auto mt-4'>
+					<input class='form-control rounded-end rounded-pill' type="text" placeholder="Enter Domain Name Here">
+					<button class="btn btn-dark button showcaseSearchButton rounded-pill rounded-start">Search</button>
 				</form>
 			</div>
+
 		</section>
 
 
