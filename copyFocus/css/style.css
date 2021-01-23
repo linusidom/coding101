@@ -37,7 +37,7 @@ body {
 }
 
 
-.aboutCard {
+.aboutCard, .serviceCard {
 	border: 3px solid rgba(0,0,0, 0.2);
 	border-radius: 50px;
 	box-shadow: 0px 0px 20px #ccc;
