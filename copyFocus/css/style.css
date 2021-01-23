@@ -50,9 +50,21 @@ body {
 
 }
 
+.contactContent {
+	background: url('../images/contact-bg.png') no-repeat;
+	background-size: cover;
+}
+
+.contactForm {
+	border-radius: 20px;
+}
+
+.contactForm input, .contactForm textarea {
+	background: #eee;
+}
 
 @media (max-width: 992px) {
-	.aboutOfferImage {
+	.aboutOfferImage, .contactImage {
 		width: 500px;
 		padding: 0;
 	}
@@ -62,6 +74,11 @@ body {
 		width: 500px;
 		margin-top: 30px;
 
+	}
+
+	.contactForm {
+		width: 500px;
+		margin-bottom: 30px;
 	}
 }
 
