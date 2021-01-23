@@ -44,9 +44,26 @@ body {
 }
 
 
+.aboutOfferArrow {
+	margin-left: -150px;
+	margin-top: 80px;
+
+}
 
 
+@media (max-width: 992px) {
+	.aboutOfferImage {
+		width: 500px;
+		padding: 0;
+	}
 
+	.aboutOfferText {
+		
+		width: 500px;
+		margin-top: 30px;
+
+	}
+}
 
 
 
