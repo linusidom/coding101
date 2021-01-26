@@ -1,0 +1,253 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+		<!-- Showcase -->
+		<section id="showcase">
+			<div class="showcaseContext container pt-5">
+				<div class="row">
+
+					<!-- using just col will auto adjust to take up as much width as possible -->
+					<div class="col">
+						<div class="showcaseText">
+							<h1 class="showcaseTitle Title">Unlimited Web Hosting</h1>
+							<p class="showcasePara Para">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.Donec nec justoeget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
+							<button class="btn text-light showcaseButtonGetStarted me-3">Get Started</button>
+							<button class="btn text-light showcaseButtonContactUs">Contact Us</button>
+						</div>
+					</div>
+
+					<!-- Using col-6 will force the element to stay with 6 sections of the 12 alloted or 50% of the width -->
+					<div class="col-6 d-none d-md-block">
+				
+						<div class="showcaseImage">
+							<img class='w-100' src="{% static 'images/woofer.png' %}" alt="">
+						</div>
+					</div>	
+
+				</div>
+			
+
+			</div>
+
+			<div class="showcaseSearch">
+				<form action="{% url 'search' %}" class='input-group w-75 m-auto mt-4'>
+					<input class='form-control rounded-end rounded-pill' type="text" placeholder="Enter Domain Name Here" name='searchDomain'>
+					<button class="btn btn-dark button showcaseSearchButton rounded-pill rounded-start">Search</button>
+				</form>
+			</div>
+
+		</section>
+
+
+
+
+		<!-- About -->
+		<section id="about">
+			<div class="container">
+				<div class="aboutIntro text-center my-5">
+					<h1 class="aboutIntroTitle">Why you should <span class='text-success'>choose us</span></h1>
+					<p class="aboutIntroPara my-4 w-50 m-auto">Making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover any web sites still</p>
+				</div>
+
+				<div class="aboutCards text-center">
+					<div class="row">
+						<div class='col-12 col-lg-4'>
+							<div class="aboutCard bg-success p-5">
+								<img class='mb-4' src="{% static 'images/power-full-icon.png' %}" alt="">
+								<h1 class="aboutCardTitle h3 my-4">Powerful Features</h1>
+								<p class="aboutCardPara">making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still</p>
+							</div>
+							<button class='btn btn-dark my-4'>Read More</button>
+						</div>
+
+
+						<div class='col-12 col-lg-4'>
+							<div class="aboutCard p-5">
+								<img  class='mb-4' src="{% static 'images/optimised-icon.png' %}" alt="">
+								<h1 class="aboutCardTitle h3 my-4">Totally Optimised</h1>
+								<p class="aboutCardPara">making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still</p>
+							</div>
+							<button class='btn btn-dark my-4'>Read More</button>
+						</div>
+
+
+
+						<div class='col-12 col-lg-4'>
+							<div class="aboutCard p-5">
+								<img  class='mb-4' src="{% static 'images/headfone-icon.png' %}" alt="">
+								<h1 class="aboutCardTitle h3 my-4">WorldWide Support</h1>
+								<p class="aboutCardPara">making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still</p>
+							</div>
+							<button class='btn btn-dark my-4'>Read More</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="aboutOffer bg-success">
+				
+				<div class="aboutOfferBG">
+					<img class='w-100' src="{% static 'images/about-top-bg.png' %}" alt="">
+				</div>
+
+
+				<div class="container">
+					<div class="row justify-content-center p-4">
+
+
+						<!-- Only on Screen sizes 992 px or larger -->
+						<div class="col-lg-5 aboutOfferImage">
+							<img class='w-100' src="{% static 'images/img-1.png' %}" alt="">
+						</div>
+
+						<!-- Hide on screens smaller than 992px -->
+						<div class="col-lg-2 d-none d-lg-block aboutOfferArrow">
+							<img src="{% static 'images/right-aerow.png' %}" alt="">
+						</div>
+
+						<div class="col-lg-5 aboutOfferText text-dark bg-white">
+							<h1 class="aboutOfferTitle text-success">599.00 *.com</h1>
+							<h4 class="aboutOfferSubHeading">Special Offer For Limited Time. 30% Discount On All Hosting Plans</h4>
+							<p class="aboutOfferPara">making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still</p>
+						</div>
+
+
+
+
+					</div>
+
+
+
+
+				</div>
+
+
+
+
+
+				<div class="aboutOfferBG">
+					<img class='w-100' src="{% static 'images/about-bottom-bg.png' %}" alt="">
+				</div>
+			</div>
+
+		</section>
+
+
+
+
+		<!-- Services -->
+		<section id="services">
+			<div class="container text-center">
+				<h1 class="servicesTitle">Our <span class='text-success'>Services</span></h1>
+				<p class="servicesPara w-50 mx-auto my-4">Lorem ipsum dolor sittem ametamngcing elit, per sed do eiusmoad teimpor sittem elit inuning ut sed.</p>
+
+				<div class="servicesCards row justify-content-center">
+					
+					<div class="serviceCard col-md-3 m-2 p-4">
+						<img class='my-5' src="{% static 'images/icon-1.png' %}" alt="">
+						<h3 class="servicesCardTitle mb-5">Shared Hosting</h3>
+						<p class="servicesCardPara">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
+					</div>
+
+					<div class="serviceCard col-md-3 m-2 p-4 bg-success">
+						<img class='my-5' src="{% static 'images/icon-2.png' %}" alt="">
+						<h3 class="servicesCardTitle mb-5">Dedicated Hosting</h3>
+						<p class="servicesCardPara">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
+					</div>
+
+					<div class="serviceCard col-md-3 m-2 p-4">
+						<img class='my-5' src="{% static 'images/icon-3.png' %}" alt="">
+						<h3 class="servicesCardTitle mb-5">Domain Registration</h3>
+						<p class="servicesCardPara">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
+					</div>
+
+					<div class="serviceCard col-md-3 m-2 p-4">
+						<img class='my-5' src="{% static 'images/icon-4.png' %}" alt="">
+						<h3 class="servicesCardTitle mb-5">Shared Hosting</h3>
+						<p class="servicesCardPara">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
+					</div>
+
+					<div class="serviceCard col-md-3 m-2 p-4">
+						<img class='my-5' src="{% static 'images/icon-5.png' %}" alt="">
+						<h3 class="servicesCardTitle mb-5">Dedicated Hosting</h3>
+						<p class="servicesCardPara">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
+					</div>
+
+					<div class="serviceCard col-md-3 m-2 p-4">
+						<img class='my-5' src="{% static 'images/icon-6.png' %}" alt="">
+						<h3 class="servicesCardTitle mb-5">Domain Registration</h3>
+						<p class="servicesCardPara">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
+					</div>
+
+
+
+				</div>
+				<button class="btn btn-dark my-4">Read More</button>
+
+
+			</div>
+
+
+
+
+		</section>
+
+
+
+
+		<!-- Contact -->
+		<section id="contact">
+			<div class="container text-center">
+				<h1 class="contactTitle">Request a <span class='text-success'>Call Back</span></h1>
+				<p class="contactPara w-50 mx-auto my-5">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
+			</div>
+
+			<div class="contactContent py-5">
+				<div class="container">
+					<div class="row justify-content-center">
+						
+						<div class="col-lg-4 contactForm bg-white p-4">
+							
+							<div class="mb-3">
+								<input type="text" class="form-control"placeholder="Name">
+							</div>
+
+							<div class="mb-3">
+								<input type="email" class="form-control"placeholder="Email">
+							</div>
+							
+							<div class="mb-3">
+								<input type="text" class="form-control"placeholder="Phone">
+							</div>
+
+							<div class="mb-3">
+							
+								<textarea class="form-control" placeholder="Message" rows="3"></textarea>
+							</div>
+							<div class='mb-3 text-center'>
+								<button class="btn btn-danger">Send</button>
+							</div>
+						</div>
+
+						<div class="col-lg-5 contactImage">
+							<img class='w-100' src="{% static 'images/img-2.png' %}" alt="">
+						</div>
+
+
+
+
+
+					</div>
+
+
+
+				</div>
+			</div>
+
+
+
+		</section>
+
+
+
+{% endblock %}

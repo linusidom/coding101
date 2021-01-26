@@ -1,0 +1,168 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>CopyFocus Bootstrap</title>
+        
+        <!-- Script tags below Title and Above CSS -->
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+
+        <!-- Link/CSS tags should come after script/JS tags-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+        <!-- <link rel="stylesheet" href="css/style.css"> -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        
+    </head>
+    <body>
+        
+        
+    	<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+		  <div class="container">
+		    <img class="showcaseNavLogo" src="{% static 'images/logo.png' %}"></img>
+		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		      <span class="navbar-toggler-icon"></span>
+		    </button>
+		    <div class="collapse navbar-collapse" id="navbarNav">
+		      <ul class="navbar-nav">
+		        <li class="nav-item">
+		          <a class="nav-link active" aria-current="page" href="{% url 'index' %}#showcase">Home</a>
+		        </li>
+		        <li class="nav-item">
+		          <a class="nav-link" href="{% url 'index' %}#about">About</a>
+		        </li>
+		        <li class="nav-item">
+		          <a class="nav-link" href="{% url 'index' %}#services">Services</a>
+		        </li>
+		        <li class="nav-item">
+		          <a class="nav-link" href="{% url 'index' %}#contact">Contact</a>
+		        </li>
+		      </ul>
+		    </div>
+		  </div>
+		</nav>
+
+
+<div>
+	{% block content %}
+	{% endblock %}
+</div>
+
+
+		<!-- Footer -->
+		<footer id="footer" class='bg-dark'>
+			
+			<div class="container py-5">
+				
+				<!-- FooterContacts -->
+				<div class="row footerContacts bg-white w-100 mx-auto py-2 text-left justify-content-center">
+					
+					<div class="col-lg-3 col-md-4 col-sm-block footerContact ps-4 py-1">
+						<img src="{% static 'images/map-icon.png' %}" alt="">
+						<span>Bangkok, Thailand</span>
+					</div>
+					<div class="col-lg-3 col-md-4 col-sm-block footerContact ps-4 py-1">
+						<img src="{% static 'images/phone-icon.png' %}" alt="">
+						<span>+66-123-4567</span>
+					</div>
+					<div class="col-lg-3 col-md-4 col-sm-block  footerContact ps-4 py-1">
+						<img src="{% static 'images/email-icon.png' %}" alt="">
+						<span>name@spotskillz.co.th</span>
+					</div>
+				</div>
+
+				<!-- SiteLinks -->
+
+				<div class="footerSiteNav py-5">
+					
+					<div class="row">
+						
+						<div class="col-lg-4 col-md-4 col-6 py-3">
+							<div class="footerSiteNavLogo">
+								<img class='w-100' src="{% static 'images/footer-logo.png' %}" alt="">
+							</div>
+						</div>
+
+						<div class="col-lg-4 col-md-4 footerUseful">
+							<h3 class='footerUsefulTitle text-white text-uppercase'>Useful Links</h3>
+							<ul class="footerUsefulLinks customLinks">
+								<li class="footerUsefulLink"><a href="#home">Home</a></li>
+								<li class="footerUsefulLink"><a href="#about">About</a></li>
+								<li class="footerUsefulLink"><a href="#services">Services</a></li>
+								<li class="footerUsefulLink"><a href="#contact">Contact</a></li>
+							</ul>
+
+						</div>
+
+						<div class="col-lg-4 col-md-4 footerProduct">
+							<h3 class='footerProductTitle text-white text-uppercase'>Product Links</h3>
+							<ul class="footerProductLinks customLinks">
+								<li class="footerProductLink"><a href="#">Webhosting</a></li>
+								<li class="footerProductLink"><a href="#">Domain Hosting</a></li>
+								<li class="footerProductLink"><a href="#">WordPress Hosting</a></li>
+								<li class="footerProductLink"><a href="#">VPN Hosting</a></li>
+								<li class="footerProductLink"><a href="#">Dedicated Hosting</a></li>
+								<li class="footerProductLink"><a href="#">Windows</a></li>
+							</ul>
+
+						</div>
+
+
+
+
+
+					</div>
+
+
+
+					<div class="footerSubscribe">
+						<form action='{% url "subscribe" %}' class='input-group w-75 m-auto mt-4'>
+							<input class='form-control rounded-end rounded-pill' type="text" placeholder="Enter Your Email" name='subscribe'>
+							<button class="btn btn-success button footerSubscribeButton rounded-pill rounded-start">Subscribe</button>
+						</form>
+					</div>
+				</div>
+
+			</div>
+
+
+
+
+			<div class="footerCopyright bg-success">
+				<p class='text-white text-center m-0 py-3'>&copy; 2021 All Rights Reserved SpotSkillz</p>
+			</div>
+
+		</footer>
+
+
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
