@@ -19,6 +19,9 @@ Print the Following
 '''
 my_string = 'django'
 
+print(my_string[0])
+
+
 
 '''
 
@@ -67,7 +70,8 @@ Side note - we have not covered this yet so try to Google it
 
 
 '''
-first_name = 'John', last_name='Doe'
+first_name = 'John'
+last_name='Doe'
 
 
 
