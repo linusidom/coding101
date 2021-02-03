@@ -81,6 +81,7 @@ class Person(object):
 		self.name = name
 		self.age = age
 		self.weight = weight
+		
 
 	# We have to create a print function
 	def __str__(self):
@@ -95,27 +96,22 @@ class Person(object):
 		return self.age
 
 
-steve = Person('Steve', 45, 100)
-print(steve)
+# steve = Person('Steve', 45, 100)
+# print(steve)
 
-print(steve.get_age())
+# print(steve.get_age())
 
-print(steve.update_age(55))
+# print(steve.update_age(55))
 
 
-# print(type(new_class))
-print(dir(steve))
-print(help(steve))
+# # print(type(new_class))
+# print(dir(steve))
+# print(help(steve))
 
 
 # a = 5
 # print(type(a))
 # print(dir(a))
-
-
-
-
-
 
 
 
