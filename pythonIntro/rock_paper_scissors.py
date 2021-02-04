@@ -202,12 +202,8 @@ class RPS:
 
 
 	def rock_paper_scissors(self):
-
 		for i in range(self.rounds):
-
-
 			player_choice, computer_choice = inputs()
-
 			self.scores = rps_check(player_choice, computer_choice, self.scores)
 
 		# print(self.scores)
