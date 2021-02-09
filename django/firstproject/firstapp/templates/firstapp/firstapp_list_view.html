@@ -27,7 +27,7 @@
 	<tbody>
 		{% for book in variable_name %}
 			<tr>
-				<td>{{book.title}}</td>
+				<td><a href="{% url 'firstapp:book_detail_view' pk=book.pk %}">{{book.title}}</a></td>
 				<td>{{book.author}}</td>
 				<td>{{book.published_date}}</td>
 				<td>{{book.number_of_copies}}</td>
