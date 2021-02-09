@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="my-5">
+	<h1>Book List View (Class Based View)</h1>
+</div>
+
+
+<!-- This works -->
+<!-- {{books}} -->
+
+<!-- Ror Loop in Django Templates -->
+<!-- {% for book in books %}
+	
+	<h3>{{book.title}}</h3>
+
+{% endfor %} -->
+
+
+<table class="table table-dark table-striped text-white">
+	<thead>
+		<td>Title</td>
+		<td>Author</td>
+		<td>Published</td>
+		<td># of Copies</td>
+	</thead>
+	<tbody>
+		{% for book in book_list %}
+			<tr>
+				<td>{{book.title}}</td>
+				<td>{{book.author}}</td>
+				<td>{{book.published_date}}</td>
+				<td>{{book.number_of_copies}}</td>
+			</tr>	
+		{% endfor %}		
+		
+	</tbody>
+</table>
+
+
+<a href="{% url 'firstapp:firstapp_index' %}">Go to App Site</a>
+
+{% endblock %}
