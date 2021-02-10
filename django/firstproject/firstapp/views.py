@@ -1,8 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from firstapp.models import Book
+from firstapp.forms import BookForm
+
 
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView
 
 # Create your views here.
 def firstapp_index(request):
@@ -62,6 +65,65 @@ def book_detail_view(request, pk):
 # Class Based View
 class BookDetailView(DetailView):
 	model = Book
+
+
+
+
+
+
+
+
+'''
+Form intro
+'''
+
+# def book_form_test(request):
+# 	print('Request Method', request.method)
+# 	context = {
+# 		'form': BookForm
+# 	}
+# 	return render(request, 'firstapp/book_form_test.html', context)
+
+
+'''
+Create View
+'''
+
+# Function Based View
+def book_create_view(request):
+	if request.method == 'POST':
+		form = BookForm(request.POST)
+		if form.is_valid():
+			# print('********* Form is Valid ********',form)
+			book = form.save(commit=False)
+			book.save()
+			return redirect('firstapp:book_detail_view', pk=book.pk)
+			# return redirect('firstapp:book_list_view')		
+
+	else:
+		form = BookForm()
+		print('Else Statement Form', request.method)
+	
+	context = {
+		'form': form
+	}
+	return render(request, 'firstapp/book_create_view.html', context)
+
+
+# Class Based View
+class BookCreateView(CreateView):
+	model = Book
+	form_class = BookForm
+
+	# The Return for this is the Models get_absolute_url method
+
+
+
+
+
+
+
+
 
 
 

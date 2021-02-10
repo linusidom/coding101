@@ -29,8 +29,12 @@
                   <a class="nav-link" href="{% url 'firstapp:BookListView' %}">Class Based List View</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                  <a class="nav-link" href="{% url 'firstapp:book_create_view' %}">Function Based Create View</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'firstapp:BookCreateView' %}">Class Based Create View</a>
+                </li>
+                
               </ul>
             </div>
           </div>
