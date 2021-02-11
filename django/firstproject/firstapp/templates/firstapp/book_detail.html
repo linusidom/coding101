@@ -22,8 +22,8 @@
 	</tbody>
 </table>
 
-<a class='btn btn-info' href="{% url 'firstapp:BookUpdateView' pk=book.pk %}">Update Class Based View</a>
-
+<a class='btn btn-info me-3' href="{% url 'firstapp:BookUpdateView' pk=book.pk %}">Update Class Based View</a>
+<a class='btn btn-danger' href="{% url 'firstapp:BookDeleteView' pk=book.pk %}">Delete Class Based View</a>
 <hr>
 <a href="{% url 'firstapp:BookListView' %}">Book List View (Class Based View)</a>
 

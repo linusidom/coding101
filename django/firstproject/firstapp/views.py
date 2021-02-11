@@ -55,7 +55,8 @@ Function Based vs Class Based
 
 def book_detail_view(request, pk):
 	# I need a way to get the primary key of the book that I want to see the details of
-	book = Book.objects.get(pk=pk)
+	# book = Book.objects.get(pk=pk)
+	book = get_object_or_404(Book, pk=pk)
 
 	context = {
 		'book':book
@@ -67,6 +68,7 @@ def book_detail_view(request, pk):
 # Class Based View
 class BookDetailView(DetailView):
 	model = Book
+	
 
 
 
@@ -163,8 +165,31 @@ class BookUpdateView(UpdateView):
 
 
 
+'''
+Delete View
+
+Function Based View vs Class Based View
+'''
+
+def book_delete_view(request, pk):
+	book_obj = get_object_or_404(Book, pk=pk)
+
+	# I want to return a form
+	if request.method == 'POST':
+		book_obj.delete()
+		return redirect('firstapp:book_list_view')
 
 
+	context = {
+		'book':book_obj
+	}
+	return render(request, 'firstapp/book_delete_view.html', context)
+
+
+# Class Based
+class BookDeleteView(DeleteView):
+	model = Book
+	success_url = reverse_lazy('firstapp:book_list_view')
 
 
 

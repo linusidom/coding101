@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="my-5">
+	<h1>Book Delete View (Class Based View)</h1>
+</div>
+
+<!-- Default Method here is GET, we need to change it to POST -->
+<form method='POST'>
+	{% csrf_token %}
+	{{book}}
+
+	<input class='btn btn-danger' type="submit" value="Delete">
+</form>
+
+{% endblock %}
