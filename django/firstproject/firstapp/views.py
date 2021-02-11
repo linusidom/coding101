@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse_lazy
+
 from firstapp.models import Book
 from firstapp.forms import BookForm
 
 
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 # Create your views here.
 def firstapp_index(request):
@@ -102,7 +104,7 @@ def book_create_view(request):
 
 	else:
 		form = BookForm()
-		print('Else Statement Form', request.method)
+		# print('Else Statement Form', request.method)
 	
 	context = {
 		'form': form
@@ -120,23 +122,17 @@ class BookCreateView(CreateView):
 
 
 
-
-
-
-
-
-
-
-
 '''
 Update View
+
+Function Based vs Class Based
 '''
 
-# Function Based View
+# Function Based Update View
 def book_update_view(request, pk):
 	book_obj = get_object_or_404(Book, pk=pk)
 	if request.method == 'POST':
-		form = BookForm(request.POST)
+		form = BookForm(request.POST, instance=book_obj)
 		if form.is_valid():
 			# print('********* Form is Valid ********',form)
 			book = form.save(commit=False)
@@ -153,26 +149,20 @@ def book_update_view(request, pk):
 	}
 	return render(request, 'firstapp/book_update_view.html', context)
 
-
-
-
-
 # Class Based View
 class BookUpdateView(UpdateView):
 	model = Book
 	form_class = BookForm
 
-	# The Return for this is the Models get_absolute_url method
-
-	# This is how we add extra data to the HTML webpage from a Class Based View
 	def get_context_data(self, **kwargs):
 		# Call the base implementation first to get a context
 		context = super().get_context_data(**kwargs)
-		# Add in a QuerySet of all the books
 		context['page_type'] = 'Update'
-		# print('Udpate View Context', context)
-
+		# print('Context', context)
 		return context
+
+
+
 
 
 

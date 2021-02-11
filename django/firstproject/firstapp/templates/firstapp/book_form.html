@@ -2,11 +2,14 @@
 
 {% block content %}
 <div class="my-5">
-	<h1>Book {% if page_type %}
-				{{page_type}}
-			{% else %}
-			 	Create
-			{% endif %} 
+	<h1>Book 
+
+		{% if page_type %}
+			{{page_type}}
+		{% else %}
+			Create
+		{% endif %} 
+
 	View (Class Based View)</h1>
 </div>
 

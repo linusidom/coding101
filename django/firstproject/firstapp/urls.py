@@ -24,10 +24,10 @@ urlpatterns = [
 	path('book_create_view', views.book_create_view, name='book_create_view'),
 	path('BookCreateView', views.BookCreateView.as_view(), name='BookCreateView'),	
 
-	
 	# Book Update
 	path('book_update_view/<int:pk>', views.book_update_view, name='book_update_view'),
 	path('BookUpdateView/<int:pk>', views.BookUpdateView.as_view(), name='BookUpdateView'),	
+
 
 
 ]
