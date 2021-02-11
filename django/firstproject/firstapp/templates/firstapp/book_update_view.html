@@ -2,12 +2,7 @@
 
 {% block content %}
 <div class="my-5">
-	<h1>Book {% if page_type %}
-				{{page_type}}
-			{% else %}
-			 	Create
-			{% endif %} 
-	View (Class Based View)</h1>
+	<h1>Book Update View (Function Based View)</h1>
 </div>
 
 <!-- Default Method here is GET, we need to change it to POST -->
@@ -15,7 +10,7 @@
 	{% csrf_token %}
 	{{form.as_p}}
 
-	<input type="submit" value="{% if page_type %}{{page_type}}{% else %}Create{% endif %}">
+	<input type="submit" value="submit">
 </form>
 
 {% endblock %}

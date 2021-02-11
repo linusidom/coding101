@@ -22,6 +22,8 @@
 	</tbody>
 </table>
 
+<a class='btn btn-info' href="{% url 'firstapp:book_update_view' book.pk %}">Update Function Based View</a><br>
+
 <a href="{% url 'firstapp:book_list_view' %}">Book List View (Function Based View)</a>
 
 {% endblock %}
