@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # My installed Apps
     'firstapp',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -69,6 +70,8 @@ TEMPLATES = [
         },
     },
 ]
+
+
 
 WSGI_APPLICATION = 'firstproject.wsgi.application'
 

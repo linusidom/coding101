@@ -22,4 +22,9 @@ urlpatterns = [
     path('', views.index, name='index'),
     # path('firstapp/', views.firstapp_index, name='firstapp_index'),
     path('firstapp/', include('firstapp.urls', namespace='firstapp')),
+    path('firstapp_api/', include('firstapp.api.urls', namespace='firstapp_api')),
+
+    # Generally Unused because the browsable version is automatically included
+    path('api-auth/', include('rest_framework.urls'))
+
 ]
