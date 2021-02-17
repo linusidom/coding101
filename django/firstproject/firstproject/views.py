@@ -5,3 +5,6 @@ def index(request):
 
 # def firstapp_index(request):
 # 	return render(request, 'firstapp_index.html')	
+
+def single_page_app(request):
+	return render(request, 'single_page_app.html')

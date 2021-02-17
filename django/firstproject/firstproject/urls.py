@@ -20,6 +20,7 @@ from firstproject import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
+    path('single_page_app', views.single_page_app, name='single_page_app'),
     # path('firstapp/', views.firstapp_index, name='firstapp_index'),
     path('firstapp/', include('firstapp.urls', namespace='firstapp')),
     path('firstapp_api/', include('firstapp.api.urls', namespace='firstapp_api')),

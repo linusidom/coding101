@@ -34,7 +34,11 @@
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'firstapp:BookCreateView' %}">Class Based Create View</a>
                 </li>
-                
+
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'single_page_app' %}">Single Page App</a>
+                </li>
+             
               </ul>
             </div>
           </div>
@@ -44,6 +48,23 @@
         	{% block content %}
         	{% endblock %}
         </div>
-        
+
+        {% block end_scripts %}
+        {% endblock %}
     </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
