@@ -7,7 +7,7 @@
 
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add a Book</button>
 
-
+<!-- Modal for Create / Add Book -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -45,8 +45,48 @@
 
 
 
+<button class='btn btn-info bookListViewButton' onClick="bookListView()">Go Back to List View</button>
+
+
 <div class="insertJavaScriptHere"></div>
 
+
+
+<!-- Modal for Update -->
+<div class="modal fade" id="updateBookModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update Book</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="update_book_title" class="col-form-label">Title:</label>
+            <input type="text" class="form-control" id="update_book_title">
+          </div>
+          <div class="mb-3">
+            <label for="update_book_author" class="col-form-label">Author:</label>
+            <input type='text' class="form-control" id="update_book_author"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="update_book_published_date" class="col-form-label">Published:</label>
+            <input type="date" class="form-control" id="update_book_published_date">
+          </div>
+          <div class="mb-3">
+            <label for="update_book_number_of_copies" class="col-form-label">Number of Copies:</label>
+            <input type='number' class="form-control" id="update_book_number_of_copies"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary book_update_save">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
