@@ -2,6 +2,9 @@ div = document.querySelector('.insertJavaScriptHere')
 // console.log(div)
 bookListViewButton = document.querySelector('.bookListViewButton')
 
+divDeleteError = document.querySelector('.deleteError')
+
+
 // If we want to type text into JS
 // We need to use Backticks, left of number 1 key
 // div.innerHTML = `<h1>I was inserted by main.js</h1>`
@@ -69,7 +72,16 @@ function cardMaker(data){
 	updateButton.setAttribute('data-bs-toggle', 'modal')
 	updateButton.setAttribute('data-bs-target', '#updateBookModal')
 
+
+	let deleteButton = document.createElement('button')
+	deleteButton.innerText = 'Delete'
+	deleteButton.setAttribute('class', 'btn btn-danger mt-4 ms-4 deleteBookButton')
+	deleteButton.setAttribute('id', `deleteBookID-${data.id}`)
+	deleteButton.setAttribute('data-bs-toggle', 'modal')
+	deleteButton.setAttribute('data-bs-target', '#deleteBookModal')
+
 	cardBody.append(updateButton)
+	cardBody.append(deleteButton)
 
 	// append card header and card-body to the Card
 	cardDiv.append(cardHeader)
@@ -83,6 +95,8 @@ function cardMaker(data){
 function pageReset(){
 	div.innerHTML = ``
 	bookListViewButton.style.display = 'none'
+	document.querySelector('#nameOfBookToDelete').value = ''
+
 }
 
 
@@ -202,11 +216,32 @@ async function updateBook(postData, int){
 		},
 		body: JSON.stringify(postData),
 	})
+	let data = response.json()
+	return data
 }
+
+
+
+// Delete View
+async function deleteBook(int){
+	let response = await fetch(`http://127.0.0.1:8000/firstapp_api/book_delete_view/${int}`, {
+		method: 'POST',
+		headers: {
+			"Content-type":"application/json",
+		},
+	})
+
+	let data = response.json()
+	return data
+}
+
+
 
 // Isolate the Button being clicked
 document.addEventListener('click', (e) => {
-	console.log(e.target.classList.contains('updateBookButton'))
+	// console.log(e.target.classList.contains('updateBookButton'))
+	
+	// Update Section
 	if (e.target.classList.contains('updateBookButton')){
 		bookID = e.target.id.split('-').pop()
 		
@@ -256,7 +291,73 @@ document.addEventListener('click', (e) => {
 		})
 
 	}
+
+	// Delete section
+	if (e.target.classList.contains('deleteBookButton')){
+		bookID = e.target.id.split('-').pop()
+		
+		console.log('Delete Book ID', bookID)
+
+		detailBook(bookID)
+		.then(data => {
+			console.log(data)
+
+			//Put the data.title into our Span
+			document.querySelector('.nameOfBook').innerText = data.title
+
+			document.querySelector('.book_delete_save').addEventListener('click', (e) => {
+				console.log(e.target)
+
+				bookTitle = document.querySelector('#nameOfBookToDelete').value
+				if ( data.title === bookTitle ){
+					// console.log('Book is okay to delete')
+					deleteBook(bookID)
+					.then(data  => {
+						console.log(data)
+
+						divDeleteError.style.display = ''
+						divDeleteError.innerText = 'Book Delete Successfully'
+						divDeleteError.setAttribute('class', 'alert alert-success')
+
+						setTimeout(() => {
+							divDeleteError.style.display = 'none'
+						},3000)
+
+						pageReset()
+						bookListView()
+					})
+
+
+				}
+				else {
+					// ToDo - Add SetTimeout and alert
+
+					divDeleteError.style.display = ''
+					divDeleteError.innerText = 'Error, Incorrect'
+					divDeleteError.setAttribute('class', 'alert alert-danger')
+
+					setTimeout(() => {
+						divDeleteError.style.display = 'none'
+					},3000)
+
+				}
+			})
+		})
+	}
+
 })
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
