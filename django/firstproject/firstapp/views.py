@@ -9,6 +9,8 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
+# from django.db import connection
+
 # Create your views here.
 def firstapp_index(request):
 	return render(request, 'firstapp/firstapp_index.html')	
@@ -22,7 +24,50 @@ Function Based vs Class Based
 '''
 # Function Based View
 def firstapp_list_view(request):
+
+	# Django's OOP (Object Oriented Programming) Command
 	books = Book.objects.all()
+
+	# Django converts this using an ORM to a SQL Command
+
+	# Object Relational Mapper
+	# Will take in OOP, convert to SQL
+	# SQL Will return a table, ORM will convert to a QuerySet
+	# print('\n', books.query, '\n')
+	# print(books)
+
+	# Detail View
+	# book_detail = Book.objects.filter(pk=13)
+	# book_detail = Book.objects.filter(title__contains='Brave')
+	# print('\n', book_detail.query, '\n')
+
+
+
+	# Create
+	# new_book = {
+	# 	'title': 'How to Win Friends and Influence People',
+	# 	'author': 'Dale Carnegie',
+	# 	'published_date': '2020-02-02',
+	# 	'number_of_copies': 5
+	# }
+
+	# Book.objects.create(**new_book)
+	# Update
+
+	# Book.objects.filter(pk=49).update(number_of_copies=500)
+
+
+
+	# Delete
+	# Book.objects.filter(pk=49).delete()
+
+
+
+
+
+
+	# print(connection.queries)
+
 	# print(books)
 	# for book in books:
 	# 	# print(book)
