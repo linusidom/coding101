@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1>{{profile.user|title}} Details</h1>
+
+<div class="row">
+	<div class="col">
+		<div class="card">
+			<div class="card-header">
+				Personal Details
+			</div>
+			<div class="card-body">
+				<p>{{profile.user.username}}</p>
+				<p>{{profile.user.email}}</p>
+				<a class='btn btn-info' href="{% url 'profiles:profile_update' slug=profile.slug %}">Update</a>
+				<a class='btn btn-danger' href="{% url 'profiles:profile_delete' slug=profile.slug %}">Delete</a>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-header">
+				Comments
+			</div>
+			<div class="card-body">
+				{% for comment in comments %}
+					{% include 'posts/snippets/comment_snippets.html' with comment=comment post=post %}
+				{% endfor %}
+			</div>
+		</div>		
+	</div>
+</div>
+
+
+{{ request.user.id|json_script:"user_id" }}
+{{ profile.user.id|json_script:"post_user_id"}}
+{% endblock %}
+
+{% block js %}
+	<script src="{% static 'js/main.js' %}"></script>
+{% endblock %}
