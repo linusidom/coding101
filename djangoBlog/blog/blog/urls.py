@@ -25,4 +25,5 @@ urlpatterns = [
     # path('', views.IndexView.as_view(), name='index'),
 
     path('posts/', include('posts.urls', namespace='posts')),
+    path('accounts/', include('allauth.urls')),
 ]
