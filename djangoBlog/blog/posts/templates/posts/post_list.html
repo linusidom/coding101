@@ -3,10 +3,15 @@
 {% block content %}
 <h1>Post List</h1>
 
+<hr>
+<a class='btn btn-primary' href="{% url 'posts:post_create' %}">Add a Post</a>
+<hr>
+
 {% for post in post_list %}
 	<div class="card mt-5">
 		<div class="card-header">
 			<p><a href="{% url 'posts:post_detail' pk=post.pk %}"> {{post.id}}. {{post.title}}</a></p>
+			<p>Author {{post.author}}???</p>
 		</div>
 		<div class="card-body">
 			<p>{{post.message}}</p>
