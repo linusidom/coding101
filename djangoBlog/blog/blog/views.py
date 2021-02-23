@@ -6,3 +6,7 @@ def index_view(request):
 
 class IndexTemplateView(TemplateView):
 	template_name = 'index.html'
+
+class Error403TemplateView(TemplateView):
+	template_name = 'error403.html'
+	

@@ -6,13 +6,23 @@
 <div class="card">
 	<div class="card-header">
 		<p>{{post.id}}. {{post.title}}</p>
+		<p>{{post.user}}</p>
 	</div>
 	<div class="card-body">
 		<p>{{post.message}}</p>
+		<p>Post Created: {{post.created}}</p>
+		<p>Last Updated: {{post.updated}}</p>
 	</div>
 </div>
 
-<a class='btn btn-info mt-4' href="{% url 'posts:post_update' pk=post.pk %}">Update</a>
+<p>Post Author {{post.user}}</p>
 
-<a class='btn btn-danger mt-4 ms-4' href="{% url 'posts:post_delete' pk=post.pk %}">Delete</a>
+<p>User Logged In {{user}}</p>
+
+{% if post.user == user %}
+	<a class='btn btn-info mt-4' href="{% url 'posts:post_update' pk=post.pk %}">Update</a>
+
+	<a class='btn btn-danger mt-4 ms-4' href="{% url 'posts:post_delete' pk=post.pk %}">Delete</a>
+{% endif %}
+
 {% endblock %}

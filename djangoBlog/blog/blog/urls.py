@@ -26,4 +26,7 @@ urlpatterns = [
 
     path('posts/', include('posts.urls', namespace='posts')),
     path('accounts/', include('allauth.urls')),
+
+    # Errors
+    path('error403', views.Error403TemplateView.as_view(), name='error403'),
 ]

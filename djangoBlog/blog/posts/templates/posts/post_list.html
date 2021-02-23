@@ -11,10 +11,12 @@
 	<div class="card mt-5">
 		<div class="card-header">
 			<p><a href="{% url 'posts:post_detail' pk=post.pk %}"> {{post.id}}. {{post.title}}</a></p>
-			<p>Author {{post.author}}???</p>
+			<p>Author {{post.user}}</p>
 		</div>
 		<div class="card-body">
 			<p>{{post.message}}</p>
+			<p>Post Created: {{post.created}}</p>
+			<p>Last Updated: {{post.updated}}</p>
 		</div>
 	</div>
 {% endfor %}
