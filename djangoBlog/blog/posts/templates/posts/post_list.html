@@ -10,7 +10,7 @@
 {% for post in post_list %}
 	<div class="card mt-5">
 		<div class="card-header">
-			<p><a href="{% url 'posts:post_detail' pk=post.pk %}"> {{post.id}}. {{post.title}}</a></p>
+			<p><a href="{% url 'posts:post_detail' slug=post.slug %}"> {{post.id}}. {{post.title}}</a></p>
 			<p>Author {{post.user}}</p>
 		</div>
 		<div class="card-body">
