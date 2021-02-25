@@ -28,6 +28,8 @@
 <a href="{% url 'comments:comment_create' slug=post.slug %}">Add a Comment</a>
 <hr>
 <h4>Comments</h4>
+
+
 {% for comment in post.comments.all %}
 	<div class="card">
 		<div class="card-header">
@@ -36,6 +38,10 @@
 		</div>
 		<div class="card-body">
 			<p>{{comment.message}}</p>
+			{% if comment.user == user %}
+			<a class='btn btn-info' href="{% url 'comments:comment_update' slug=comment.slug %}">Update</a>
+			<a class='btn btn-danger' href="{% url 'comments:comment_delete' slug=comment.slug %}">Delete</a>
+			{% endif %}
 		</div>
 	</div>
 	

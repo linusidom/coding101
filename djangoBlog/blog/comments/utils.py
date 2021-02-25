@@ -12,7 +12,7 @@ def random_string_generator(chars=10, letters=string.ascii_lowercase + string.as
 
 def unique_slug(instance, new_slug=None):
 
-	print(new_slug)
+	# print(new_slug)
 	if new_slug:
 		slug = new_slug
 	else:
@@ -26,7 +26,7 @@ def unique_slug(instance, new_slug=None):
 	query = Post.objects.filter(slug=slug).exists()
 	# print(query)
 	if query:
-		print('This posts exists already')
+		# print('This posts exists already')
 		slug = random_string_generator(chars=10)
 
 		return unique_slug(instance, new_slug=slug)

@@ -4,9 +4,15 @@ from posts.models import Post
 from django.db.models.signals import pre_save
 from django.utils.text import slugify
 from comments.utils import unique_slug
+
+from django.contrib.auth import get_user_model
+User = get_user_model()
+
 # Create your models here.
 
 class Comment(models.Model):
+	user = models.ForeignKey(User, on_delete=models.CASCADE)
+
 	post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
 	message = models.TextField()
 	
