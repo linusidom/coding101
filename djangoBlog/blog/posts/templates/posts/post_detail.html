@@ -24,5 +24,34 @@
 
 	<a class='btn btn-danger mt-4 ms-4' href="{% url 'posts:post_delete' slug=post.slug %}">Delete</a>
 {% endif %}
-
+<hr>
+<a href="{% url 'comments:comment_create' slug=post.slug %}">Add a Comment</a>
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Comment List</h1>
+
+
+
+
+
+{% for comment in comment_list %}
+
+	<div class="card mt-5">
+		<div class="card-header">
+			<p>{{comment.id}}. {{comment.post}}</p>
+			<p>Author {{comment.post.user}}</p>
+		</div>
+		<div class="card-body">
+			<p>{{comment.message}}</p>
+			<p>comment Created: {{comment.created}}</p>
+			<p>Last Updated: {{comment.updated}}</p>
+		</div>
+	</div>
+{% endfor %}
+
+{% endblock %}
