@@ -26,6 +26,21 @@
 {% endif %}
 <hr>
 <a href="{% url 'comments:comment_create' slug=post.slug %}">Add a Comment</a>
+<hr>
+<h4>Comments</h4>
+{% for comment in post.comments.all %}
+	<div class="card">
+		<div class="card-header">
+			<p>{{comment.post}}</p>	
+			<p>Written By: {{comment.user}}</p>	
+		</div>
+		<div class="card-body">
+			<p>{{comment.message}}</p>
+		</div>
+	</div>
+	
+{% endfor %}
+
 {% endblock %}
 
 

@@ -7,7 +7,7 @@ from comments.utils import unique_slug
 # Create your models here.
 
 class Comment(models.Model):
-	post = models.ForeignKey(Post, on_delete=models.CASCADE)
+	post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
 	message = models.TextField()
 	
 	# auto_now_add - When the post was created - CREATED
@@ -23,7 +23,8 @@ class Comment(models.Model):
 		return f'{self.post}'
 
 	def get_absolute_url(self, **kwargs):
-		return reverse('comments:comment_list')
+		# return reverse('comments:comment_list')
+		return reverse('posts:post_detail', kwargs={'slug':self.post.slug})
 
 def pre_save_add_slug(sender, instance, *args, **kwargs):
 	if not instance.slug:

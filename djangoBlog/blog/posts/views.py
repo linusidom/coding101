@@ -14,6 +14,23 @@ class PostListView(ListView):
 class PostDetailView(DetailView):
 	model = Post
 
+
+	# def get_context_data(self, *args, **kwargs):
+	# 	context = super().get_context_data(*args, **kwargs)
+
+	# 	post = Post.objects.get(pk=11)
+	# 	print('\nCurrent Post',post, '\n')
+
+	# 	# print(dir(post))
+	# 	# print(dir(post.comment_set))
+	# 	# print(post.comment_set.all())
+	# 	# print(post.comments.all())
+
+	# 	return context
+
+
+
+
 class PostCreateView(LoginRequiredMixin, CreateView):
 	model = Post
 	form_class = PostForm
