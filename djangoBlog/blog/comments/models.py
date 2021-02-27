@@ -25,6 +25,8 @@ class Comment(models.Model):
 	# Slug Field
 	slug = models.SlugField(unique=True, blank=True)
 
+	approval_status = models.BooleanField(default=False)
+
 	def __str__(self):
 		return f'{self.post}'
 

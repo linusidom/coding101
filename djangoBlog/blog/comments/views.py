@@ -7,7 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from comments.models import Comment
 from comments.forms import CommentForm
 from posts.models import Post
-from comments.mixins import CommentOwnerMixin
+from comments.mixins import CommentOwnerMixin, CommentOwnerDeleteMixin
 
 # from django.contrib.auth import get_user_model
 # User = get_user_model()
@@ -45,7 +45,7 @@ class CommentUpdateView(CommentOwnerMixin, UpdateView):
 	model = Comment
 	form_class = CommentForm
 
-class CommentDeleteView(CommentOwnerMixin, DeleteView):
+class CommentDeleteView(CommentOwnerDeleteMixin, DeleteView):
 	model = Comment
 
 	# I want to go back to the Post Detail

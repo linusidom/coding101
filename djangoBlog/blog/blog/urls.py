@@ -26,6 +26,7 @@ urlpatterns = [
 
     path('posts/', include('posts.urls', namespace='posts')),
     path('comments/', include('comments.urls', namespace='comments')),
+    path('comments_api/', include('comments.api.urls', namespace='comments_api')),
     path('accounts/', include('allauth.urls')),
 
     # Errors
