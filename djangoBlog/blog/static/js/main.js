@@ -13,8 +13,11 @@ async function approvalStatus(slug){
 	return data
 }
 
-function changeApprovalStatus(){
+async function udpateApprovalStatus(slug){
 	// Update the approval status to true or false
+	let response = await fetch(`http://127.0.0.1:8000/comments_api/update_approval_status/${slug}`)
+	let data = await response.json()
+	return data
 }
 
 
@@ -52,23 +55,75 @@ document.addEventListener('DOMContentLoaded', (e) => {
 	approvalSpan.forEach(span => {
 		// console.log(span.getAttribute('data'))
 		let slug = span.getAttribute('data')
-		console.log(slug)
+		// console.log(slug)
+
+		// I want to call the approval status
 		approvalStatus(slug)
 		.then(data => {
-			console.log(data)
+			// console.log(data)
+			
+			// and fill in the right symbol			
 			if (data.approval_status === true){
-				span.innerHTML = `<i id='approvalMark' class="fas fa-check fa-2x text-success"></i>`
+				span.innerHTML = `<i id='approvalMark' class="fas fa-check fa-2x text-success" data="${data.slug}"></i>`
 			}
 			else if (data.approval_status === false){
-				span.innerHTML = `<i id='approvalMark' class="fas fa-times fa-2x text-danger"></i>`
+				span.innerHTML = `<i id='approvalMark' class="fas fa-times fa-2x text-danger" data="${data.slug}"></i>`
 			}
 		})
 	})
 
 })
 
-// I want to call the approval status
-// and fill in the right symbol
+
+document.addEventListener('click', (e) => {
+	// console.log(e.target.id)
+	target = e.target
+
+
+
+	if (target.id === 'approvalMark'){
+		console.log(target.getAttribute('data'))
+		let slug = target.getAttribute('data')
+
+		udpateApprovalStatus(slug)
+		.then(data => {
+			// console.log(data)
+			// console.log(target)
+			if (data.approval_status === true){
+				target.classList.replace('fa-times', 'fa-check')
+				target.classList.replace('text-danger', 'text-success')
+			}
+			else if (data.approval_status === false){
+				target.classList.replace('fa-check', 'fa-times')
+				target.classList.replace('text-success', 'text-danger')
+			}
+
+		})	
+
+
+
+	}
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // <i id='approvalMark' class="fas fa-check fa-2x text-success"></i>
