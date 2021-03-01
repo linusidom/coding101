@@ -10,6 +10,10 @@ User = get_user_model()
 
 # Create your models here.
 
+class CommentModelManager(models.Manager):
+	def approved(self, post_id):
+		return Comment.objects.filter(post=post_id, approval_status=True)
+
 class Comment(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
 
@@ -26,6 +30,8 @@ class Comment(models.Model):
 	slug = models.SlugField(unique=True, blank=True)
 
 	approval_status = models.BooleanField(default=False)
+
+	objects = CommentModelManager()
 
 	def __str__(self):
 		return f'{self.post}'
