@@ -40,9 +40,11 @@
 					<p>{{comment.post}}</p>	
 					<p>Written By: {{comment.user}}</p>	
 				</div>
+				{% if post.user == user %}
 				<div class="col-3">
 					<span class='approvalSpan' data="{{comment.slug}}"></span>
 				</div>
+				{% endif %}
 			</div>
 			
 		</div>
@@ -57,10 +59,13 @@
 			{% endif %}
 		</div>
 	</div>
-	
+
+
 {% endfor %}
 
 <script src="{% static 'js/main.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+
 
 {% endblock %}
 
