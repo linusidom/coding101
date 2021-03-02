@@ -65,6 +65,34 @@ class PostDeleteView(PostOwnerMixin, DeleteView):
 
 
 
+def post_search(request):
+	query = request.GET.get('query', None)
+	# print('Query from Search:', query)
+	post_list = []
+
+	if query is not None:
+		post_list = Post.objects.filter(title__icontains=query)
+
+	context = {
+		'post_list': post_list,
+		'query': query,
+	}
+
+
+	return render(request, 'posts/post_list.html', context)
+	
+	
+
+
+
+
+
+
+
+
+
+
+
 
 
 

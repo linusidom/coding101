@@ -47,9 +47,9 @@ class CommentCreateView(LoginRequiredMixin, CreateView):
 
 
 		# Or We can use threading
-		x = threading.Thread(target=self.new_comment_email, 
-							args=(self.request.user, comment, post))
-		x.start()
+		# x = threading.Thread(target=self.new_comment_email, 
+		# 					args=(self.request.user, comment, post))
+		# x.start()
 
 		return super().form_valid(form)
 

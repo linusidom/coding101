@@ -7,6 +7,10 @@
 <a class='btn btn-primary' href="{% url 'posts:post_create' %}">Add a Post</a>
 <hr>
 
+{% if query %}
+	<h3>Here are the results of your search for: <span class='text-success'>{{query}}</span></h3>
+{% endif %}
+
 {% for post in post_list %}
 	<div class="card mt-5">
 		<div class="card-header">
