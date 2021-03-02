@@ -40,6 +40,9 @@
 			          <a class="nav-link" href="{% url 'posts:post_create' %}">Create a Post</a>
 			        </li>
 			        <li class="nav-item">
+			          <a class="nav-link" href="{% url 'profiles:profile_detail' slug=user.profile %}">My Profile</a>
+			        </li>
+			        <li class="nav-item">
 			          <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
 			        </li>
 

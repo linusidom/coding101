@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<h1>Profile Detail</h1>
+
+<div class="card">
+	<div class="card-header fw-bold">User Information</div>
+	<div class="card-body">
+		<p>{{profile.user}}</p>
+	</div>
+</div>
+{% for post in post_list %}
+	<div class="card mt-5">
+		<div class="card-header">
+			<p><a href="{% url 'posts:post_detail' slug=post.slug %}"> {{post.id}}. {{post.title}}</a></p>
+			<p>Author {{post.user}}</p>
+		</div>
+		<div class="card-body">
+			<p>{{post.message}}</p>
+			<p>Post Created: {{post.created}}</p>
+			<p>Last Updated: {{post.updated}}</p>
+		</div>
+	</div>
+{% endfor %}
+{% endblock %}

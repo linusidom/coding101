@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'posts',
     'comments',
+    'profiles',
 
     # All-Auth
     'django.contrib.sites',
