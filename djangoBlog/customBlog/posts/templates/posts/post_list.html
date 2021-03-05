@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block header %}
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url({% static 'img/post-bg.jpg' %})">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>List of my Posts</h1>
+            <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
+            <span class="meta">Posted by
+              <a href="#">Start Bootstrap</a>
+              on August 24, 2019</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <!-- Post Content -->
+   <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        {% for post in post_list %}
+        <div class="post-preview">
+          <a href="{% url 'posts:post_detail' slug=post.slug %}">
+            <h2 class="post-title">
+              <p>{{post.title}}</p>
+            </h2>
+            <h3 class="post-subtitle">
+              <p>{{post.message}}</p>
+            </h3>
+          </a>
+          <p class="post-meta">Posted by
+            <a href="#">Start Bootstrap</a>
+            on September 24, 2019</p>
+        </div>
+        <hr>
+        {% endfor %}
+        
+
+        
+        <!-- Pager -->
+        <div class="clearfix">
+          <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
