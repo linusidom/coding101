@@ -1,42 +1,120 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block header %}
-
-  <!-- Page Header -->
-  <header class="masthead" style="background-image: url({% static 'img/post-bg.jpg' %})">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="post-heading">
-            <h1>{{post.title}}</h1>
-            <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
-            <span class="meta">Posted by
-              <a href="#">Start Bootstrap</a>
-              on August 24, 2019</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-{% endblock %}
-
-
-
-
-
 {% block content %}
-  <!-- Post Content -->
-  <article>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <p>{{post.title}}</p>
-          <p>{{post.message}}</p>
-        </div>
-      </div>
-    </div>
-  </article>
+<h1>Post Detail</h1>
+
+<div class="card">
+	<div class="card-header">
+		<p>{{post.id}}. {{post.title}}</p>
+		<p>{{post.user}}</p>
+	</div>
+	<div class="card-body">
+		<p>{{post.message}}</p>
+		<p>Post Created: {{post.created}}</p>
+		<p>Last Updated: {{post.updated}}</p>
+	</div>
+</div>
+
+<p>Post Author {{post.user}}</p>
+
+<p>User Logged In {{user}}</p>
+
+{% if post.user == user %}
+	<a class='btn btn-info mt-4' href="{% url 'posts:post_update' slug=post.slug %}">Update</a>
+
+	<a class='btn btn-danger mt-4 ms-4' href="{% url 'posts:post_delete' slug=post.slug %}">Delete</a>
+{% endif %}
+<hr>
+<a href="{% url 'comments:comment_create' slug=post.slug %}">Add a Comment</a>
+<hr>
+<h4>Comments</h4>
+
+
+{% for comment in approved_comments %}
+	<div class="card">
+		<div class="card-header">
+			<div class="row">
+				
+
+				<div class="col-9">
+					<p>{{comment.post}}</p>	
+					<p>Written By: {{comment.user}}</p>	
+				</div>
+				
+			</div>
+			
+		</div>
+		<div class="card-body">
+			<p>{{comment.message}}</p>
+			{% if comment.user == user %}
+				<a class='btn btn-info' href="{% url 'comments:comment_update' slug=comment.slug %}">Update</a>
+				<a class='btn btn-danger' href="{% url 'comments:comment_delete' slug=comment.slug %}">Delete</a>
+			{% elif post.user == user %}
+				<a class='btn btn-danger' href="{% url 'comments:comment_delete' slug=comment.slug %}">Delete</a>
+
+			{% endif %}
+		</div>
+	</div>
+
+
+{% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="{% static 'js/main.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+
 
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

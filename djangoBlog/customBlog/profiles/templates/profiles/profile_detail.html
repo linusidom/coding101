@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<h1>Profile Detail</h1>
+
+<div class="card">
+	<div class="card-header fw-bold">User Information</div>
+	<div class="card-body">
+		<p>{{profile.user}}</p>
+	</div>
+</div>
+{% for post in post_list %}
+	<div class="card mt-5">
+		<div class="card-header">
+			<p><a href="{% url 'posts:post_detail' slug=post.slug %}"> {{post.id}}. {{post.title}}</a></p>
+			<p>Author {{post.user}}</p>
+		</div>
+		<div class="card-body">
+			<p>{{post.message}}</p>
+			<p>Post Created: {{post.created}}</p>
+			<p>Last Updated: {{post.updated}}</p>
+		</div>
+	</div>
+	{% for comment in post.comments.all %}
+		<div class="card mx-5 my-2 bg-dark text-white">
+			<div class="card-header">
+				<div class="row">
+					
+
+					<div class="col-9">
+						<p>{{comment.post}}</p>	
+						<p>Written By: {{comment.user}}</p>	
+					</div>
+					<div class="col-3">
+						<span class="approvalSpan" data="{{comment.slug}}"></span>
+					</div>
+					
+				</div>
+				
+			</div>
+			<div class="card-body">
+				<p>{{comment.message}}</p>
+				{% if comment.user == user %}
+					<a class='btn btn-info' href="{% url 'comments:comment_update' slug=comment.slug %}">Update</a>
+					<a class='btn btn-danger' href="{% url 'comments:comment_delete' slug=comment.slug %}">Delete</a>
+				{% elif post.user == user %}
+					<a class='btn btn-danger' href="{% url 'comments:comment_delete' slug=comment.slug %}">Delete</a>
+
+				{% endif %}
+			</div>
+		</div>
+	{% endfor %}
+
+
+
+{% endfor %}
+
+<script src="{% static 'js/main.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
