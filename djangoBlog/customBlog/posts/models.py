@@ -9,6 +9,8 @@ from django.utils.text import slugify
 
 from posts.utils import unique_slug
 
+from ckeditor_uploader.fields import RichTextUploadingField
+
 User = get_user_model()
 
 
@@ -17,7 +19,7 @@ class Post(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
 	title = models.CharField(max_length=100)
 	message = models.TextField()
-	
+	body = RichTextUploadingField(null=True, blank=True)
 
 	# auto_now_add - When the post was created - CREATED
 	created = models.DateTimeField(auto_now_add=True)

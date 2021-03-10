@@ -55,12 +55,27 @@ INSTALLED_APPS = [
     # SSL Server
     'sslserver',
 
+    # CK Editor
+    'ckeditor',
+    'ckeditor_uploader',
+
+
 ]
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
+# CKEDITOR
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_RESTRICT_BY_USER = True
+
+
+# LOGIN/LOGOUT REDIRECTS
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
 
+
+# ALL-AUTH
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = False
