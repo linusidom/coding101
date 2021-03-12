@@ -2,12 +2,12 @@
 
 
 
-
+// console.log(window.location.origin)
 
 
 async function approvalStatus(slug){
 	// Check via the API what the approval status is for the comment
-	let response = await fetch(`http://127.0.0.1:8000/comments_api/approval_status/${slug}`)
+	let response = await fetch(`${window.location.origin}/comments_api/approval_status/${slug}`)
 	let data = await response.json()
 	return data
 }
@@ -16,7 +16,7 @@ async function udpateApprovalStatus(slug){
 	// Update the approval status to true or false
 	const csrftoken = Cookies.get('csrftoken');
 
-	let response = await fetch(`http://127.0.0.1:8000/comments_api/update_approval_status/${slug}`,{
+	let response = await fetch(`${window.location.origin}/comments_api/update_approval_status/${slug}`,{
 		method: 'POST',
 		headers: {
 			"Content-type":"application/json",
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
 		// I want to call the approval status
 		approvalStatus(slug)
 		.then(data => {
-			console.log(data)
+			// console.log(data)
 			
 			// and fill in the right symbol			
 			if (data.approval_status === true){
@@ -89,12 +89,12 @@ document.addEventListener('click', (e) => {
 
 
 	if (target.id === 'approvalMark'){
-		console.log(target.getAttribute('data'))
+		// console.log(target.getAttribute('data'))
 		let slug = target.getAttribute('data')
 
 		udpateApprovalStatus(slug)
 		.then(data => {
-			console.log(data)
+			// console.log(data)
 			// console.log(target)
 			if (data.approval_status === true){
 				target.classList.replace('fa-times', 'fa-check')
