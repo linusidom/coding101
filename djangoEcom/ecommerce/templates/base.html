@@ -46,7 +46,11 @@
 					</div>
 				</div>
 				<div class="col-lg-9 col-md-9">
-					<a href="" class="site-btn header-btn">Login</a>
+					{% if user.is_authenticated %}
+						<a href="{% url 'account_logout' %}" class="site-btn header-btn">Logout</a>
+					{% else %}
+						<a href="{% url 'account_login' %}" class="site-btn header-btn">Login</a>
+					{% endif %}
 					<nav class="main-menu">
 						<ul>
 							<li><a href="{% url 'index' %}">Home</a></li>

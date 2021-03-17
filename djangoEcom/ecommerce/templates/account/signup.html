@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+
+
+  <!-- Page info -->
+  <div class="page-info-section set-bg" data-setbg="{% static 'img/page-bg/3.jpg' %}">
+    <div class="container">
+      <div class="site-breadcrumb">
+        <a href="#">Home</a>
+        <span>Blog</span>
+      </div>
+    </div>
+  </div>
+  <!-- Page info end -->
+
+
+  <!-- search section -->
+  <section class="search-section ss-other-page">
+    <div class="container">
+      <div class="search-warp">
+        <div class="section-title text-white">
+          <h2><span>Search your course</span></h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-10 offset-lg-1">
+            <!-- search form -->
+            <form class="course-search-form">
+              <input type="text" placeholder="Course">
+              <input type="text" class="last-m" placeholder="Category">
+              <button class="site-btn btn-dark">Search Couse</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- search section end -->
+
+	<div class="container my-5">
+		<h1>{% trans "Sign Up" %}</h1>
+
+		<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+
+		<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+		  {% csrf_token %}
+		  {{ form.as_p }}
+		  {% if redirect_field_value %}
+		  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+		  {% endif %}
+		  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
+		</form>
+	</div>
+
+{% endblock %}
