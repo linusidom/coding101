@@ -11,23 +11,30 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-TEMPLATES_DIR = BASE_DIR / 'templates'
+# BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+# TEMPLATES_DIR = BASE_DIR / 'templates'
+
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 STATIC_DIR = 'static'
 STATICFILES_DIRS = [STATIC_DIR]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'f-nvk!4jpku8*x!-35f#+=*-8&je-$7acrmhwks*$7)7^sscjk'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False 
+DEBUG = False
 
-ALLOWED_HOSTS = ['django-env.eba-tcxqtxza.us-west-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['agile-peak-04838.herokuapp.com']
 
 
 # Application definition
@@ -63,7 +70,7 @@ INSTALLED_APPS = [
 ]
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # CKEDITOR
 CKEDITOR_UPLOAD_PATH = "uploads/"
@@ -125,8 +132,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'livereload.middleware.LiveReloadScript',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
 
 ]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 ROOT_URLCONF = 'customBlog.urls'
 
@@ -155,7 +166,7 @@ WSGI_APPLICATION = 'customBlog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
