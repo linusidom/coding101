@@ -18,6 +18,7 @@ TEMPLATES_DIR = BASE_DIR / 'templates'
 STATIC_DIR = 'static'
 STATICFILES_DIRS = [STATIC_DIR,]
 
+LOCALE_PATHS = ['locale']
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -67,8 +68,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'livereload.middleware.LiveReloadScript',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
+# ALL AUTH
 AUTHENTICATION_BACKENDS = [
     
     # Needed to login by username in Django admin, regardless of `allauth`
@@ -85,8 +88,12 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
-
 LOGIN_URL = 'account_login'
+
+
+
+
+
 
 
 ROOT_URLCONF = 'ecommerce.urls'
