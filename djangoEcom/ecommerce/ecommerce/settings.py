@@ -49,11 +49,15 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
 
-    # LiveReload
+    # LIVERELOAD
     'livereload',
+
+    # CRISPY FORMS
+    'crispy_forms',
 
 
     'profiles',
+    'courses',
 ]
 
 
@@ -91,9 +95,12 @@ LOGOUT_REDIRECT_URL = 'index'
 LOGIN_URL = 'account_login'
 
 
+ACCOUNT_FORMS = {
+    'signup': 'profiles.forms.CustomUserCreationForm',
+}
 
-
-
+# CRISPY FORMS
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 ROOT_URLCONF = 'ecommerce.urls'

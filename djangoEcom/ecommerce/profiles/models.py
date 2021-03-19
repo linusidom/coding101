@@ -7,4 +7,5 @@ class User(AbstractUser):
 	pass
 
 class Profile(models.Model):
+	# about_instructor
 	pass

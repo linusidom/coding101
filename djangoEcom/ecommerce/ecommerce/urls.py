@@ -28,4 +28,6 @@ urlpatterns = [
     # ALL AUTH
     path('accounts/', include('allauth.urls')),
 
+    path('course_test/', include('courses.urls', namespace='courses')),
+
 ]
