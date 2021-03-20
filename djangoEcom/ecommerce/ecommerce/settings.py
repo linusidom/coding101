@@ -57,11 +57,12 @@ INSTALLED_APPS = [
 
 
     'profiles',
+    'users',
     'courses',
 ]
 
 
-AUTH_USER_MODEL = 'profiles.User'
+AUTH_USER_MODEL = 'users.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
