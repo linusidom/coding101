@@ -159,20 +159,22 @@
 				{% for course in course_list %}
 					<div class="mix col-lg-3 col-md-4 col-sm-6 {{course.category}}">
 						<div class="course-item">
-							<div class="course-thumb set-bg" data-setbg="{% static 'img/courses/1.jpg' %}">
-								<div class="price">Price ${{course.price}}</div>
-							</div>
-							<div class="course-info">
-								<div class="course-text">
-									<h5>{{course.name}}</h5>
-									<p>{{course.short_description}}</p>
-									<div class="students">{{course.number_of_students}} Students</div>
+							<a href="{% url 'courses:course_detail' course.slug %}">
+								<div class="course-thumb set-bg" data-setbg="{% static 'img/courses/1.jpg' %}">
+									<div class="price">Price ${{course.price}}</div>
 								</div>
-								<div class="course-author">
-									<div class="ca-pic set-bg" data-setbg="{% static 'img/authors/1.jpg' %}"></div>
-									<p>{{course.user.first_name}} {{course.user.last_name}} <span> {{course.get_category_name}}</span></p>
+								<div class="course-info">
+									<div class="course-text">
+										<h5>{{course.name}}</h5>
+										<p>{{course.short_description}}</p>
+										<div class="students">{{course.number_of_students}} Students</div>
+									</div>
+									<div class="course-author">
+										<div class="ca-pic set-bg" data-setbg="{% static 'img/authors/1.jpg' %}"></div>
+										<p>{{course.user.first_name}} {{course.user.last_name}} <span> {{course.get_category_name}}</span></p>
+									</div>
 								</div>
-							</div>
+							</a>
 						</div>
 					</div>
 				{% endfor %}

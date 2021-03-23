@@ -1,5 +1,6 @@
 from django.views.generic import TemplateView
 from courses.models import Course
+from django.db.models import Count
 
 
 class IndexTemplateView(TemplateView):
