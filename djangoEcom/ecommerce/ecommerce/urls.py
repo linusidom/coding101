@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
+from ecommerce import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', TemplateView.as_view(template_name='index.html'), name='index'),
+    path('', views.IndexTemplateView.as_view(), name='index'),
     path('blog', TemplateView.as_view(template_name='blog.html'), name='blog'),
     path('courses', TemplateView.as_view(template_name='courses.html'), name='courses'),
     path('contact', TemplateView.as_view(template_name='contact.html'), name='contact'),

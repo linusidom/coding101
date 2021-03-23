@@ -36,7 +36,9 @@ class Course(models.Model):
 		pass
 
 	def get_category_name(self):
-		pass	
+		for category in CATEGORY:
+			if self.category == category[0]:
+				return category[1]
 
 
 
