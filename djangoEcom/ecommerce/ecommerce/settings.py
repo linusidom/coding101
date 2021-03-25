@@ -59,6 +59,9 @@ INSTALLED_APPS = [
     # CRISPY FORMS
     'crispy_forms',
 
+    # CKEDITOR
+    'ckeditor',
+    'ckeditor_uploader',
 
     'profiles',
     'users',
@@ -106,6 +109,12 @@ ACCOUNT_FORMS = {
 
 # CRISPY FORMS
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+
+# CKEDITOR
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_RESTRICT_BY_USER = True
 
 
 ROOT_URLCONF = 'ecommerce.urls'

@@ -1,9 +1,12 @@
 from django.db import models
+from django.urls import reverse
 from django.contrib.auth import get_user_model
 from django.db.models.signals import pre_save
 from courses.utils import unique_slug
 
 User = get_user_model()
+
+from ckeditor_uploader.fields import RichTextUploadingField
 # Create your models here.
 
 
@@ -23,8 +26,8 @@ class Course(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
 	name = models.CharField(max_length=100, unique=True)
 	short_description = models.CharField(max_length=200)
-	long_description = models.TextField()
-	certification = models.TextField()
+	long_description = RichTextUploadingField(null=True, blank=True)
+	certification = RichTextUploadingField(null=True, blank=True)
 
 	image = models.ImageField(null=True, blank=True, upload_to=upload_path)
 	price = models.PositiveIntegerField()
@@ -40,7 +43,7 @@ class Course(models.Model):
 		return f'{self.name}'
 
 	def get_absolute_url(self, **kwargs):
-		pass
+		return reverse('courses:course_detail', kwargs={'slug':self.slug})
 
 	def get_category_name(self):
 		for category in CATEGORY:

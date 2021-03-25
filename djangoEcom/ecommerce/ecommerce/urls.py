@@ -23,14 +23,17 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.IndexTemplateView.as_view(), name='index'),
     path('blog', TemplateView.as_view(template_name='blog.html'), name='blog'),
-    path('courses', TemplateView.as_view(template_name='courses.html'), name='courses'),
+    path('courses_test', TemplateView.as_view(template_name='courses.html'), name='courses'),
     path('contact', TemplateView.as_view(template_name='contact.html'), name='contact'),
     path('single-course', TemplateView.as_view(template_name='single-course.html'), name='single-course'),
 
     # ALL AUTH
     path('accounts/', include('allauth.urls')),
 
-    path('course_test/', include('courses.urls', namespace='courses')),
+    path('courses/', include('courses.urls', namespace='courses')),
+
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

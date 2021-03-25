@@ -6,8 +6,8 @@
 	<div class="page-info-section set-bg" data-setbg="{% static 'img/page-bg/2.jpg' %}">
 		<div class="container">
 			<div class="site-breadcrumb">
-				<a href="#">Home</a>
-				<span>Courses</span>
+				<a href="{% url 'index' %}">Home</a>
+				<span>Course Detail</span>
 			</div>
 		</div>
 	</div>
@@ -83,11 +83,11 @@
 				<div class="col-lg-10 offset-lg-1 course-list">
 					<div class="cl-item">
 						<h4>Course Description</h4>
-						<p>{{course.long_description}} </p>
+						<p>{{course.long_description | safe }} </p>
 					</div>
 					<div class="cl-item">
 						<h4>Certification</h4>
-						<p>{{course.certification}}</p>
+						<p>{{course.certification | safe}}</p>
 					</div>
 					<div class="cl-item">
 						<h4>The Instructor</h4>
