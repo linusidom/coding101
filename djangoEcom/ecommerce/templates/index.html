@@ -160,7 +160,13 @@
 					<div class="mix col-lg-3 col-md-4 col-sm-6 {{course.category}}">
 						<div class="course-item">
 							<a href="{% url 'courses:course_detail' course.slug %}">
-								<div class="course-thumb set-bg" data-setbg="{% static 'img/courses/1.jpg' %}">
+								<div class="course-thumb set-bg" data-setbg="
+								{% if course.image %}
+									{{course.image.url}}
+								{% else %}
+									{% static 'img/courses/1.jpg' %}
+								{% endif %}
+								">
 									<div class="price">Price ${{course.price}}</div>
 								</div>
 								<div class="course-info">
@@ -170,7 +176,15 @@
 										<div class="students">{{course.number_of_students}} Students</div>
 									</div>
 									<div class="course-author">
-										<div class="ca-pic set-bg" data-setbg="{% static 'img/authors/1.jpg' %}"></div>
+										<div class="ca-pic set-bg" data-setbg="
+										{% if course.user.profile.image %}
+											{{course.user.profile.image.url}}
+										{% else %}
+											{% static 'img/authors/1.jpg' %}
+										{% endif %}
+
+	
+										"></div>
 										<p>{{course.user.first_name}} {{course.user.last_name}} <span> {{course.get_category_name}}</span></p>
 									</div>
 								</div>

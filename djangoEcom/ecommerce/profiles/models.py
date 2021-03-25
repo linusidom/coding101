@@ -10,9 +10,13 @@ from courses.models import Course
 # Create your models here.
 
 
+def upload_path(instance, filename):
+	return f'profiles/{instance}/{filename}'
+
 class Profile(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	about_teacher = models.TextField(null=True, blank=True)
+	image = models.ImageField(null=True, blank=True, upload_to=upload_path)
 	slug = models.SlugField(unique=True, null=True, blank=True)
 
 	# This is where we will run into a problem

@@ -29,7 +29,15 @@
 						<div class="course-metas">
 							<div class="course-meta">
 								<div class="course-author">
-									<div class="ca-pic set-bg" data-setbg="{% static 'img/authors/2.jpg' %}"></div>
+									<div class="ca-pic set-bg" data-setbg="
+									{% if course.user.profile.image %}
+										{{course.user.profile.image.url}}
+									{% else %}
+										{% static 'img/authors/2.jpg' %}
+									{% endif %}
+									
+
+									"></div>
 									<h6>Teacher</h6>
 									<p>{{course.user.first_name}} {{course.user.last_name}}<span> {{course.get_category_name}}</span></p>
 								</div>
@@ -64,7 +72,13 @@
 					</div>
 				</div>
 			</div>
-			<img src="{% static 'img/courses/single.jpg' %}" alt="" class="course-preview">
+			<img src="
+				{% if course.image %}
+					{{course.image.url}}
+				{% else %}
+					{% static 'img/courses/single.jpg' %}
+				{% endif %}
+			" alt="" class="course-preview">
 			<div class="row">
 				<div class="col-lg-10 offset-lg-1 course-list">
 					<div class="cl-item">

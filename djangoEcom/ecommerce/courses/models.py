@@ -16,13 +16,17 @@ CATEGORY = (
 	('crypto', 'CryptoCurrencies'),
 	)
 
+def upload_path(instance, filename):
+	return f'courses/{instance}/{filename}'
+
 class Course(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
-	name = models.CharField(max_length=100)
+	name = models.CharField(max_length=100, unique=True)
 	short_description = models.CharField(max_length=200)
 	long_description = models.TextField()
 	certification = models.TextField()
 
+	image = models.ImageField(null=True, blank=True, upload_to=upload_path)
 	price = models.PositiveIntegerField()
 	category = models.CharField(max_length=100, choices=CATEGORY)
 
