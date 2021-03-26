@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+	<!-- Page info -->
+	<div class="page-info-section set-bg" data-setbg="{% static 'img/page-bg/3.jpg' %}">
+		<div class="container">
+			<div class="site-breadcrumb">
+				<a href="#">Home</a>
+				<span>Blog</span>
+			</div>
+		</div>
+	</div>
+	<!-- Page info end -->
+
+
+	{% include "snippets/search_form.html" %}
+
+
+	<div class="container my-5">
+		<h3>Error 403 - You have reached this page because you do not have sufficient privileges</h3>
+	</div>
+
+{% endblock %}

@@ -67,8 +67,13 @@
 								</div>
 							</div>
 						</div>
-						<a href="#" class="site-btn price-btn">Price: ${{course.price}}</a>
-						<a href="#" class="site-btn buy-btn">Buy This Course</a>
+						{% if user == course.user %}
+							<a href="{% url 'courses:course_update' course.slug %}" class="site-btn price-btn">Update</a>
+							<a href="{% url 'courses:course_delete' course.slug %}" class="site-btn buy-btn">Delete</a>
+						{% else %}
+							<a href="#" class="site-btn price-btn">Price: ${{course.price}}</a>
+							<a href="#" class="site-btn buy-btn">Buy This Course</a>
+						{% endif %}
 					</div>
 				</div>
 			</div>

@@ -1,8 +1,10 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from courses.models import Course
 from courses.forms import CourseForm
+from courses.mixins import CourseOwnerMixin
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -37,6 +39,19 @@ class CourseCreateView(LoginRequiredMixin, CreateView):
 		course.user = user
 		course.save()
 		return super().form_valid(form, *args, **kwargs)
+
+class CourseUpdateView(CourseOwnerMixin, UpdateView):
+	model = Course
+	form_class = CourseForm
+
+class CourseDeleteView(CourseOwnerMixin, DeleteView):
+	model = Course
+	success_url = reverse_lazy('index')
+
+
+
+
+
 
 
 
