@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+	<!-- Page info -->
+	<div class="page-info-section set-bg" data-setbg="{% static 'img/page-bg/2.jpg' %}">
+		<div class="container">
+			<div class="site-breadcrumb">
+				<a href="{% url 'index' %}">Home</a>
+				<span>Course Detail</span>
+			</div>
+		</div>
+	</div>
+	<!-- Page info end -->
+
+
+	{% include "snippets/search_form.html" %}
+
+
+
+
+	<div class='container'>
+		<a href="{% url 'courses:course_detail' lesson.course.slug %}">Back to Courses</a>
+
+
+		<h4>Lessons</h4>
+		{{user}} {{lesson.course.user}}
+		<div class="card my-3">
+			<div class="card-header">
+				
+				<p>{{lesson.name}}</p>
+				<p>{{lesson.short_description}}</p>
+			
+			</div>
+			<div class="card-body">
+				<p>{{lesson.long_description | safe}}</p>
+				<a class='site-btn' href="{% url 'lessons:lesson_update' lesson.slug %}">Update</a>
+				<a class='site-btn' href="{% url 'lessons:lesson_delete' lesson.slug %}">Delete</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- single course section end -->
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

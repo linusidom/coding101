@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.db.models.signals import pre_save
 from courses.models import Course
 from lessons.utils import unique_slug
@@ -19,6 +20,9 @@ class Lesson(models.Model):
 
 	def __str__(self):
 		return f'{self.name}'
+
+	def get_absolute_url(self, **kwargs):
+		return reverse('lessons:lesson_detail', kwargs={'slug':self.slug})
 
 def pre_save_slug_field(sender, instance, *args, **kwargs):
 	if not instance.slug:

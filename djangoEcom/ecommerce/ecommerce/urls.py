@@ -32,6 +32,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
 
     path('courses/', include('courses.urls', namespace='courses')),
+    path('lessons/', include('lessons.urls', namespace='lessons')),
 
     path('ckeditor/', include('ckeditor_uploader.urls')),
 
