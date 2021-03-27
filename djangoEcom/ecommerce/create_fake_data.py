@@ -12,7 +12,7 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 from courses.models import Course
-
+from lessons.models import Lesson
 # Create 10 users or developer
 # developers = [{
 # 	'username': f'dev{num}',
@@ -43,49 +43,49 @@ def dummy_text(num):
 	return ' '.join(result).capitalize()
 # print(dummy_text(5))
 
-CATEGORY = (
-	('itd', 'IT Development'),
-	('wd', 'Web Design'),
-	('iandd', 'Illustration and Drawing'),
-	('sm', 'Social Media'),
-	('ps', 'PhotoShop'),
-	('crypto', 'CryptoCurrencies'),
-	)
+# CATEGORY = (
+# 	('itd', 'IT Development'),
+# 	('wd', 'Web Design'),
+# 	('iandd', 'Illustration and Drawing'),
+# 	('sm', 'Social Media'),
+# 	('ps', 'PhotoShop'),
+# 	('crypto', 'CryptoCurrencies'),
+# 	)
 
 
-users = User.objects.filter(username__icontains='dev')
+# users = User.objects.filter(username__icontains='dev')
 
-# print(users)
-# print(User.objects.all())
-for user in users:
+# # print(users)
+# # print(User.objects.all())
+# for user in users:
 
-	# Create 2-4 courses
-	course_entries = random.randint(2,4)
-	for course in range(course_entries):
-		# user = user
-		name = dummy_text(3)
-		short_description = dummy_text(7)
-		long_description = dummy_text(40)
-		certification = dummy_text(40)
-		price = random.randint(12, 20)
-		category = random.choice(CATEGORY)[0]
-		number_of_students = random.randint(30,150)
-		course_rating = random.randint(1.0,5.0)
+# 	# Create 2-4 courses
+# 	course_entries = random.randint(2,4)
+# 	for course in range(course_entries):
+# 		# user = user
+# 		name = dummy_text(3)
+# 		short_description = dummy_text(7)
+# 		long_description = dummy_text(40)
+# 		certification = dummy_text(40)
+# 		price = random.randint(12, 20)
+# 		category = random.choice(CATEGORY)[0]
+# 		number_of_students = random.randint(30,150)
+# 		course_rating = random.randint(1.0,5.0)
 
-		course_object, created = Course.objects.get_or_create(
-			user = user,
-			name = name,
-			short_description = short_description,
-			long_description = long_description,
-			certification = certification,
-			price = price,
-			category = category,
-			number_of_students = number_of_students,
-			course_rating = course_rating,
+# 		course_object, created = Course.objects.get_or_create(
+# 			user = user,
+# 			name = name,
+# 			short_description = short_description,
+# 			long_description = long_description,
+# 			certification = certification,
+# 			price = price,
+# 			category = category,
+# 			number_of_students = number_of_students,
+# 			course_rating = course_rating,
 
-			)
+# 			)
 
-		print(course_object, created)
+# 		print(course_object, created)
 
 
 
@@ -119,6 +119,45 @@ for user in users:
 # 	# TODO in the Future
 # 	number_of_students = models.PositiveIntegerField(null=True, blank=True)
 # 	course_rating = models.DecimalField(decimal_places=2, max_digits=5, null=True, blank=True)
+
+
+
+# I want to create 5 lessons per course
+
+# Get courses
+courses = Course.objects.all()
+
+for course in courses:
+	for _ in range(5):
+
+		user = course.user
+		# course = course
+		name = dummy_text(3)
+		short_description = dummy_text(8)
+		long_description = dummy_text(100)
+		completed = False
+
+		Lesson.objects.get_or_create(
+			user = user,
+			course = course,
+			name = name, 
+			short_description = short_description,
+			long_description = long_description,
+			completed = completed,
+		) 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

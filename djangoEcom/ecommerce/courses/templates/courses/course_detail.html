@@ -100,6 +100,25 @@
 					</div>
 				</div>
 			</div>
+
+
+			<div>
+				<h4>Lessons</h4>
+				{% for lesson in course.lesson_set.all %}
+					<div class="card my-3">
+						
+						<div class="card-header">
+							<p><span class='font-weight-bold text-primary'>{{forloop.counter}}.</span> {{lesson.name}}</p>
+							<p>{{lesson.short_description}}</p>		
+						</div>
+						<div class="card-body">
+							{{lesson.long_description}}
+						</div>
+					</div>
+					
+				{% endfor %}
+
+			</div>
 		</div>
 	</section>
 	<!-- single course section end -->
