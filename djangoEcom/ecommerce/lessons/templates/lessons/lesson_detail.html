@@ -19,12 +19,12 @@
 
 
 
-	<div class='container'>
-		<a href="{% url 'courses:course_detail' lesson.course.slug %}">Back to Courses</a>
+	<div class='container my-5'>
+		<p class='mb-4'><a href="{% url 'courses:course_detail' lesson.course.slug %}">Back to Courses</a></p>
 
 
 		<h4>Lessons</h4>
-		{{user}} {{lesson.course.user}}
+		
 		<div class="card my-3">
 			<div class="card-header">
 				
@@ -34,8 +34,10 @@
 			</div>
 			<div class="card-body">
 				<p>{{lesson.long_description | safe}}</p>
-				<a class='site-btn' href="{% url 'lessons:lesson_update' lesson.slug %}">Update</a>
-				<a class='site-btn' href="{% url 'lessons:lesson_delete' lesson.slug %}">Delete</a>
+				{% if user == lesson.course.user %}
+					<a class='site-btn' href="{% url 'lessons:lesson_update' lesson.slug %}">Update</a>
+					<a class='site-btn' href="{% url 'lessons:lesson_delete' lesson.slug %}">Delete</a>
+				{% endif %}
 			</div>
 		</div>
 	</div>

@@ -104,23 +104,41 @@
 
 			<div>
 				<h4>Lessons</h4>
-				<hr>
-				<a href="{% url 'lessons:lesson_create' course.slug %}">Add Lesson</a>
-				<hr>
+				{% if user == course.user %}
+					<hr>
+					<a href="{% url 'lessons:lesson_create' course.slug %}">Add Lesson</a>
+					<hr>
+				{% endif %}
 				{% for lesson in course.lesson_set.all %}
-					<div class="card my-3">
+					{% if user == course.user %}
+						<div class="card my-3">
+							
+							<div class="card-header">
+								<a href="{% url 'lessons:lesson_detail' lesson.slug %}">
+									<p><span class='font-weight-bold text-primary'>{{forloop.counter}}.</span> {{lesson.name}}</p>
+									<p>{{lesson.short_description}}</p>
+								</a>
+							</div>
+							<div class="card-body">
+								{{lesson.long_description | safe}}
+							</div>
+							
+						</div>
+					{% else %}
+						<div class="card my-3">
+							
+							<div class="card-header">
 						
-						<div class="card-header">
-							<a href="{% url 'lessons:lesson_detail' lesson.slug %}">
 								<p><span class='font-weight-bold text-primary'>{{forloop.counter}}.</span> {{lesson.name}}</p>
 								<p>{{lesson.short_description}}</p>
-							</a>
-						</div>
-						<div class="card-body">
-							{{lesson.long_description | safe}}
-						</div>
 						
-					</div>
+							</div>
+							<div class="card-body">
+								{{lesson.long_description | safe | truncatechars:100 }}
+							</div>
+							
+						</div>
+					{% endif %}
 					
 				{% endfor %}
 
