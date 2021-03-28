@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+	<!-- Page info -->
+	<div class="page-info-section set-bg" data-setbg="{% static 'img/page-bg/3.jpg' %}">
+		<div class="container">
+			<div class="site-breadcrumb">
+				<a href="#">Home</a>
+				<span>Blog</span>
+			</div>
+		</div>
+	</div>
+	<!-- Page info end -->
+
+
+	{% include "snippets/search_form.html" %}
+
+
+	<div class="container my-5 text-center">
+		<h3>Congratulation you are now a teacher, go ahead and start creating your own Course!</h3>
+		<a class='site-btn my-3' href="{% url 'courses:course_create' %}">Start Creating Your Course</a>
+	</div>
+
+{% endblock %}

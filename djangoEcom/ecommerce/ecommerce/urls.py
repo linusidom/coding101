@@ -27,6 +27,7 @@ urlpatterns = [
     path('contact', TemplateView.as_view(template_name='contact.html'), name='contact'),
     path('single-course', TemplateView.as_view(template_name='single-course.html'), name='single-course'),
     path('error403', TemplateView.as_view(template_name='error403.html'), name='error403'),
+    path('become_teacher', views.BecomeTeacherTemplateView.as_view(), name='become_teacher'),
 
     # ALL AUTH
     path('accounts/', include('allauth.urls')),

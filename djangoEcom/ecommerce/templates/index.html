@@ -239,6 +239,7 @@
 
 
 	<!-- signup section -->
+	{% if not user.is_teacher %}
 	<section class="signup-section spad">
 		<div class="signup-bg set-bg" data-setbg="{% static 'img/signup-bg.jpg' %}"></div>
 		<div class="container-fluid">
@@ -250,20 +251,29 @@
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
 						</div>
 						<!-- signup form -->
-						<form class="signup-form">
-							<input type="text" placeholder="Your Name">
-							<input type="text" placeholder="Your E-mail">
-							<input type="text" placeholder="Your Phone">
-							<label for="v-upload" class="file-up-btn">Upload Course</label>
-							<input type="file" id="v-upload">
-							<button class="site-btn">Search Couse</button>
+						<form class="signup-form text-center">
+							
+							
+							<a href="{% url 'become_teacher' %}" class="site-btn text-white">Become a Teacher</a>
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
+	{% endif %}
 	<!-- signup section end -->
 
 
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+

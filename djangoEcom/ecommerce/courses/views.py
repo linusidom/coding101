@@ -4,7 +4,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.contrib.auth.mixins import LoginRequiredMixin
 from courses.models import Course
 from courses.forms import CourseForm
-from courses.mixins import CourseOwnerMixin
+from courses.mixins import CourseOwnerMixin, IsTeacherMixin
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -29,7 +29,7 @@ class CourseDetailView(DetailView):
 		return context
 
 
-class CourseCreateView(LoginRequiredMixin, CreateView):
+class CourseCreateView(IsTeacherMixin, CreateView):
 	model = Course
 	form_class = CourseForm
 

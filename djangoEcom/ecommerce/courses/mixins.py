@@ -1,6 +1,9 @@
 from django.shortcuts import redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from courses.models import Course
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 class CourseOwnerMixin(LoginRequiredMixin):
 	"""Verify that the current user is authenticated."""
@@ -29,3 +32,55 @@ class CourseOwnerMixin(LoginRequiredMixin):
 		
 		# otherwise let them go ahead
 		return super().dispatch(request, *args, **kwargs)
+
+
+class IsTeacherMixin(LoginRequiredMixin):
+	def dispatch(self, request, *args, **kwargs):
+
+		user = User.objects.get(username=request.user)
+
+		if not user.is_teacher:
+			# return self.handle_no_permission()
+			return redirect('error403')
+		
+		if not request.user.is_authenticated:
+			return self.handle_no_permission()
+		
+		# otherwise let them go ahead
+		return super().dispatch(request, *args, **kwargs)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

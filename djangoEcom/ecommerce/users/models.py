@@ -3,4 +3,9 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class User(AbstractUser):
-	pass
+	is_teacher = models.BooleanField(default=False)
+
+	def make_teacher(self):
+		self.is_teacher = True
+		self.save()
+		
