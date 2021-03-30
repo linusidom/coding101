@@ -35,7 +35,11 @@ urlpatterns = [
     path('courses/', include('courses.urls', namespace='courses')),
     path('lessons/', include('lessons.urls', namespace='lessons')),
 
+    # CKEDITOR
     path('ckeditor/', include('ckeditor_uploader.urls')),
+
+    # CARTS
+    path('cart/', include('carts.urls', namespace='carts')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
