@@ -3,6 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from courses.models import Course
 from django.db.models import Count
 from django.contrib.auth import get_user_model
+from carts.models import Cart
 
 User = get_user_model()
 
@@ -13,6 +14,8 @@ class IndexTemplateView(TemplateView):
 		context = super().get_context_data(*args, **kwargs)
 
 		context['course_list'] = Course.objects.all()
+
+		cart, created = Cart.objects.get_or_new(self.request)
 
 		return context
 
