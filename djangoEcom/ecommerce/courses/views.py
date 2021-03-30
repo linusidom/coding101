@@ -5,6 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from courses.models import Course
 from courses.forms import CourseForm
 from courses.mixins import CourseOwnerMixin, IsTeacherMixin
+from carts.models import Cart
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -22,6 +23,7 @@ class CourseDetailView(DetailView):
 
 		context['course_list'] = Course.objects.filter(category=context['course'].category)
 
+		context['cart'], created = Cart.objects.get_or_new(self.request)
 		# print(context['course_list'], context['course'].category)
 		# for course in context['course_list']:
 		# 	print(course.category, context['course'].category)

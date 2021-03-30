@@ -4,30 +4,34 @@ from courses.models import Course
 # Create your views here.
 
 def cart(request):
-
-
-
 	cart, created = Cart.objects.get_or_new(request)
 
-	# Add items to the cart
+	context = {
+		'cart': cart
+	}
+	return render(request, 'carts/cart.html', context)
 
-	course = Course.objects.get(id=90)
+def cart_update(request, slug):
 
-	cart.courses.add(course)
+	course = Course.objects.get(slug=slug)
+	cart, created = Cart.objects.get_or_new(request)
+
+	# Remove or Add items form ManyToMany Field
+	if course in cart.courses.all():
+		cart.courses.remove(course)
+	else:
+		cart.courses.add(course)	
 	
+	request.session['cart_items'] = cart.courses.count()
+
+
 	print(cart.courses.all())
 
-	print(cart)
 	context = {
 		'cart': cart
 	}
 
-
-
-	
 	return render(request, 'carts/cart.html', context)
-
-
 
 
 

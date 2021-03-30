@@ -56,7 +56,7 @@
 					<nav class="main-menu">
 						<ul>
 							<li><a href="{% url 'index' %}">{% trans 'Home' %}</a></li>
-							<li><a href="{% url 'carts:cart' %}"><i class='fa fa-shopping-cart'></i></a></li>
+							<li><a href="{% url 'carts:cart' %}"><i class='fa fa-shopping-cart'></i> {{request.session.cart_items}}</a></li>
 							<li><a href="{% url 'courses' %}">{% trans 'Courses' %}</a></li>
 							<li><a href="{% url 'blog' %}">{% trans 'News' %}</a></li>
 							<li><a href="{% url 'contact' %}">{% trans 'Contact' %}</a></li>

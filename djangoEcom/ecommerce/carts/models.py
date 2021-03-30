@@ -51,3 +51,17 @@ def pre_save_slug_field(sender, instance, *args, **kwargs):
 		instance.slug = unique_slug(instance)
 
 pre_save.connect(pre_save_slug_field, sender=Cart)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
