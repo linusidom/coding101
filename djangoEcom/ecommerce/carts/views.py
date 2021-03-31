@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from carts.models import Cart
 from courses.models import Course
 # Create your views here.
@@ -24,14 +24,11 @@ def cart_update(request, slug):
 	
 	request.session['cart_items'] = cart.courses.count()
 
-
-	print(cart.courses.all())
-
 	context = {
 		'cart': cart
 	}
 
-	return render(request, 'carts/cart.html', context)
+	return redirect('carts:cart')
 
 
 

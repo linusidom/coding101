@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models.signals import pre_save
+from django.db.models.signals import pre_save, m2m_changed
 from carts.utils import unique_slug
 from courses.models import Course
 from django.contrib.auth import get_user_model
@@ -40,6 +40,9 @@ class CartModelManager(models.Manager):
 class Cart(models.Model):
 	user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
 	courses = models.ManyToManyField(Course)
+
+	total = models.IntegerField(null=True, blank=True)
+
 	slug = models.SlugField(unique=True)
 
 	objects = CartModelManager()
@@ -51,6 +54,48 @@ def pre_save_slug_field(sender, instance, *args, **kwargs):
 		instance.slug = unique_slug(instance)
 
 pre_save.connect(pre_save_slug_field, sender=Cart)
+
+
+def m2m_changed_update_cart_total(sender, instance, *args, **kwargs):
+	# print('Sender', sender)
+	# print('Instance', instance.total)
+	# print('Args', args)
+	# print('Kwargs', kwargs)
+
+	# Update our total in the cart
+	# I need all the courses in the cart
+
+	courses = instance.courses.all()
+
+	total = 0
+
+	for course in courses:
+		total += course.price
+
+	instance.total = total
+	instance.save()
+
+
+
+m2m_changed.connect(m2m_changed_update_cart_total, sender=Cart.courses.through)
+
+# def toppings_changed(sender, **kwargs):
+#     # Do something
+#     pass
+
+# m2m_changed.connect(toppings_changed, sender=Pizza.toppings.through)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

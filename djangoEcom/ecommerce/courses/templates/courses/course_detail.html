@@ -72,7 +72,7 @@
 							<a href="{% url 'courses:course_delete' course.slug %}" class="site-btn buy-btn">Delete</a>
 						{% else %}
 							<a href="#" class="site-btn price-btn">Price: ${{course.price}}</a>
-
+							
 							{% if course in cart.courses.all %}
 								<a href="{% url 'carts:cart_update' course.slug %}" class="site-btn buy-btn">Remove from Cart</a>
 							{% else %}

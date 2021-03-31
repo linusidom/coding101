@@ -36,9 +36,15 @@
 							<td><a href="{% url 'courses:course_detail' course.slug %}">{{course.name}}</a></td>
 							<td>{{course.price}}</td>
 							<td>{{course.short_description}}</td>
-							<td>TODO TOTAL</td>
+							<td></td>
 						</tr>
 					{% endfor %}
+					<tr>
+						<td>Total</td>
+						<td></td>
+						<td></td>
+						<td>{{cart.total}}</td>
+					</tr>
 				</tbody>
 			</table>
 			<a class='site-btn' href="#">TODO CHECKOUT</a>
