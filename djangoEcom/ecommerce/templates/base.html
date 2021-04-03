@@ -51,7 +51,7 @@
 					{% if user.is_authenticated %}
 						<a href="{% url 'account_logout' %}" class="site-btn header-btn">Logout</a>
 					{% else %}
-						<a href="{% url 'account_login' %}" class="site-btn header-btn">{% trans 'Login' %}</a>
+						<a href="{% url 'account_login' %}?next={{ request.build_absolute_uri }}" class="site-btn header-btn">{% trans 'Login' %}</a>
 					{% endif %}
 					<nav class="main-menu">
 						<ul>

@@ -68,6 +68,7 @@ INSTALLED_APPS = [
     'courses',
     'lessons',
     'carts',
+    'orders',
 ]
 
 
@@ -100,7 +101,10 @@ SITE_ID = 1
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
-LOGIN_REDIRECT_URL = 'index'
+
+ACCOUNT_ADAPTER = 'users.adapter.MyAccountAdapter'
+
+# LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
 LOGIN_URL = 'account_login'
 

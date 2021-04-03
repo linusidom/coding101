@@ -21,8 +21,8 @@
 	<!-- single course section -->
 	<section class="single-course spad pb-0">
 		<div class="container">
-			<h1>Your Cart</h1>
-
+			<h1>Review Your Order</h1>
+			{{order}}
 			<table class="table table-striped table-dark text-white">
 				<thead>
 					<th>Course</th>
@@ -43,11 +43,11 @@
 						<td>Total</td>
 						<td></td>
 						<td></td>
-						<td>{{cart.total}}</td>
+						<td>{{order.total}}</td>
 					</tr>
 				</tbody>
 			</table>
-			<a class='site-btn' href="{% url 'carts:cart_checkout' %}">Checkout</a>
+			<a class='site-btn' href="#">TODO Ready to Place Your Order</a>
 		</div>
 	</section>
 
