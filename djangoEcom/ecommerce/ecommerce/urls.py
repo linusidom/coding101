@@ -41,6 +41,9 @@ urlpatterns = [
     # CARTS
     path('cart/', include('carts.urls', namespace='carts')),
 
+    # BILLING
+    path('billing/', include('billings.urls', namespace='billings')),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -1,3 +1,4 @@
+import omise
 from django.db import models
 from django.db.models.signals import pre_save, post_save
 from django.contrib.auth import get_user_model
@@ -5,6 +6,10 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 from billings.utils import unique_slug
+
+from billings.omise_keys import OMISE_SEC_KEY
+
+omise.api_secret = OMISE_SEC_KEY
 
 
 # Create your models here.
@@ -59,6 +64,15 @@ def pre_save_slug_field(sender, instance, *args, **kwargs):
 		instance.slug = unique_slug(instance)
 
 pre_save.connect(pre_save_slug_field, sender=BillingProfile)
+
+def pre_save_customer_id_field(sender, instance, *args, **kwargs):
+	if not instance.customer_id:
+		customer_id = omise.Customer.create(email=instance.user.email)
+		instance.customer_id = customer_id.id
+
+pre_save.connect(pre_save_customer_id_field, sender=BillingProfile)
+
+
 
 # Make a Billing Profile when a user is created?
 def post_save_billing_profile_create(sender, instance, created, *args, **kwargs):
