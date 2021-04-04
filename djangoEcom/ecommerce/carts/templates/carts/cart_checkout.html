@@ -22,7 +22,12 @@
 	<section class="single-course spad pb-0">
 		<div class="container">
 			<h1>Review Your Order</h1>
-			{{order}}
+			{{order}}, {{order.billing_profile}}
+
+			{% for order in billing_profile.order_set.all %}
+				<p>{{order}}</p>
+			{% endfor %}
+
 			<table class="table table-striped table-dark text-white">
 				<thead>
 					<th>Course</th>

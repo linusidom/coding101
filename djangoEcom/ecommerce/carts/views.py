@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from carts.models import Cart
 from courses.models import Course
 from orders.models import Order
+from billings.models import BillingProfile
 # Create your views here.
 
 def cart(request):
@@ -38,12 +39,18 @@ def cart_checkout(request):
 	
 	cart, created = Cart.objects.get_or_new(request)
 
+	# Billing Profile or not?
+	billing_profile, created = BillingProfile.objects.get_or_new(request=request)
+
 	# Order???
-	order, created = Order.objects.get_or_new(request=request, cart=cart)
+	order, created = Order.objects.get_or_new(request=request, cart=cart, billing_profile=billing_profile)
+
+
 
 	context = {
 		'cart': cart,
-		'order': order
+		'order': order,
+		'billing_profile': billing_profile
 	}
 
 	return render(request, 'carts/cart_checkout.html', context)

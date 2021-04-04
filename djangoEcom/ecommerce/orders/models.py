@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models.signals import pre_save
 from carts.models import Cart
 from orders.utils import unique_order
+from billings.models import BillingProfile
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -10,7 +11,7 @@ User = get_user_model()
 
 
 class OrderManager(models.Manager):
-	def get_or_new(self, request, cart):
+	def get_or_new(self, request, cart, billing_profile):
 
 		created = False
 		order = None
@@ -18,7 +19,7 @@ class OrderManager(models.Manager):
 		user = request.user
 
 		# Check if there is an active order already
-		orders = Order.objects.filter(user=user, cart=cart, active=True)
+		orders = Order.objects.filter(user=user, cart=cart, billing_profile=billing_profile, active=True)
 		if orders.count() == 1:
 			# If there is an active order, and only 1 active order, return that order
 			order = orders.first()
@@ -26,13 +27,13 @@ class OrderManager(models.Manager):
 				order.user = user
 				order.save()
 		else:
-			older_orders = Order.objects.filter(user=user, cart=cart)
+			older_orders = Order.objects.filter(user=user, cart=cart, billing_profile=billing_profile)
 			if older_orders.exists():		
 				# If there are other orders that are active, then reset them to deactive (False)
 				older_orders.update(active = False)
 			
 			# Create a brand new Order
-			order = Order.objects.create(user=user, cart=cart)
+			order = Order.objects.create(user=user, cart=cart, billing_profile=billing_profile)
 			created = True
 
 		return order, created
@@ -50,6 +51,7 @@ STATUSES = (
 class Order(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
 	cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+	billing_profile = models.ForeignKey(BillingProfile, on_delete=models.CASCADE, null=True, blank=True)
 	order_id = models.CharField(max_length=100, unique=True)
 	total = models.IntegerField(null=True, blank=True)
 	active = models.BooleanField(default=True)

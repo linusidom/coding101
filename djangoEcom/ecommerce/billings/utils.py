@@ -21,12 +21,12 @@ def unique_slug(instance, new_slug=None):
 	# print(slug)
 
 
-	BillingProfile = instance.__class__
-	# print(BillingProfile)
-	query = BillingProfile.objects.filter(slug=slug).exists()
+	Post = instance.__class__
+	# print(Post)
+	query = Post.objects.filter(slug=slug).exists()
 	# print(query)
 	if query:
-		# print('This billing profile exists already')
+		print('This posts exists already')
 		slug = random_string_generator(chars=10)
 
 		return unique_slug(instance, new_slug=slug)
