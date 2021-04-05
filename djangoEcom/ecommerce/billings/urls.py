@@ -7,6 +7,7 @@ urlpatterns = [
     
     
     path('omise_view', views.omise_view, name='omise_view'),
+    path('omise_processor', views.omise_processor, name='omise_processor'),
     
 
 ]
