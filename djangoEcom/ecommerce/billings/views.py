@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from billings.models import BillingProfile
+from cards.models import Card
 from billings.omise_keys import OMISE_PUB_KEY, OMISE_SEC_KEY
 
 omise.api_secret = OMISE_SEC_KEY
@@ -33,8 +34,12 @@ def omise_processor(request):
 	card = customer.update(card=token)
 
 	# print(card.__dict__)
+	cards = customer.cards
 
-
+	for card in cards:
+		# print('********\n', card)
+		card_obj, created = Card.objects.get_or_new(request=request, billing_profile=billing_profile, card=card)
+		# print('Card Obj', card_obj)
 	return JsonResponse({'status': 'OKAY'})
 
 
