@@ -1,0 +1,144 @@
+<script src="https://cdn.omise.co/omise.js"></script>
+<script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+
+<!-- CSRF TOKEN -->
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+
+
+<!-- single course section -->
+<section class="single-course spad pb-0">
+	<div class="container">
+		<form  method="post" id="checkout">
+		  {% csrf_token %}
+		  <div id="token_errors"></div>
+		  <input type="hidden" id="OMISE_PUB_KEY" data="{{pub_key}}">
+		  <input type="hidden" name="omise_token">
+
+		  <div>
+		    Name<br>
+		    <input type="text" data-omise="holder_name" id='cardHolderName'>
+		  </div>
+		  <div>
+		    Number<br>
+		    <input type="text" data-omise="number" id='cardHolderNumber'>
+		  </div>
+		  <div>
+		    Date<br>
+		    <input type="text" data-omise="expiration_month" size="4" id='cardHolderExpMonth'> /
+		    <input type="text" data-omise="expiration_year" size="8" id='cardHolderExpYear'>
+		  </div>
+		  <div>
+		    Security Code<br>
+		    <input type="text" data-omise="security_code" size="8" id='cardHolderSecCode'>
+		  </div>
+
+		  <input type="submit" id="create_token">
+		</form>
+	</div>
+</section>
+
+<script>
+
+	omisePubKey = document.querySelector('#OMISE_PUB_KEY').getAttribute('data')
+
+	console.log(omisePubKey)
+
+	Omise.setPublicKey(omisePubKey);
+
+	document.querySelector('#cardHolderName').value = 'TestName'
+	document.querySelector('#cardHolderNumber').value = '4242424242424242'
+	document.querySelector('#cardHolderExpMonth').value = '12'
+	document.querySelector('#cardHolderExpYear').value = '2022'
+	document.querySelector('#cardHolderSecCode').value = '242'
+
+
+
+
+	$("#checkout").submit(function () {
+
+	  var form = $(this);
+
+	  // Disable the submit button to avoid repeated click.
+	  form.find("input[type=submit]").prop("disabled", true);
+
+	  // Serialize the form fields into a valid card object.
+	  var card = {
+	    "name": form.find("[data-omise=holder_name]").val(),
+	    "number": form.find("[data-omise=number]").val(),
+	    "expiration_month": form.find("[data-omise=expiration_month]").val(),
+	    "expiration_year": form.find("[data-omise=expiration_year]").val(),
+	    "security_code": form.find("[data-omise=security_code]").val()
+	  };
+
+	  // Send a request to create a token then trigger the callback function once
+	  // a response is received from Omise.
+	  //
+	  // Note that the response could be an error and this needs to be handled within
+	  // the callback.
+	  Omise.createToken("card", card, function (statusCode, response) {
+	    if (response.object == "error" || !response.card.security_code_check) {
+	      // Display an error message.
+	      var message_text = "SET YOUR SECURITY CODE CHECK FAILED MESSAGE";
+	      if(response.object == "error") {
+	        message_text = response.message;
+	      }
+	      $("#token_errors").html(message_text);
+
+	      // Re-enable the submit button.
+	      form.find("input[type=submit]").prop("disabled", false);
+	    } else {
+	      // Then fill the omise_token.
+	      form.find("[name=omise_token]").val(response.id);
+
+	      // Remove card number from form before submiting to server.
+	      form.find("[data-omise=number]").val("");
+	      form.find("[data-omise=security_code]").val("");
+
+	      console.log(response)
+
+	      const csrftoken = Cookies.get('csrftoken');
+
+	      async function omiseProcessor(token){
+	      	let response = await fetch(`${window.location.origin}/billing/omise_processor`, {
+	      		method: 'POST',
+	      		headers: {
+	      			'Content-type': 'application/json',
+	      			'X-CSRFToken': csrftoken,
+	      		},
+	      		body: JSON.stringify(token)
+	      	})
+
+	      	let data = await response.json()
+
+	      	return data
+
+	      }
+
+	      omiseProcessor(response.id)
+	      .then(data => {
+
+	      	// OKAY This worked or Failed
+	      	console.log(data)
+	      })
+	      .catch(err => {
+	      	console.log(err)
+	      })
+
+
+
+
+
+
+
+	      // submit token to server.
+	      // form.get(0).submit();
+	    };
+	  });
+
+	  // Prevent the form from being submitted;
+	  return false;
+
+	});
+
+
+</script>

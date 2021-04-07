@@ -48,7 +48,31 @@
 					</tr>
 				</tbody>
 			</table>
-			<a class='site-btn' href="#">TODO Ready to Place Your Order</a>
+			
+			{% if not card %}
+				<p>Please add a card</p>
+				{% include 'cards/snippets/card_form.html' %}
+			{% elif not card_accepted %}
+				
+				
+				<div class="row">
+					<div class="col">
+						<form method="POST">
+							{% csrf_token %}
+							<p>Would you like to use this card {{card.last_digits}} or add another one?</p>
+							<input type="hidden" name="card_accepted" value="True">
+							<input type="submit" value="Yes">
+						</form>
+					</div>
+					<div class="col">OR</div>
+					<div class="col">
+						{% include 'cards/snippets/card_form.html' %}
+					</div>
+				</div>
+				
+			{% else %}
+				<a class='site-btn' href="#">TODO Ready to Place Your Order</a>
+			{% endif %}
 		</div>
 	</section>
 

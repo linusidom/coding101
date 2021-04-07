@@ -47,7 +47,11 @@
 					</tr>
 				</tbody>
 			</table>
-			<a class='site-btn' href="{% url 'carts:cart_checkout' %}">Checkout</a>
+			{% if cart.courses.all %}
+				<a class='site-btn' href="{% url 'carts:cart_checkout' %}">Checkout</a>
+			{% else %}
+				<p>There are no items in your Cart.  <a href="{% url 'index' %}">Would you like to add some items</a></p>
+			{% endif %}
 		</div>
 	</section>
 
