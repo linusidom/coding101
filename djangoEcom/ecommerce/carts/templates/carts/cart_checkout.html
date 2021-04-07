@@ -71,7 +71,7 @@
 				</div>
 				
 			{% else %}
-				<a class='site-btn' href="#">TODO Ready to Place Your Order</a>
+				<a class='site-btn' href="{% url 'carts:place_order' %}">Ready to Place Your Order</a>
 			{% endif %}
 		</div>
 	</section>

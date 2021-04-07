@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models.signals import pre_save
+from django.db.models.signals import pre_save, post_save
 from carts.models import Cart
 from orders.utils import unique_order
 from billings.models import BillingProfile
@@ -71,8 +71,32 @@ def pre_save_order_field(sender, instance, *args, **kwargs):
 
 pre_save.connect(pre_save_order_field, sender=Order)
 
+# Post save when the cart is updated
+def post_save_cart_update_order_total(sender, instance, created, *args, **kwargs):
+	if not created:
+		order = Order.objects.get(cart=instance.id)
+		courses = instance.courses.all()
+		total = 0
+
+		for course in courses:
+			total += course.price
+
+		order.total = total
+		order.save()
 
 
+post_save.connect(post_save_cart_update_order_total, sender=Cart)
+
+
+
+
+# Post save when the order is created
+def post_save_order_created_update_total(sender, instance, created, *args, **kwargs):
+	if created:
+		instance.total = instance.cart.total
+		instance.save()
+
+post_save.connect(post_save_order_created_update_total, sender=Order)
 
 
 

@@ -1,3 +1,4 @@
+import omise
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from carts.models import Cart
@@ -5,6 +6,9 @@ from courses.models import Course
 from orders.models import Order
 from billings.models import BillingProfile
 from cards.models import Card
+from billings.omise_keys import OMISE_PUB_KEY, OMISE_SEC_KEY
+
+omise.api_secret = OMISE_SEC_KEY
 # Create your views here.
 
 def cart(request):
@@ -48,7 +52,7 @@ def cart_checkout(request):
 
 	# Card
 	card, created = Card.objects.get_or_new(request, billing_profile=billing_profile)
-	print('Card',card)
+	# print('Card',card)
 	card_accepted = False
 	if request.method == 'POST':
 		card_accepted = request.POST.get('card_accepted', False)
@@ -65,6 +69,23 @@ def cart_checkout(request):
 
 
 
+def place_order(request):
+	cart, created = Cart.objects.get_or_new(request)
+	billing_profile, created = BillingProfile.objects.get_or_new(request=request)
+	order, created = Order.objects.get_or_new(request=request, cart=cart, billing_profile=billing_profile)
+	card, created = Card.objects.get_or_new(request, billing_profile=billing_profile)
+
+	charge = omise.Charge.create(
+		amount=order.total * 100, #100000
+	    currency="usd",
+	    customer=billing_profile.customer_id,
+	    card=card.card_id,
+		)
+
+	print(charge.__dict__)
+
+	# Create a charge model to show on our Admin Dashboard
+	# Add the course to profile
 
 
 
