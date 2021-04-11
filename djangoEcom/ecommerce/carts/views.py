@@ -96,8 +96,11 @@ def place_order(request):
 
 
 	# Cleanup the Cart and remove all items associated to the cart
-	
+	request.session['backup_order_id'] = order.order_id
+	del request.session['cart_id']
+	del request.session['cart_items']
 
+	return redirect('orders:order_summary')
 
 
 

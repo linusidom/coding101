@@ -71,12 +71,15 @@
 							<a href="{% url 'courses:course_update' course.slug %}" class="site-btn price-btn">Update</a>
 							<a href="{% url 'courses:course_delete' course.slug %}" class="site-btn buy-btn">Delete</a>
 						{% else %}
-							<a href="#" class="site-btn price-btn">Price: ${{course.price}}</a>
-							
-							{% if course in cart.courses.all %}
-								<a href="{% url 'carts:cart_update' course.slug %}" class="site-btn buy-btn">Remove from Cart</a>
-							{% else %}
-								<a href="{% url 'carts:cart_update' course.slug %}" class="site-btn buy-btn">Add to Cart</a>
+
+							{% if course not in user.profile.courses.all %}
+								<a href="#" class="site-btn price-btn">Price: ${{course.price}}</a>
+								
+								{% if course in cart.courses.all %}
+									<a href="{% url 'carts:cart_update' course.slug %}" class="site-btn buy-btn">Remove from Cart</a>
+								{% else %}
+									<a href="{% url 'carts:cart_update' course.slug %}" class="site-btn buy-btn">Add to Cart</a>
+								{% endif %}
 							{% endif %}
 						{% endif %}
 					</div>
@@ -115,7 +118,7 @@
 					<hr>
 				{% endif %}
 				{% for lesson in course.lesson_set.all %}
-					{% if user == course.user %}
+					{% if user == course.user  or course in user.profile.courses.all %}
 						<div class="card my-3">
 							
 							<div class="card-header">

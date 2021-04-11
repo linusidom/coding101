@@ -44,6 +44,9 @@ urlpatterns = [
     # BILLING
     path('billing/', include('billings.urls', namespace='billings')),
 
+    # ORDERS
+    path('order/', include('orders.urls', namespace='orders')),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

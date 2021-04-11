@@ -20,6 +20,10 @@ class LessonOwnerMixin(LoginRequiredMixin):
 		# If they are not the same
 		
 		# then kick them out
+
+		if lesson.course in request.user.profile.courses.all():
+			return super().dispatch(request, *args, **kwargs)
+			
 		if lesson.course.user != request.user:
 			# return self.handle_no_permission()
 			return redirect('error403')
