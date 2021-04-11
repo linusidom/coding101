@@ -5,7 +5,8 @@ from carts.models import Cart
 from courses.models import Course
 from orders.models import Order
 from billings.models import BillingProfile
-from cards.models import Card
+from cards.models import Card, Charge
+from profiles.models import Profile
 from billings.omise_keys import OMISE_PUB_KEY, OMISE_SEC_KEY
 
 omise.api_secret = OMISE_SEC_KEY
@@ -75,18 +76,27 @@ def place_order(request):
 	order, created = Order.objects.get_or_new(request=request, cart=cart, billing_profile=billing_profile)
 	card, created = Card.objects.get_or_new(request, billing_profile=billing_profile)
 
-	charge = omise.Charge.create(
-		amount=order.total * 100, #100000
-	    currency="usd",
-	    customer=billing_profile.customer_id,
-	    card=card.card_id,
-		)
+	# charge = omise.Charge.create(
+	# 	amount=order.total * 100, #100000
+	#     currency="usd",
+	#     customer=billing_profile.customer_id,
+	#     card=card.card_id,
+	# 	)
 
-	print(charge.__dict__)
+	# print(charge.__dict__)
 
 	# Create a charge model to show on our Admin Dashboard
-	# Add the course to profile
+	charge, created = Charge.objects.get_or_new(billing_profile=billing_profile, order=order, card=card, charge_card=True)
 
+	# Add the course to profile
+	profile = Profile.objects.get(user=request.user)
+
+	for course in cart.courses.all():
+		profile.courses.add(course)
+
+
+	# Cleanup the Cart and remove all items associated to the cart
+	
 
 
 
