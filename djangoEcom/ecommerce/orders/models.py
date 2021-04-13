@@ -74,15 +74,17 @@ pre_save.connect(pre_save_order_field, sender=Order)
 # Post save when the cart is updated
 def post_save_cart_update_order_total(sender, instance, created, *args, **kwargs):
 	if not created:
-		order = Order.objects.get(cart=instance.id)
-		courses = instance.courses.all()
-		total = 0
+		orders = Order.objects.filter(cart=instance.id)
+		if orders.exists():
+			order = order.first() 
+			courses = instance.courses.all()
+			total = 0
 
-		for course in courses:
-			total += course.price
+			for course in courses:
+				total += course.price
 
-		order.total = total
-		order.save()
+			order.total = total
+			order.save()
 
 
 post_save.connect(post_save_cart_update_order_total, sender=Cart)

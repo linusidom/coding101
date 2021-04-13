@@ -49,6 +49,7 @@
 				</div>
 				<div class="col-lg-9 col-md-9">
 					{% if user.is_authenticated %}
+
 						<a href="{% url 'account_logout' %}" class="site-btn header-btn">Logout</a>
 					{% else %}
 						<a href="{% url 'account_login' %}?next={{ request.build_absolute_uri }}" class="site-btn header-btn">{% trans 'Login' %}</a>
@@ -60,6 +61,10 @@
 							<li><a href="{% url 'courses' %}">{% trans 'Courses' %}</a></li>
 							<li><a href="{% url 'blog' %}">{% trans 'News' %}</a></li>
 							<li><a href="{% url 'contact' %}">{% trans 'Contact' %}</a></li>
+							{% if user.is_authenticated %}
+								<li><a href="{% url 'profiles:profile_detail' user.profile.slug %}">Profile</a></li>
+							{% endif %}
+
 						</ul>
 					</nav>
 				</div>

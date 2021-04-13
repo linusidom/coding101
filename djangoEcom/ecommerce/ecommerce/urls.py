@@ -47,6 +47,9 @@ urlpatterns = [
     # ORDERS
     path('order/', include('orders.urls', namespace='orders')),
 
+    # PROFILES
+    path('profile/', include('profiles.urls', namespace='profiles')),    
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
