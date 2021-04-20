@@ -51,26 +51,10 @@
 			
 			{% if not card %}
 				<p>Please add a card</p>
-				{% include 'cards/snippets/card_form.html' %}
-			{% elif not card_accepted %}
-				
-				
-				<div class="row">
-					<div class="col">
-						<form method="POST">
-							{% csrf_token %}
-							<p>Would you like to use this card {{card.last_digits}} or add another one?</p>
-							<input type="hidden" name="card_accepted" value="True">
-							<input type="submit" value="Yes">
-						</form>
-					</div>
-					<div class="col">OR</div>
-					<div class="col">
-						{% include 'cards/snippets/card_form.html' %}
-					</div>
-				</div>
-				
+				{% include 'cards/snippets/card_form.html' with next_url='cart/cart_checkout' %}
+			
 			{% else %}
+				<p>The card with the last 4 digits of {{card.last_digits}} will be used for this transaction.  <a href="{% url 'cards:card_create' %}">If you would like to change this, please click here to add another card</a></p>
 				<a class='site-btn' href="{% url 'carts:place_order' %}">Ready to Place Your Order</a>
 			{% endif %}
 		</div>

@@ -50,6 +50,9 @@ urlpatterns = [
     # PROFILES
     path('profile/', include('profiles.urls', namespace='profiles')),    
 
+    # CARDS
+    path('card/', include('cards.urls', namespace='cards')),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

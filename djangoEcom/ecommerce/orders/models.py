@@ -76,7 +76,7 @@ def post_save_cart_update_order_total(sender, instance, created, *args, **kwargs
 	if not created:
 		orders = Order.objects.filter(cart=instance.id)
 		if orders.exists():
-			order = order.first() 
+			order = orders.first() 
 			courses = instance.courses.all()
 			total = 0
 

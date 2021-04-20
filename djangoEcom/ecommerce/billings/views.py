@@ -25,6 +25,7 @@ def omise_view(request):
 def omise_processor(request):
 	# print('BODY DATA', request.body)
 	token = json.loads(request.body)
+	print('Token', token)
 	# print('Token', token)
 	
 	billing_profile, created = BillingProfile.objects.get_or_new(request)
@@ -32,7 +33,7 @@ def omise_processor(request):
 	customer = omise.Customer.retrieve(billing_profile.customer_id)
 	# print('Omise Customer Object', customer)
 	card = customer.update(card=token)
-
+	
 	# print(card.__dict__)
 	cards = customer.cards
 

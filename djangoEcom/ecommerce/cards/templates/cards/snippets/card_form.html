@@ -8,31 +8,32 @@
 <!-- single course section -->
 <section class="single-course spad pb-0">
 	<div class="container">
-		<form  method="post" id="checkout">
+		<form  method="post" id="checkout" class='form-group'>
 		  {% csrf_token %}
 		  <div id="token_errors"></div>
 		  <input type="hidden" id="OMISE_PUB_KEY" data="{{pub_key}}">
 		  <input type="hidden" name="omise_token">
+		  <input type="hidden" name="next_url" value="{{ next_url }}" id='next_url'>
 
 		  <div>
 		    Name<br>
-		    <input type="text" data-omise="holder_name" id='cardHolderName'>
+		    <input type="text" data-omise="holder_name" id='cardHolderName' class='form-control'>
 		  </div>
 		  <div>
 		    Number<br>
-		    <input type="text" data-omise="number" id='cardHolderNumber'>
+		    <input type="text" data-omise="number" id='cardHolderNumber' class='form-control'>
 		  </div>
 		  <div>
 		    Date<br>
-		    <input type="text" data-omise="expiration_month" size="4" id='cardHolderExpMonth'> /
-		    <input type="text" data-omise="expiration_year" size="8" id='cardHolderExpYear'>
+		    <input type="text" data-omise="expiration_month" size="4" id='cardHolderExpMonth' class='form-control'> /
+		    <input type="text" data-omise="expiration_year" size="8" id='cardHolderExpYear' class='form-control'>
 		  </div>
 		  <div>
 		    Security Code<br>
-		    <input type="text" data-omise="security_code" size="8" id='cardHolderSecCode'>
+		    <input type="text" data-omise="security_code" size="8" id='cardHolderSecCode' class='form-control'>
 		  </div>
 
-		  <input type="submit" id="create_token">
+		  <input type="submit" id="create_token" class='form-control  my-3 site-btn'>
 		</form>
 	</div>
 </section>
@@ -41,7 +42,10 @@
 
 	omisePubKey = document.querySelector('#OMISE_PUB_KEY').getAttribute('data')
 
-	console.log(omisePubKey)
+	// console.log(omisePubKey)
+
+	next_url = document.querySelector('#next_url').value
+	// console.log(next_url)
 
 	Omise.setPublicKey(omisePubKey);
 
@@ -114,11 +118,13 @@
 
 	      }
 
+	      // console.log(`${window.location.origin}/${next_url}`)
 	      omiseProcessor(response.id)
 	      .then(data => {
 
 	      	// OKAY This worked or Failed
 	      	console.log(data)
+	      	window.location.href = `${window.location.origin}/${next_url}`
 	      })
 	      .catch(err => {
 	      	console.log(err)

@@ -54,16 +54,13 @@ def cart_checkout(request):
 	# Card
 	card, created = Card.objects.get_or_new(request, billing_profile=billing_profile)
 	# print('Card',card)
-	card_accepted = False
-	if request.method == 'POST':
-		card_accepted = request.POST.get('card_accepted', False)
 
 	context = {
 		'cart': cart,
 		'order': order,
 		'billing_profile': billing_profile,
 		'card': card,
-		'card_accepted':card_accepted
+		'pub_key': OMISE_PUB_KEY,
 	}
 
 	return render(request, 'carts/cart_checkout.html', context)

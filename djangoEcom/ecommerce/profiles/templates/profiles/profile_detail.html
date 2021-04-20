@@ -22,6 +22,7 @@
 		<!-- My Cards -->
 
 		<!-- My Order -->
+		{% if orders %}
 		<h3>My Orders</h3>		
 		<div class="row">
 			<div class="col">
@@ -56,10 +57,10 @@
 				</table>
 			</div>
 		</div>
+		{% endif %}
 
-
-		<h3>My Courses</h3>
-
+		{% if profile.courses.all %}
+		<h3 class='mt-5 my-3'>Courses I have Purchased</h3>
 		<div class="row">
 			{% for course in profile.courses.all %}
 			<div class="col-4">
@@ -98,6 +99,55 @@
 			</div>
 			{% endfor %}
 		</div>
+		{% endif %}
+
+		{% if my_courses %}
+		<h3>Courses I have Created</h3>
+		<div class="row">
+			{% for course in my_courses %}
+			<div class="col-4">
+				<div class="course-item">
+					<a href="{% url 'courses:course_detail' course.slug %}">
+						<div class="course-thumb set-bg" data-setbg="
+						{% if course.image %}
+							{{course.image.url}}
+						{% else %}
+							{% static 'img/courses/1.jpg' %}
+						{% endif %}
+						">
+							<div class="price">Price ${{course.price}}</div>
+						</div>
+						<div class="course-info">
+							<div class="course-text">
+								<h5>{{course.name}}</h5>
+								<p>{{course.short_description}}</p>
+								<div class="students">{{course.number_of_students}} Students</div>
+							</div>
+							<div class="course-author">
+								<div class="ca-pic set-bg" data-setbg="
+								{% if course.user.profile.image %}
+									{{course.user.profile.image.url}}
+								{% else %}
+									{% static 'img/authors/1.jpg' %}
+								{% endif %}
+
+
+								"></div>
+								<p>{{course.user.first_name}} {{course.user.last_name}} <span> {{course.get_category_name}}</span></p>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+		{% endif %}
+
+
+
+
+
+
 	</div>
 
 {% endblock %}

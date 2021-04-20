@@ -4,6 +4,7 @@ from profiles.mixins import ProfileOwnerMixin
 from profiles.models import Profile
 from billings.models import BillingProfile
 from orders.models import Order
+from courses.models import Course
 
 # Create your views here.
 
@@ -17,6 +18,9 @@ class ProfileDetailView(ProfileOwnerMixin, DetailView):
 		orders = Order.objects.filter(billing_profile=billing_profile)
 
 		context['orders'] = orders
+
+		context['my_courses'] = Course.objects.filter(user=billing_profile.user)
+		print(context['my_courses'])
 
 		# DO NOT USE THIS METHOD FOR PASSING CONTEXT DATA
 		# context = {

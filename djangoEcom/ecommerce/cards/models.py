@@ -26,7 +26,7 @@ class CardManager(models.Manager):
 				card_obj = cards.first()
 		else:
 			# Get an existing card from the last 4 digits
-			last_digits = self.model.objects.filter(last_digits=card.last_digits)
+			last_digits = self.model.objects.filter(billing_profile=billing_profile, last_digits=card.last_digits)
 			if last_digits.exists():
 				card_obj = last_digits.first()
 			
