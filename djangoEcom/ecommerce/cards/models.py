@@ -3,6 +3,7 @@ from django.db import models
 from django.db.models.signals import pre_save
 from cards.utils import unique_slug
 from billings.models import BillingProfile
+from orders.models import Order
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -91,6 +92,7 @@ class ChargeManager(models.Manager):
 					user = billing_profile.user,
 					billing_profile = billing_profile,
 					card = card,
+					order=order,
 					charge_id = omise_charge.id,
 					paid = omise_charge.paid,
 					amount = omise_charge.amount,
@@ -116,6 +118,7 @@ class Charge(models.Model):
 	user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
 	billing_profile = models.ForeignKey(BillingProfile, on_delete=models.SET_NULL, null=True, blank=True)
 	card = models.ForeignKey(Card, on_delete=models.SET_NULL, null=True, blank=True)
+	order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True, blank=True)
 	charge_id = models.CharField(max_length=100, null=True, blank=True)
 	paid = models.BooleanField(null=True, blank=True)
 	amount = models.IntegerField(null=True, blank=True)
