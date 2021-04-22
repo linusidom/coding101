@@ -11,4 +11,6 @@ urlpatterns = [
     path('update/<slug:slug>', views.CourseUpdateView.as_view(), name='course_update'),
     path('delete/<slug:slug>', views.CourseDeleteView.as_view(), name='course_delete'),
 
+    # Feedback
+    path('feedback/<slug:slug>', views.CourseFeedbackCreateView.as_view(), name='course_feedback'),
 ]

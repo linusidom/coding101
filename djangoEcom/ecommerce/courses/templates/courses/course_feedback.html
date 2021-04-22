@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+	<!-- Page info -->
+	<div class="page-info-section set-bg" data-setbg="{% static 'img/page-bg/2.jpg' %}">
+		<div class="container">
+			<div class="site-breadcrumb">
+				<a href="#">Home</a>
+				<span>Courses</span>
+			</div>
+		</div>
+	</div>
+	<!-- Page info end -->
+
+
+	{% include "snippets/search_form.html" %}
+
+	<div class="container my-5">
+		<form method='POST' enctype="multipart/form-data">
+			{% csrf_token %}
+			{{form | crispy}}
+			<input type="submit" class='site-btn' value='Leave Your Feedback'>
+		</form>
+	</div>
+		
+{% endblock %}

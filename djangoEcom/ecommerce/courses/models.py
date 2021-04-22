@@ -37,6 +37,9 @@ class Course(models.Model):
 	number_of_students = models.PositiveIntegerField(null=True, blank=True)
 	course_rating = models.DecimalField(decimal_places=2, max_digits=5, null=True, blank=True)
 
+	created = models.DateTimeField(auto_now_add=True)
+	updated = models.DateTimeField(auto_now=True)
+
 	slug = models.SlugField(unique=True, null=True, blank=True)
 
 	def __str__(self):
@@ -59,8 +62,26 @@ pre_save.connect(pre_save_slug_field, sender=Course)
 
 
 
+class CourseFeedback(models.Model):
+	course = models.ForeignKey(Course, on_delete=models.CASCADE)
+	user = models.ForeignKey(User, on_delete=models.CASCADE)
+	course_rating = models.PositiveIntegerField(choices=[(i, i) for i in range(1, 6)], default=5)
+	message = models.TextField(null=True, blank=True)
+	created = models.DateTimeField(auto_now_add=True)
+	updated = models.DateTimeField(auto_now=True)
+	slug = models.SlugField(unique=True, null=True, blank=True)
 
+	def __str__(self):
+		return f'{self.course}'
 
+	def get_absolute_url(self, **kwargs):
+		return reverse('courses:course_detail', kwargs={'slug':self.course.slug})
+
+def pre_save_slug_feedback_field(sender, instance, *args, **kwargs):
+	if not instance.slug:
+		instance.slug = unique_slug(instance)
+
+pre_save.connect(pre_save_slug_feedback_field, sender=CourseFeedback)
 
 
 

@@ -57,12 +57,13 @@
 							<div class="course-meta">
 								<div class="cm-info">
 									<h6>Reviews</h6>
-									<p>2 Reviews <span class="rating">
+									<input type="hidden" id="course_rating" value="{{course.course_rating}}">
+									<p>{{ course.coursefeedback_set.count }} Reviews <span class="rating">
+										<!-- <i class="fa fa-star"></i>
 										<i class="fa fa-star"></i>
 										<i class="fa fa-star"></i>
 										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star is-fade"></i>
+										<i class="fa fa-star is-fade"></i> -->
 									</span></p>
 								</div>
 							</div>
@@ -80,11 +81,31 @@
 								{% else %}
 									<a href="{% url 'carts:cart_update' course.slug %}" class="site-btn buy-btn">Add to Cart</a>
 								{% endif %}
+							{% else %}
+								<a href="{% url 'courses:course_feedback' slug=course.slug %}" class="site-btn">Leave Feedback</a>
+							
+
 							{% endif %}
 						{% endif %}
 					</div>
 				</div>
 			</div>
+
+			{% for feedback in course.coursefeedback_set.all %}
+				<div class="card">
+					<div class="card-header">
+
+						<p>User {{feedback.user}} Left the following rating</p>
+						<p><span class="rating"></span></p>
+					</div>
+					{% if feedback.message %}
+					<div class="card-body">
+						<p>Message {{feedback.message}}</p>
+					</div>
+					{% endif %}
+				</div>
+			{% endfor %}
+
 			<img src="
 				{% if course.image %}
 					{{course.image.url}}
@@ -191,4 +212,20 @@
 		</div>
 	</section>
 	<!-- Page end -->
+	<script src="{% static 'js/star_rating.js' %}"></script>
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
