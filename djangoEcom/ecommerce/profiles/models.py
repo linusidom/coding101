@@ -41,7 +41,15 @@ def post_save_profile_create(sender, instance, created, *args, **kwargs):
 post_save.connect(post_save_profile_create, sender=User)
 
 
+class PurchasedCourse(models.Model):
+	course = models.ForeignKey(Course, on_delete=models.CASCADE)
+	teacher = models.ForeignKey(User, on_delete=models.CASCADE, related_name='teacher')
+	student = models.ForeignKey(User, on_delete=models.CASCADE, related_name='student')
+	created = models.DateTimeField(auto_now_add=True)
+	updated = models.DateTimeField(auto_now=True)
 
+	def __str__(self):
+		return f'{self.course}'
 
 
 

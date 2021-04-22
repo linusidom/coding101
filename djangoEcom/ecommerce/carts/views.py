@@ -6,9 +6,9 @@ from courses.models import Course
 from orders.models import Order
 from billings.models import BillingProfile
 from cards.models import Card, Charge
-from profiles.models import Profile
+from profiles.models import Profile, PurchasedCourse
 from billings.omise_keys import OMISE_PUB_KEY, OMISE_SEC_KEY
-
+from django.db.models import Count
 omise.api_secret = OMISE_SEC_KEY
 # Create your views here.
 
@@ -90,7 +90,16 @@ def place_order(request):
 
 	for course in cart.courses.all():
 		profile.courses.add(course)
+		purchased_course= PurchasedCourse.objects.create(
+			course=course,
+			teacher=course.user,
+			student=billing_profile.user
+			)
 
+		students = PurchasedCourse.objects.filter(teacher=course.user, course=course).aggregate(Count('student'))
+		# print(students)
+		course.number_of_students = students['student__count']
+		course.save()
 
 	# Cleanup the Cart and remove all items associated to the cart
 	request.session['backup_order_id'] = order.order_id

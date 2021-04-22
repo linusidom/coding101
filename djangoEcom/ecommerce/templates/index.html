@@ -173,7 +173,11 @@
 									<div class="course-text">
 										<h5>{{course.name}}</h5>
 										<p>{{course.short_description}}</p>
-										<div class="students">{{course.number_of_students}} Students</div>
+										<div class="students">
+
+										{% if course.number_of_students %}
+											{{course.number_of_students}} Students</div>
+										{% endif %}
 									</div>
 									<div class="course-author">
 										<div class="ca-pic set-bg" data-setbg="

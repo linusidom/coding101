@@ -144,7 +144,14 @@
 		{% endif %}
 
 
+		<h3>Students who have purchased my courses</h3>
+		{% for course in purchased_course %}
+			<p>Student Name {{course.student}}</p>
+			<p>Student Email {{course.student.email}}</p>
+			<p>Course {{course}}</p>
+			<p>Course Price {{course.course.price}}</p>
 
+		{% endfor %}
 
 
 

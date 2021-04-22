@@ -13,21 +13,27 @@ User = get_user_model()
 
 from courses.models import Course
 from lessons.models import Lesson
-# Create 10 users or developer
-# developers = [{
-# 	'username': f'dev{num}',
-# 	'first_name': f'dev{num}',
-# 	'last_name': f'dev{num}',
-# 	'email': f'dev{num}@dev.com',
 
-# } for num in range(0,10)]
+
+User.objects.all().delete()
+
+User.objects.create_superuser('admin', 'admin@admin.com', 'asdfasdf')
+
+# Create 10 users or developer
+developers = [{
+	'username': f'dev{num}',
+	'first_name': f'dev{num}',
+	'last_name': f'dev{num}',
+	'email': f'dev{num}@dev.com',
+
+} for num in range(0,10)]
 
 
 # print(developers)
 
 # Create the Users
-# for developer in developers:
-# 	User.objects.create_user(password='asdfasdf', **developer)
+for developer in developers:
+	User.objects.create_user(password='asdfasdf', **developer)
 
 
 
@@ -43,47 +49,47 @@ def dummy_text(num):
 	return ' '.join(result).capitalize()
 # print(dummy_text(5))
 
-# CATEGORY = (
-# 	('itd', 'IT Development'),
-# 	('wd', 'Web Design'),
-# 	('iandd', 'Illustration and Drawing'),
-# 	('sm', 'Social Media'),
-# 	('ps', 'PhotoShop'),
-# 	('crypto', 'CryptoCurrencies'),
-# 	)
+CATEGORY = (
+	('itd', 'IT Development'),
+	('wd', 'Web Design'),
+	('iandd', 'Illustration and Drawing'),
+	('sm', 'Social Media'),
+	('ps', 'PhotoShop'),
+	('crypto', 'CryptoCurrencies'),
+	)
 
 
-# users = User.objects.filter(username__icontains='dev')
+users = User.objects.filter(username__icontains='dev')
 
-# # print(users)
-# # print(User.objects.all())
-# for user in users:
+# print(users)
+# print(User.objects.all())
+for user in users:
 
-# 	# Create 2-4 courses
-# 	course_entries = random.randint(2,4)
-# 	for course in range(course_entries):
-# 		# user = user
-# 		name = dummy_text(3)
-# 		short_description = dummy_text(7)
-# 		long_description = dummy_text(40)
-# 		certification = dummy_text(40)
-# 		price = random.randint(12, 20)
-# 		category = random.choice(CATEGORY)[0]
-# 		number_of_students = random.randint(30,150)
-# 		course_rating = random.randint(1.0,5.0)
+	# Create 2-4 courses
+	course_entries = random.randint(2,4)
+	for course in range(course_entries):
+		# user = user
+		name = dummy_text(3)
+		short_description = dummy_text(7)
+		long_description = dummy_text(40)
+		certification = dummy_text(40)
+		price = random.randint(12, 20)
+		category = random.choice(CATEGORY)[0]
+		number_of_students = random.randint(30,150)
+		course_rating = random.randint(1.0,5.0)
 
-# 		course_object, created = Course.objects.get_or_create(
-# 			user = user,
-# 			name = name,
-# 			short_description = short_description,
-# 			long_description = long_description,
-# 			certification = certification,
-# 			price = price,
-# 			category = category,
-# 			number_of_students = number_of_students,
-# 			course_rating = course_rating,
+		course_object, created = Course.objects.get_or_create(
+			user = user,
+			name = name,
+			short_description = short_description,
+			long_description = long_description,
+			certification = certification,
+			price = price,
+			category = category,
+			# number_of_students = number_of_students,
+			course_rating = course_rating,
 
-# 			)
+			)
 
 # 		print(course_object, created)
 
@@ -125,26 +131,26 @@ def dummy_text(num):
 # I want to create 5 lessons per course
 
 # # Get courses
-# courses = Course.objects.all()
+courses = Course.objects.all()
 
-# for course in courses:
-# 	for _ in range(5):
+for course in courses:
+	for _ in range(5):
 
-# 		user = course.user
-# 		# course = course
-# 		name = dummy_text(3)
-# 		short_description = dummy_text(8)
-# 		long_description = dummy_text(100)
-# 		completed = False
+		user = course.user
+		# course = course
+		name = dummy_text(3)
+		short_description = dummy_text(8)
+		long_description = dummy_text(100)
+		completed = False
 
-# 		Lesson.objects.get_or_create(
-# 			user = user,
-# 			course = course,
-# 			name = name, 
-# 			short_description = short_description,
-# 			long_description = long_description,
-# 			completed = completed,
-# 		) 
+		Lesson.objects.get_or_create(
+			user = user,
+			course = course,
+			name = name, 
+			short_description = short_description,
+			long_description = long_description,
+			completed = completed,
+		) 
 
 
 # We want to go from adding courses to the cart all the way to 
@@ -154,12 +160,21 @@ from carts.models import Cart
 from billings.models import BillingProfile
 from orders.models import Order
 from cards.models import Card, Charge
-from profiles.models import Profile
+from profiles.models import Profile, PurchasedCourse
 from billings.omise_keys import OMISE_PUB_KEY, OMISE_SEC_KEY
-
+from django.db.models import Count
 omise.api_secret = OMISE_SEC_KEY
 # Users
 users = User.objects.filter(username__icontains='dev')
+
+
+def cart_course(courses):
+	course = random.choice(courses)
+	if course not in cart.courses.all():
+		return course
+	else:
+		return cart_course(courses)
+
 
 for user in users:
 
@@ -170,76 +185,77 @@ for user in users:
 	cart = Cart.objects.create(user=user)
 
 	for _ in range(2):
-		cart.courses.add(random.choice(courses))
+		# cart.courses.add(random.choice(courses))
+		cart.courses.add(cart_course(courses))
 
 	# print(cart.courses.all(), user)
 
 	# Orders
 	billing_profile = BillingProfile.objects.get(user=user)
-	order, created = Order.objects.get_or_create(
-		billing_profile=billing_profile,
-		user=billing_profile.user,
-		cart=cart)
-	# print(order.total, cart.total)
+	# order, created = Order.objects.get_or_create(
+	# 	billing_profile=billing_profile,
+	# 	user=billing_profile.user,
+	# 	cart=cart)
+	# # print(order.total, cart.total)
 
-	# Card
-	customer = omise.Customer.retrieve(billing_profile.customer_id)
-	# print('Omise Customer Object', customer)
+	# # Card
+	# customer = omise.Customer.retrieve(billing_profile.customer_id)
+	# # print('Omise Customer Object', customer)
 
-	omise.api_public = OMISE_PUB_KEY
+	# omise.api_public = OMISE_PUB_KEY
 
-	token = omise.Token.create(
-	    name="Somchai Prasert",
-	    number="4242424242424242",
-	    expiration_month=10,
-	    expiration_year=2022,
-	    city="Bangkok",
-	    postal_code="10320",
-	    security_code=123,
-	)
+	# token = omise.Token.create(
+	#     name="Somchai Prasert",
+	#     number="4242424242424242",
+	#     expiration_month=10,
+	#     expiration_year=2022,
+	#     city="Bangkok",
+	#     postal_code="10320",
+	#     security_code=123,
+	# )
 
-	omise_card = customer.update(card=token.id)
+	# omise_card = customer.update(card=token.id)
 
-	cards = customer.cards
+	# cards = customer.cards
 	
-	card = cards[0]
-	# print(card.last_digits)
+	# card = cards[0]
+	# # print(card.last_digits)
 
-	card_obj = Card.objects.create(
-		user = billing_profile.user,
-		billing_profile=billing_profile,
-		card_id = card.id,
-		last_digits=card.last_digits,
-		brand=card.brand,
-		exp_month=card.expiration_month,
-		exp_year=card.expiration_year
-		)
+	# card_obj = Card.objects.create(
+	# 	user = billing_profile.user,
+	# 	billing_profile=billing_profile,
+	# 	card_id = card.id,
+	# 	last_digits=card.last_digits,
+	# 	brand=card.brand,
+	# 	exp_month=card.expiration_month,
+	# 	exp_year=card.expiration_year
+	# 	)
 
 
-	# Charge
-	omise_charge = omise.Charge.create(
-		amount=order.total * 100, #100000
-	    currency="usd",
-	    customer=billing_profile.customer_id,
-	    card=card_obj.card_id,
-		)
+	# # Charge
+	# omise_charge = omise.Charge.create(
+	# 	amount=order.total * 100, #100000
+	#     currency="usd",
+	#     customer=billing_profile.customer_id,
+	#     card=card_obj.card_id,
+	# 	)
 
-	charge = Charge.objects.create(
-		user = billing_profile.user,
-		billing_profile = billing_profile,
-		card = card_obj,
-		order=order,
-		charge_id = omise_charge.id,
-		paid = omise_charge.paid,
-		amount = omise_charge.amount,
-		net = omise_charge.net,
-		fee = omise_charge.fee,
-		fee_vat = omise_charge.fee_vat,
-		funding_amount = omise_charge.funding_amount,
-		)
-	# print(charge.amount, order.total, cart.total)
-	order.status = 'paid'
-	order.save()
+	# charge = Charge.objects.create(
+	# 	user = billing_profile.user,
+	# 	billing_profile = billing_profile,
+	# 	card = card_obj,
+	# 	order=order,
+	# 	charge_id = omise_charge.id,
+	# 	paid = omise_charge.paid,
+	# 	amount = omise_charge.amount,
+	# 	net = omise_charge.net,
+	# 	fee = omise_charge.fee,
+	# 	fee_vat = omise_charge.fee_vat,
+	# 	funding_amount = omise_charge.funding_amount,
+	# 	)
+	# # print(charge.amount, order.total, cart.total)
+	# order.status = 'paid'
+	# order.save()
 
 
 	# Profile
@@ -247,6 +263,16 @@ for user in users:
 
 	for course in cart.courses.all():
 		profile.courses.add(course)
+		purchased_course= PurchasedCourse.objects.create(
+			course=course,
+			teacher=course.user,
+			student=billing_profile.user
+			)
+
+		students = PurchasedCourse.objects.filter(teacher=course.user, course=course).aggregate(Count('student'))
+		print(students)
+		course.number_of_students = students['student__count']
+		course.save()
 	print(profile.courses.all())
 
 
