@@ -144,18 +144,142 @@
 		{% endif %}
 
 
-		<h3>Students who have purchased my courses</h3>
-		{% for course in purchased_course %}
-			<p>Student Name {{course.student}}</p>
-			<p>Student Email {{course.student.email}}</p>
-			<p>Course {{course}}</p>
-			<p>Course Price {{course.course.price}}</p>
+		<h3>Charts</h3>
+		<input type="hidden" id="purchased_course" value="{{purchased_course_json}}">
+		
 
-		{% endfor %}
 
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+		<div class='row'>
+			<div class="col">
+			<!-- Income Per Course -->
+				<canvas id="myChart"></canvas>
+			</div>
+			<div class="col">
+			<!-- Income by Date -->
+				<canvas id="myChart2"></canvas>
+			</div>
+
+		</div>
 
 
 	</div>
+
+	<script>
+
+		function getRandomColor(){
+			const r = Math.floor(Math.random() * 255);
+			const g = Math.floor(Math.random() * 255);
+			const b = Math.floor(Math.random() * 255);
+			return `rgba(${r}, ${g}, ${b}, 0.5)`
+		}
+
+		const purchased = document.querySelector('#purchased_course').value
+		console.log(purchased)
+		console.log(JSON.parse(purchased))
+
+
+		const dataSet = []
+		const dataLabels = []
+
+		JSON.parse(purchased).forEach((course, index) => {
+			if(!dataLabels.includes(course[0])){
+				dataLabels.push(course[0])
+				dataSet.push(course[1])
+			}
+			else{
+				dataSet[dataSet.length-1] += course[1]
+			}
+		})
+
+		console.log(dataSet, dataLabels)
+
+
+		const labels = dataLabels
+		// [
+		//   'January',
+		//   'February',
+		//   'March',
+		//   'April',
+		//   'May',
+		//   'June',
+		// ];
+		const data = {
+		  labels: labels,
+		  datasets: [{
+		    label: 'Total Income Per Course',
+		    backgroundColor: [getRandomColor(),getRandomColor()],
+		    borderColor: 'rgb(255, 99, 132)',
+		    data: dataSet,
+		  }]
+		};
+
+		const config = {
+		  type: 'bar',
+		  data:data,
+		  options: {}
+		};
+
+		var myChart = new Chart(
+		    document.getElementById('myChart'),
+		    config
+		  );
+
+
+
+
+		// Chart 2
+
+		const dataSet2 = []
+		const dataLabels2 = []
+
+		JSON.parse(purchased).forEach((course, index) => {
+			if(!dataLabels2.includes(course[2])){
+				dataLabels2.push(course[2])
+				dataSet2.push(course[1])
+			}
+			else{
+				dataSet2[dataSet2.length-1] += course[1]
+			}
+		})
+
+		const labels2 = dataLabels2
+		// [
+		//   'January',
+		//   'February',
+		//   'March',
+		//   'April',
+		//   'May',
+		//   'June',
+		// ];
+
+		backgroundColor2 = []
+		for(let i = 0; i< dataSet2.length-1;i++){
+			backgroundColor2.push(getRandomColor())
+		}
+
+		const data2 = {
+		  labels: labels2,
+		  datasets: [{
+		    label: 'Total Income By Date',
+		    backgroundColor: backgroundColor2,
+		    borderColor: 'rgb(255, 99, 132)',
+		    data: dataSet2,
+		  }]
+		};
+
+		const config2 = {
+		  type: 'bar',
+		  data:data2,
+		  options: {}
+		};
+
+		var myChart2 = new Chart(
+		    document.getElementById('myChart2'),
+		    config2
+		  );
+	</script>
 
 {% endblock %}
 

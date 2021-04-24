@@ -163,6 +163,7 @@ from cards.models import Card, Charge
 from profiles.models import Profile, PurchasedCourse
 from billings.omise_keys import OMISE_PUB_KEY, OMISE_SEC_KEY
 from django.db.models import Count
+from datetime import datetime, timedelta
 omise.api_secret = OMISE_SEC_KEY
 # Users
 users = User.objects.filter(username__icontains='dev')
@@ -184,7 +185,7 @@ for user in users:
 	# Cart
 	cart = Cart.objects.create(user=user)
 
-	for _ in range(2):
+	for _ in range(8):
 		# cart.courses.add(random.choice(courses))
 		cart.courses.add(cart_course(courses))
 
@@ -261,12 +262,16 @@ for user in users:
 	# Profile
 	profile = Profile.objects.get(user=user)
 
+
 	for course in cart.courses.all():
+		purchased_date = datetime.now() - timedelta(days=random.randint(1,14))
+
 		profile.courses.add(course)
 		purchased_course= PurchasedCourse.objects.create(
 			course=course,
 			teacher=course.user,
-			student=billing_profile.user
+			student=billing_profile.user,
+			purchased_date = purchased_date,
 			)
 
 		students = PurchasedCourse.objects.filter(teacher=course.user, course=course).aggregate(Count('student'))
