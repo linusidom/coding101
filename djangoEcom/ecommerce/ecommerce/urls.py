@@ -35,6 +35,7 @@ urlpatterns = [
 
     path('courses/', include('courses.urls', namespace='courses')),
     path('lessons/', include('lessons.urls', namespace='lessons')),
+    path('lessons_api/', include('lessons.api.urls', namespace='lessons_api')),
 
     # CKEDITOR
     path('ckeditor/', include('ckeditor_uploader.urls')),

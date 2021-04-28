@@ -185,7 +185,7 @@ for user in users:
 	# Cart
 	cart = Cart.objects.create(user=user)
 
-	for _ in range(8):
+	for _ in range(1):
 		# cart.courses.add(random.choice(courses))
 		cart.courses.add(cart_course(courses))
 
@@ -275,10 +275,10 @@ for user in users:
 			)
 
 		students = PurchasedCourse.objects.filter(teacher=course.user, course=course).aggregate(Count('student'))
-		print(students)
+		# print(students)
 		course.number_of_students = students['student__count']
 		course.save()
-	print(profile.courses.all())
+	# print(profile.courses.all())
 
 
 

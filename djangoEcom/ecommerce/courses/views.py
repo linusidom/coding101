@@ -5,6 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from courses.models import Course, CourseFeedback
 from courses.forms import CourseForm, CourseFeedbackForm
 from courses.mixins import CourseOwnerMixin, IsTeacherMixin, CourseStudentMixin
+from lessons.models import LessonCompleted
 from carts.models import Cart
 from django.db.models import Avg
 from django.contrib.auth import get_user_model
@@ -26,7 +27,9 @@ class CourseDetailView(DetailView):
 
 		context['cart'], created = Cart.objects.get_or_new(self.request)
 
-
+		if self.request.user.is_authenticated:
+			context['purchased_lesson'] = LessonCompleted.objects.filter(user__username=self.request.user, course=context['course'])
+			print(context['purchased_lesson'])
 
 		# print(context['course_list'], context['course'].category)
 		# for course in context['course_list']:
@@ -78,6 +81,32 @@ class CourseFeedbackCreateView(CourseStudentMixin, CreateView):
 		course.save()
 
 		return super().form_valid(form, *args, **kwargs)
+
+
+
+class CourseCertificateDetailView(CourseStudentMixin, DetailView):
+	model = Course
+	template_name = 'courses/course_cert.html'
+
+	def get_context_data(self, *args, **kwargs):
+		context = super().get_context_data(*args, **kwargs)
+
+		context['lesson_completed'] = LessonCompleted.objects.filter(
+			user__username=self.request.user,
+			course=context['course']).first()
+
+		return context
+
+
+
+
+
+
+
+
+
+
+
 
 
 

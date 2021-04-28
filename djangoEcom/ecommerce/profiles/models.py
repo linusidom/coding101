@@ -7,6 +7,7 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 from courses.models import Course
+from lessons.models import LessonCompleted
 # Create your models here.
 
 
@@ -56,10 +57,28 @@ class PurchasedCourse(models.Model):
 		return f'{self.course}'
 
 
+def post_save_lesson_completed_create(sender, instance, created, *args, **kwargs):
+	if created:
+		# print(sender)
+		# print(instance)
+		# print(args)
+		# print(kwargs)
 
 
+		# Get the course
+		course = Course.objects.get(id=instance.course.id)
+		# Add the lessons of the Course to the LessonCompleted model
+		
+		user = User.objects.get(id=instance.student.id)
 
-
+		for lesson in course.lesson_set.all():
+			lc, created = LessonCompleted.objects.get_or_create(
+				user = user,
+				course = course,
+				lesson=lesson,
+				)
+		
+post_save.connect(post_save_lesson_completed_create, sender=PurchasedCourse)
 
 
 
