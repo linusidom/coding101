@@ -15,4 +15,6 @@ urlpatterns = [
     path('feedback/<slug:slug>', views.CourseFeedbackCreateView.as_view(), name='course_feedback'),
 
     path('certificate/<slug:slug>', views.CourseCertificateDetailView.as_view(), name='course_certificate'),
+
+    path('search', views.CourseSearchListView.as_view(), name='course_search'),
 ]

@@ -7,7 +7,7 @@ from courses.forms import CourseForm, CourseFeedbackForm
 from courses.mixins import CourseOwnerMixin, IsTeacherMixin, CourseStudentMixin
 from lessons.models import LessonCompleted
 from carts.models import Cart
-from django.db.models import Avg
+from django.db.models import Avg, Q
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -100,8 +100,19 @@ class CourseCertificateDetailView(CourseStudentMixin, DetailView):
 
 
 
+class CourseSearchListView(ListView):
+	model = Course
+	template_name = 'courses/course_search.html'
 
+	def get_queryset(self):
 
+		query = self.request.GET.get('course', None)
+
+		lookup = Q(name__icontains=query)&Q(short_description__icontains=query)
+
+		queryset = Course.objects.filter(lookup)
+
+		return queryset
 
 
 

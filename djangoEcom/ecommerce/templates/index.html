@@ -115,9 +115,9 @@
 				<div class="row">
 					<div class="col-md-10 offset-md-1">
 						<!-- search form -->
-						<form class="course-search-form">
-							<input type="text" placeholder="Course">
-							<input type="text" class="last-m" placeholder="Category">
+						<form class="course-search-form text-center" action="{% url 'courses:course_search' %}">
+							<input class='w-100 mb-3' type="text" placeholder="Course" name='course'>
+							
 							<button class="site-btn">Search Couse</button>
 						</form>
 					</div>
