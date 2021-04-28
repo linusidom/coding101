@@ -1,9 +1,11 @@
+from django.urls import reverse
 from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from courses.models import Course
 from django.db.models import Count
 from django.contrib.auth import get_user_model
 from carts.models import Cart
+from allauth.account.views import PasswordChangeView
 
 User = get_user_model()
 
@@ -31,4 +33,39 @@ class BecomeTeacherTemplateView(LoginRequiredMixin, TemplateView):
 		# user.is_teacher = True
 		# user.save()
 		return context
+
+
+
+class CustomPasswordChangeView(LoginRequiredMixin, PasswordChangeView):
+	def get_success_url(self, *args, **kwargs):
+		slug = self.kwargs['slug']
+		return reverse('profiles:profile_detail', kwargs={'slug':slug})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

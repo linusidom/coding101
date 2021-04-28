@@ -18,7 +18,29 @@
 
 	<div class="container my-5">
 		<!-- My Info -->
+		<h5 class='mb-3'>My Information</h5>
+		<div class="row">
+			<div class="col">
+				<h5 class='my-2'>Personal Information</h5>
 
+				<p>{{user.username}}</p>
+				<p>{{user.email}}</p>
+
+				<a class='site-btn' href="{% url 'profiles:profile_update' pk=profile.pk %}">Update User Information</a>
+
+				<a class='site-btn' href="{% url 'account_change_password' slug=profile.slug %}">Change Password</a>
+			</div>
+			<div class="col">
+				<h5>My Cards</h5>
+				{% for card in billing_profile.card_set.all %}
+					<p>{{card.brand}} {{card.last_digits}}</p>
+					<p>{{card.exp_month}} / {{card.exp_year}}</p>
+
+					<a href="{% url 'cards:card_delete' slug=card.slug %}">Delete Card</a>
+				{% endfor %}
+				<a href="{% url 'cards:card_create' %}">Add A Card</a>
+			</div>
+		</div>
 		<!-- My Cards -->
 
 		<!-- My Order -->

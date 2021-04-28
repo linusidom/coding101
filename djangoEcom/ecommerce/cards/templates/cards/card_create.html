@@ -21,7 +21,9 @@
 	<!-- single course section -->
 	<section class="single-course spad pb-0">
 		<div class="container">
-			{% include 'cards/snippets/card_form.html' with next_url='cart/cart_checkout' %}
+			{{request.META.HTTP_REFERER}}
+			{% include 'cards/snippets/card_form.html' with next_url=request.META.HTTP_REFERER %}
+			
 		</div>
 	</section>
 

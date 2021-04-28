@@ -30,6 +30,7 @@ urlpatterns = [
     path('become_teacher', views.BecomeTeacherTemplateView.as_view(), name='become_teacher'),
 
     # ALL AUTH
+    path('accounts/password/change/<slug:slug>', views.CustomPasswordChangeView.as_view(), name='account_change_password'),
     path('accounts/', include('allauth.urls')),
 
     path('courses/', include('courses.urls', namespace='courses')),

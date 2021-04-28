@@ -6,6 +6,7 @@ app_name = 'cards'
 urlpatterns = [
     
     path('card_create', views.card_create, name='card_create'),
+    path('card_delete/<slug:slug>', views.CardDeleteView.as_view(), name='card_delete'),
     
 
 ]
