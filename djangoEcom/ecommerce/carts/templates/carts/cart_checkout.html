@@ -49,9 +49,10 @@
 				</tbody>
 			</table>
 			
+
 			{% if not card %}
 				<p>Please add a card</p>
-				{% include 'cards/snippets/card_form.html' with next_url='cart/cart_checkout' %}
+				{% include 'cards/snippets/card_form.html' with next_url=request.build_absolute_uri %}
 			
 			{% else %}
 				<p>The card with the last 4 digits of {{card.last_digits}} will be used for this transaction.  <a href="{% url 'cards:card_create' %}">If you would like to change this, please click here to add another card</a></p>

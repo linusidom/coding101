@@ -9,6 +9,7 @@ from cards.models import Card, Charge
 from profiles.models import Profile, PurchasedCourse
 from billings.omise_keys import OMISE_PUB_KEY, OMISE_SEC_KEY
 from django.db.models import Count
+import datetime
 omise.api_secret = OMISE_SEC_KEY
 # Create your views here.
 
@@ -89,11 +90,13 @@ def place_order(request):
 	profile = Profile.objects.get(user=request.user)
 
 	for course in cart.courses.all():
+		now = datetime.datetime.now()
 		profile.courses.add(course)
 		purchased_course= PurchasedCourse.objects.create(
 			course=course,
 			teacher=course.user,
-			student=billing_profile.user
+			student=billing_profile.user,
+			purchased_date=now,
 			)
 
 		students = PurchasedCourse.objects.filter(teacher=course.user, course=course).aggregate(Count('student'))

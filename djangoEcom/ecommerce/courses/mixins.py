@@ -15,6 +15,9 @@ class CourseOwnerMixin(LoginRequiredMixin):
 		# print(kwargs)
 
 		# Get the Post
+		
+		if not request.user.is_authenticated:
+			return self.handle_no_permission()
 		course = Course.objects.get(slug=kwargs['slug'])
 
 		# print(post)
@@ -28,8 +31,7 @@ class CourseOwnerMixin(LoginRequiredMixin):
 			# return self.handle_no_permission()
 			return redirect('error403')
 		
-		if not request.user.is_authenticated:
-			return self.handle_no_permission()
+		
 		
 		# otherwise let them go ahead
 		return super().dispatch(request, *args, **kwargs)
@@ -38,14 +40,16 @@ class CourseOwnerMixin(LoginRequiredMixin):
 class IsTeacherMixin(LoginRequiredMixin):
 	def dispatch(self, request, *args, **kwargs):
 
+		if not request.user.is_authenticated:
+			return self.handle_no_permission()
+
 		user = User.objects.get(username=request.user)
 
 		if not user.is_teacher:
 			# return self.handle_no_permission()
 			return redirect('error403')
 		
-		if not request.user.is_authenticated:
-			return self.handle_no_permission()
+		
 		
 		# otherwise let them go ahead
 		return super().dispatch(request, *args, **kwargs)
@@ -61,6 +65,10 @@ class CourseStudentMixin(LoginRequiredMixin):
 		# print(kwargs)
 
 		# Get the Post
+		if not request.user.is_authenticated:
+			return self.handle_no_permission()
+		
+
 		course = Course.objects.get(slug=kwargs['slug'])
 		profile = Profile.objects.get(user=request.user)
 
@@ -76,8 +84,6 @@ class CourseStudentMixin(LoginRequiredMixin):
 			# return self.handle_no_permission()
 			return redirect('error403')
 		
-		if not request.user.is_authenticated:
-			return self.handle_no_permission()
 		
 		# otherwise let them go ahead
 		return super().dispatch(request, *args, **kwargs)

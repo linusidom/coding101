@@ -68,6 +68,7 @@
 								</div>
 							</div>
 						</div>
+
 						{% if user == course.user %}
 							<a href="{% url 'courses:course_update' course.slug %}" class="site-btn price-btn">Update</a>
 							<a href="{% url 'courses:course_delete' course.slug %}" class="site-btn buy-btn">Delete</a>
@@ -82,7 +83,16 @@
 									<a href="{% url 'carts:cart_update' course.slug %}" class="site-btn buy-btn">Add to Cart</a>
 								{% endif %}
 							{% else %}
-								<a href="{% url 'courses:course_feedback' slug=course.slug %}" class="site-btn">Leave Feedback</a>
+								{% if course in user.profile.courses.all %}
+									<a href="{% url 'courses:course_feedback' slug=course.slug %}" class="site-btn">Leave Feedback</a>
+								{% else %}
+									{% if course in cart.courses.all %}
+										<a href="{% url 'carts:cart_update' course.slug %}" class="site-btn buy-btn">Remove from Cart</a>
+									{% else %}
+										<a href="{% url 'carts:cart_update' course.slug %}" class="site-btn buy-btn">Add to Cart</a>
+									{% endif %}
+								{% endif %}
+								
 							
 
 							{% endif %}

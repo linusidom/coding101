@@ -76,7 +76,7 @@ for user in users:
 		price = random.randint(12, 20)
 		category = random.choice(CATEGORY)[0]
 		number_of_students = random.randint(30,150)
-		course_rating = random.randint(1.0,5.0)
+		# course_rating = random.randint(1.0,5.0)
 
 		course_object, created = Course.objects.get_or_create(
 			user = user,
@@ -87,7 +87,7 @@ for user in users:
 			price = price,
 			category = category,
 			# number_of_students = number_of_students,
-			course_rating = course_rating,
+			# course_rating = course_rating,
 
 			)
 

@@ -166,25 +166,26 @@
 		{% endif %}
 
 
-		<h3>Charts</h3>
-		<input type="hidden" id="purchased_course" value="{{purchased_course_json}}">
-		
+		{% if purchased_course %}
+			<h3>Charts</h3>
+			<input type="hidden" id="purchased_course" value="{{purchased_course_json}}">
+			
 
 
-		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-		<div class='row'>
-			<div class="col">
-			<!-- Income Per Course -->
-				<canvas id="myChart"></canvas>
+			<div class='row'>
+				<div class="col">
+				<!-- Income Per Course -->
+					<canvas id="myChart"></canvas>
+				</div>
+				<div class="col">
+				<!-- Income by Date -->
+					<canvas id="myChart2"></canvas>
+				</div>
+
 			</div>
-			<div class="col">
-			<!-- Income by Date -->
-				<canvas id="myChart2"></canvas>
-			</div>
-
-		</div>
-
+		{% endif %}
 
 	</div>
 

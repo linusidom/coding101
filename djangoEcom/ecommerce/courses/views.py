@@ -108,7 +108,7 @@ class CourseSearchListView(ListView):
 
 		query = self.request.GET.get('course', None)
 
-		lookup = Q(name__icontains=query)&Q(short_description__icontains=query)
+		lookup = Q(name__icontains=query)|Q(short_description__icontains=query)
 
 		queryset = Course.objects.filter(lookup)
 
