@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% for profile in profile_list %}
+	<h1>Profile {{profile.user}}</h1>
+	<p>{{user.email}}</p>
+
+	{% if profile.image %}
+		<p>PROFILE IMAGE</p>
+		<img width=250 src="{{profile.image.url}}" alt="">
+	{% else %}
+		<p>I Am a Default IMAGE</p>
+		<img width=250 src="{% static 'img/defImage.jpeg' %}" alt="">
+	{% endif %}	
+	<a class='btn btn-info' href="{% url 'profiles:profile_update' profile.pk %}">Update</a>
+{% endfor %}
+
+{% endblock %}
