@@ -23,5 +23,6 @@ urlpatterns = [
     path('accounts/profile/', include('profiles.urls', namespace='profiles')),
     path('accounts/', include('allauth.urls')),
     path('', views.IndexTemplateView.as_view(), name='index'),
+    path('uploadfiles/', include('uploadfiles.urls', namespace='uploadfiles')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

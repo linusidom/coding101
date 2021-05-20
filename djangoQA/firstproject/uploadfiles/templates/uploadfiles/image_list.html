@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h1>Images</h1>
+<a class='btn btn-info' href="{% url 'uploadfiles:image_create' %}">Create</a>
+{% for image in image_list %}
+	<h3>{{image.image.url}}</h3>
+	
+	
+{% endfor %}
+
+{% endblock %}
