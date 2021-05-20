@@ -19,7 +19,7 @@ class ImageForm(forms.ModelForm):
 		# check if the content type is what we expect
 		content_type = data.content_type
 
-		print('CONTENT TYPE',content_type)
+		# print('CONTENT TYPE',content_type)
 
 		if content_type in DATA_TYPES:
 			return data
