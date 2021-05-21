@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     # PROFILES
     'profiles',
     'uploadfiles',
+
 ]
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'

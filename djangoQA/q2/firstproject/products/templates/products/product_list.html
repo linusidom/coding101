@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div style="margin-bottom: 500px;">
+	<div class="row">
+	{% for product in product_list %}
+
+		<div class="col-4 my-4">
+			<div class="card">
+				<div class="card-header bg-info"><h1>{{product}}</h1></div>
+				<div class="card-body"><h1>Category {{product.category}}</h1></div>
+			</div>		
+		</div>		
+
+	{% endfor %}
+	</div>
+
+	<input type="checkbox" onClick="checkFilter()" class='prodCheck' name="a"> CAT A<br>
+	<input type="checkbox" onClick="checkFilter()" class='prodCheck' name="b"> CAT B<br>
+	<input type="checkbox" onClick="checkFilter()" class='prodCheck' name="c"> CAT C<br>
+
+
+	<!-- Display Filtered Products Below -->
+	<div id='filteredProducts' class='row' style="margin: 100px 0;"></div>
+</div>
+
+<script src="{% static 'js/product_filter.js' %}"></script>
+{% endblock %}

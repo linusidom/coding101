@@ -15,14 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from firstproject import views, settings
-from django.conf.urls.static import static
-
+from firstproject import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/profile/', include('profiles.urls', namespace='profiles')),
-    path('accounts/', include('allauth.urls')),
     path('', views.IndexTemplateView.as_view(), name='index'),
-    path('uploadfiles/', include('uploadfiles.urls', namespace='uploadfiles')),
+    
+    # PRODUCT
+    path('products/', include('products.urls', namespace='products')),
+    path('products_api/', include('products.api.urls', namespace='products_api')),
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+]
