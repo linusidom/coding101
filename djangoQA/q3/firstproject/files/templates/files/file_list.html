@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h1>Files</h1>
+<a class='btn btn-info' href="{% url 'files:file_create' %}">Create</a>
+{% for file in fileupload_list %}
+        <p>{{forloop.counter}}. <a href="{{file.source.url}}">Source File</a></p>
+        <p><a href="{{file.destination.url}}">Destination File</a></p>
+        
+{% endfor %}
+
+{% endblock %}
