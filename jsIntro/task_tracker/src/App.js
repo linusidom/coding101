@@ -5,12 +5,14 @@ import {useState} from 'react'
 // If the import from file has an export default, no need for {}
 // import FuncHeader, { ConstHeader }  from './components/Header'
 import Header  from './components/Header'
-import { Form } from './components/Form';
+import { TaskForm } from './components/Form';
 import { Tasks } from './components/Tasks';
 // If the import file has only 'export' without default, need {}
 // import {Header}  from './components/Header'
 
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Container} from 'react-bootstrap'
 
 function App() {
 
@@ -84,8 +86,10 @@ function App() {
 
   return (
     //  First Lets build the example template 
-     <div className="container my-5 p-5" style={{border:'2px solid green'}}> 
-    
+    //  <div className="container my-5 p-5" style={{border:'2px solid green'}}> 
+    <Container className="my-5 p-5" style={{border:'2px solid green'}}>
+
+        
        {/* Header  */}
 
        <Header title='Task Tracker' showForm={showForm} toggleForm={toggleForm}/>
@@ -110,7 +114,7 @@ function App() {
       {/* Do not show */}
       {/* { false && true }  */}
 
-       { showForm && <Form addTask={addTask}/>}
+       { showForm && <TaskForm addTask={addTask}/>}
 
        {/* Item List  */}
 
@@ -169,7 +173,8 @@ function App() {
          {/* </div>  */}
          {/* End Row Div  */}
        {/* </div>  */}
-     </div> 
+     {/* </div>  */}
+     </Container>
   );
 }
 
