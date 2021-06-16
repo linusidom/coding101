@@ -1,0 +1,66 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background: #ececec;
+}
+
+.title{
+    margin-top: 100px;
+}
+
+.line{
+    background: #4fa9ea;
+    height: .25rem;
+    width: 8rem;
+    margin: 10px auto;
+}
+
+img {
+    width: 100%;
+    height: 25rem;
+    object-fit: cover;
+}
+
+.notInterested {
+    background: #fff;
+    border: 2px solid #c33e3e;
+    padding: 5px;
+    width: 20rem;
+    color: #c33e3e;
+    transition: 0.5s;
+    border-radius: 10px;
+}
+
+.notInterested:hover{
+    color: #fff;
+    background: #c33e3e;
+}
+
+.refreshButton{
+    background: #4fa9ea;
+    color: #fff;
+    border: none;
+    padding: 10px 30px;
+    font-size: 20px;
+    border-radius: 10px;
+    margin: 10px 0px;
+}
+
+.spinner-border {
+    height: 80px;
+    width: 80px;
+    font-size: 80px;
+    color: #4fa9ea;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}
+
+.showMoreLessButton {
+    border: none;
+    background: none;
+    color: #4fa9ea;
+}
