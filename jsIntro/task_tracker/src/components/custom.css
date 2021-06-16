@@ -1,5 +1,5 @@
 .list-group-item {
-    border: none;
+    border: none !important;
     padding: 0;
     margin: 10px 0;
 }
