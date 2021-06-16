@@ -7,8 +7,8 @@ export function TaskForm(props){
     const [formData, setFormData] = useState('')
     function onSubmitForm(e){
         e.preventDefault()
-        console.log('Form Submitted')
-        console.log(formData)
+        // console.log('Form Submitted')
+        // console.log(formData)
 
         // Random Number for ID
         // Math.random = 0 - 1, not inclusive, decimal float 

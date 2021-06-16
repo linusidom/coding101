@@ -1,5 +1,5 @@
 import { Task } from "./Task"
-import {Button, Col, ListGroup, Row } from 'react-bootstrap'
+import {Col, ListGroup, Row } from 'react-bootstrap'
 
 
 export function Tasks(props){
