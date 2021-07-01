@@ -2,7 +2,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { useEffect, useRef, useState } from 'react';
 import {Container, Form, InputGroup, Button, Row, Col, Card} from 'react-bootstrap'
 
-
 // CREATE
 
 // RETRIEVE
@@ -154,8 +153,12 @@ function App() {
   }
 
 
+
+  
+
   return (
     <Container style={{margin: '100px auto 500px auto'}}>
+
       <h1 className='text-center'>Create, Retrieve, Update, Delete React Example</h1>
 
       {/* CREATE */}
@@ -179,9 +182,6 @@ function App() {
           </Card>
         )
       })}
-
-
-
     </Container>
   );
 }
