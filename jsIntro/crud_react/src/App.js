@@ -23,29 +23,40 @@ function App() {
 
   const [isEditing, setIsEditing] = useState(false)
 
+  // Local DB
   // const url = 'http://localhost:5000/posts'
 
-  const url = 'https://crud-react-project-demo-default-rtdb.firebaseio.com/posts'
+  // FireBase
+  // const url = 'https://crud-react-project-demo-default-rtdb.firebaseio.com/posts'
+
+  // Django Back End
+  const url = 'http://localhost:8000'
 
   useEffect(() => {
     // fetch(url)
     // .then(res => res.json())
     // .then(data => setPosts(data))
 
-    fetch(`${url}.json`)
+    fetch(`${url}/post_list`)
     .then(res => res.json())
     .then(data => {
-      const newPost = []
+      
+      // This is all for FireBase
+      // const newPost = []
 
-      for (let key in data){
-        const post = {
-          id: key,
-          title: data[key].title
-        }
-        newPost.push(post)
-        console.log(newPost)
-      }
-      setPosts(newPost)
+      // for (let key in data){
+      //   const post = {
+      //     id: key,
+      //     title: data[key].title
+      //   }
+      //   newPost.push(post)
+      //   console.log(newPost)
+      // }
+      // setPosts(newPost)
+
+      // For Django
+      // console.log(data)
+      setPosts(data)
 
     })
 
@@ -66,7 +77,7 @@ function App() {
     // .then(res => res.json())
     // .then(data => setPosts(prevPosts => prevPosts.concat(data)))
     
-    fetch(`${url}.json`, {
+    fetch(`${url}/post_create`, {
       method: 'POST',
       headers:{
         'Content-type':'application/json'
@@ -75,11 +86,19 @@ function App() {
     })
     .then(res => res.json())
     .then(data => {
-      const postItem = {
-        id: data.name,
-        ...post
-      }
-      setPosts(prevPosts => prevPosts.concat(postItem))
+      
+      // Method for FireBase
+      // const postItem = {
+      //   id: data.name,
+      //   ...post
+      // }
+      // setPosts(prevPosts => prevPosts.concat(postItem))
+
+
+      // Method for Django
+      // console.log(data)
+      setPosts(prevPosts => prevPosts.concat(data))
+
     })
     
 
@@ -88,10 +107,14 @@ function App() {
 
   function deletePost(postID) {
     console.log(postID)
-    fetch(`${url}/${postID}.json`, {
+    fetch(`${url}/post_destroy/${postID}`, {
       method:'DELETE'
     })
-    .then(res => res.json())
+    .then(res => {
+      
+      console.log(res)
+      return res.json()
+    })
     .then(data => setPosts(prevPosts => prevPosts.filter((post) => post.id !== postID)))
     
   }
@@ -102,7 +125,7 @@ function App() {
     setPostItemID(postID)
     setIsEditing(true)
 
-    fetch(`${url}/${postID}.json`)
+    fetch(`${url}/post_retrieve/${postID}`)
     .then(res => res.json())
     .then(data => setTitle(data.title))
 
@@ -113,7 +136,7 @@ function App() {
   function updatePost(post){
     // console.log(post.id)
     
-    fetch(`${url}/${post.id}.json`,{
+    fetch(`${url}/post_update/${post.id}`,{
       method: 'PUT',
       headers:{
         'Content-type':'application/json'
