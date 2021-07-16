@@ -1,0 +1,14 @@
+.header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 3rem 4rem;
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-self: center;
+    background: cyan;
+    margin-bottom: 2rem;
+    
+}

@@ -1,0 +1,19 @@
+.inputFields {
+    display: flex;
+    justify-content: space-between;
+}
+
+.labelField{
+    align-self: center;
+}
+
+.inputElement {
+    padding: 0.5rem 0;
+    margin: 0.5rem 0;
+    border-radius: 0.5rem;
+    width: 80%;
+}
+
+.inputElement:focus{
+    background: rgb(100, 205, 237);
+}

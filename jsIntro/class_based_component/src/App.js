@@ -1,11 +1,9 @@
-import React, {Component} from 'react'
-import MyClassComponent from './MyClassComponent'
+import Home from './components/Home/Home'
+import './index.css'
 
 
-export default class App extends Component{
-  render(){
+export default function App(){
     return(
-      <MyClassComponent title='This is a Class Based Component'/>
+        <Home />
     )
-  }
 }
