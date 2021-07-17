@@ -1,0 +1,82 @@
+*{
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+body {
+  background: #555;
+}
+
+/* Card */
+.card {
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
+  padding: 4rem;
+  text-align: center;
+  width: 80%;
+  margin: 4rem auto;
+  border-radius: 1rem;
+  background: rgb(255, 255, 255);
+}
+
+/* Button */
+.button{
+  border: none;
+  border-radius: 1rem;
+  background: rgb(16, 69, 168);
+  padding: 1rem 2rem;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+.button:disabled{
+  background: #999;
+}
+
+
+/* Form */
+.formButton{
+  margin-top: 2rem;
+}
+
+.formControl{
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem auto;
+}
+
+
+.labelField{
+  align-self: center;
+  font-weight: bold;
+
+}
+
+.inputField{
+  width: 70%;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+
+}
+
+.inputField:focus{
+  background: rgb(203, 215, 238);
+  
+  
+}
+
+.invalid{
+  background: rgb(243, 217, 222);
+  border: 1px solid rgb(240, 190, 190);
+}
+
+.text-success{
+  color:seagreen
+}
+
+.text-primary{
+  color:steelblue
+}
+
+.text-info{
+  color:turquoise
+}
