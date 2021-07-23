@@ -1,0 +1,49 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  background: #555;
+  
+}
+
+.card{
+  margin: 3rem auto;
+  padding: 3rem;
+  background: white;
+  width: 60%;
+  text-align: center;
+  border-radius: 2rem;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
+}
+
+
+.title{
+  text-align: center;
+  color: white;
+  margin-top: 5rem;
+}
+h1{
+  margin: 1rem;
+}
+
+h3{
+  margin: 1rem;
+}
+
+.button{
+  background: royalblue;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  margin: 1rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+}
+
+.toggle {
+  background: purple;
+}
