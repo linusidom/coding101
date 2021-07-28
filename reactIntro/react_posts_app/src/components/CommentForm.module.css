@@ -1,0 +1,17 @@
+.input {
+    width: 100%;
+    border-radius: 1rem;
+    margin: .5rem 0 2rem 0;
+    padding: 1rem;
+}
+
+.input:focus{
+    background: floralwhite;
+    outline: none;
+}
+
+.textarea {
+    padding: 1rem;
+    margin: .5rem 0 2rem 0;
+
+}

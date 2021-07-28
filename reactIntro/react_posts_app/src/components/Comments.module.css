@@ -1,0 +1,15 @@
+.commentSection{
+    width: 70%;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.commentTitle{
+    margin-top: 2rem;
+}
+
+.commentText {
+    margin: 0.5rem auto;
+    font-size: 2rem;
+
+}

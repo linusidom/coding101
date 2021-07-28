@@ -1,0 +1,44 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    background: cadetblue;
+    height: 5rem;
+    position: sticky;
+    top:0;
+}
+
+.headerTitle{
+    align-self: center;
+    padding-left: 5rem;
+}
+
+.listItems{
+    display: flex;
+    align-self: center;
+    padding-right: 2rem;
+}
+
+.listItem{
+    list-style: none;
+    padding: 0 3rem;
+    font-size: 1.5rem;
+    
+}
+
+.listItem a{
+    text-decoration: none;
+    color: #88dfdf;
+}
+
+.listItem a:hover,
+.listItem a:active,
+.listItem a.active {
+  color: #e6fcfc;
+  
+}
+
+.main{
+    margin: 3rem auto;
+    width: 80%;
+
+}

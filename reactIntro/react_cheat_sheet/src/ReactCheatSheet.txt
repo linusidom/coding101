@@ -1,0 +1,129 @@
+React Cheat Sheet
+=================
+
+Start a project - Done
+- npx create-react-app react_cheat_sheet
+
+Basic setup
+- Deleted all files under src except
+-- App.js, index.css, index.js
+
+Component - function vs const
+
+Common Functions
+
+Map
+  // Map - I want to apply a change to each element in the Array/List
+  const DUMMY_MAP = DUMMY_DATA.map((data) => {
+    return <p>{data.text}</p>
+  })
+  // console.log(DUMMY_MAP)
+
+    {/* Returns values normally */}
+    {/* {DUMMY_MAP} */}
+
+
+Filter
+  // Filter - I want to get specific elements that match a particular test case
+  // Returns an Array
+  const DUMMY_FILTER = DUMMY_DATA.filter((data) => {
+    // console.log(data)
+    return data.id === 2
+  })
+  // console.log(DUMMY_FILTER)
+
+    {/* Can't display this data directly */}
+    {/* If you're familiar with Django, this is a Queryset */}
+    {/* Queryset needs to go through a For loop bc it is an array */}
+    {/* {DUMMY_FILTER} */}
+
+Find
+  // I want to find a specific element ( similar to get in Django/Python)
+  // returns a single Object - always the first object found
+  const DUMMY_FIND = DUMMY_DATA.find((data) => {
+    // console.log(data)
+    return data.id === 2
+  })
+
+    {/* Returns a direct Object that cannot be displayed without being parsed by map */}
+    {`${DUMMY_FIND.id} ${DUMMY_FIND.text}`}
+
+
+
+    
+
+Common Hooks
+useState
+  // const [toggleh3, setToggleH3] = useState(true)
+
+useReducer - we want to use useReducer when we have state elements that depend on each other
+
+    // Above the function
+    const initialState = {
+    toggleh3: true,
+    var1: true,
+    var2: 5,
+    var3: 'String'
+    }
+
+    // Const Variable Method
+    const reducer = (state, action) => {
+    if(action.type === 'toggle'){
+        return {
+
+        //Spread operator preserves the values
+        // automatically assigns them into the object as they were from the original state    
+        ...state,
+        toggleh3: !state.toggleh3
+        // var1: false,
+        }
+    }
+    }
+
+  const [state, dispatch] = useReducer(reducer, initialState)
+
+    // use state and dispatch below the declaration
+    {state.toggleh3 && <h3>Hide me or show me - Click the Button</h3>}
+    <button onClick={() => dispatch({type:'toggle'})}>Hide Or Show the H1 Tag</button>
+
+
+
+Prop Drilling
+
+useContext - Global State Manager - built in to React
+
+// Inside each file we want to use the store in
+const appCtx = useContext(AppContext)
+
+// Inside the Main AppStore.js
+import { createContext } from "react";
+
+
+export const AppContext = createContext({})
+
+
+export const AppContextProvider = (props) => {
+
+
+    const DUMMY_DATA = [
+        {
+          id:1,
+          text:'Sample Text'
+        },
+        {
+          id:2,
+          text:'Another Sample Text'
+        },
+      ]
+
+    const context = {
+        DUMMY_DATA: DUMMY_DATA
+    }
+
+    return(
+        <AppContext.Provider value={context}>
+            {props.children}
+        </AppContext.Provider>
+    )
+}
+

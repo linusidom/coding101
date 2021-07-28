@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+.button {
+    background: cadetblue;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    /* align-self: center; */
+
+}
+
+.showCommentButton {
+    text-align: right;
+}

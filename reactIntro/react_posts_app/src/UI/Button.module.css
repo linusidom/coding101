@@ -1,0 +1,9 @@
+.button {
+    background: cadetblue;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
