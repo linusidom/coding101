@@ -1,0 +1,18 @@
+.cart{
+    background: #111;
+    color: white;
+    width: 60%;
+
+}
+
+.subCart{
+    background: #333;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+}

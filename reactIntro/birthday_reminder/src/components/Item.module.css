@@ -1,0 +1,41 @@
+.item {
+    width: 90%;
+    margin: 1.5rem auto;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr 6fr 1fr;
+    align-items: center;
+}
+
+.text {
+    text-align: left;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
+       
+}
+
+.name {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.age {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #666;
+
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.desc {
+    width: 90%;
+    margin: 1rem 0;
+    font-size: 0.8rem;
+    color: #666;
+}

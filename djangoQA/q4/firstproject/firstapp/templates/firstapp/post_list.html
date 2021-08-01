@@ -1,0 +1,10 @@
+{% extends 'firstapp/base.html' %}
+
+
+{% block content %}
+{% for post in post_list %}
+<p>{{post.user}}</p>
+<p>{{post.title}}</p>
+{% endfor %}
+
+{% endblock %}
