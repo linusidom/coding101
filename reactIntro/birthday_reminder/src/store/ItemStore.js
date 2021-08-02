@@ -1,25 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
 import data from '../data'
 
+
 const itemSlice = createSlice({
-    name:'item',
-    initialState: {
+    name: 'item',
+    initialState:{
         items: data
     },
     reducers:{
-        loadItems(state,action){
+        loadItems(state, action){
             state.items = data
         },
-        clearItems(state,action){
+        clearItems(state, action){
             state.items = []
         },
-        deleteItem(state, action){
+        deleteItems(state, action){
             state.items = state.items.filter((item) => item.id !== action.payload)
-        }
+        },
     }
-
 })
 
-export const itemSliceActions = itemSlice.actions
+export const itemSliceAction = itemSlice.actions
 
 export default itemSlice.reducer

@@ -1,41 +1,46 @@
-.item {
+.item{
     width: 90%;
-    margin: 1.5rem auto;
     display: grid;
     gap: 2rem;
-    grid-template-columns: 1fr 6fr 1fr;
-    align-items: center;
+    grid-template-columns: 1fr 5fr 2fr;
+    margin: 1rem auto;
 }
 
-.text {
-    text-align: left;
+img{
+   width: 4rem;
+   height: 4rem;
+   object-fit: cover;
+   border-radius: 50%; 
+}
+
+.text{
+    align-self: center;
     display: grid;
     gap: 2rem;
-    grid-template-columns: 1fr 3fr;
-    align-items: center;
-       
+    grid-template-columns: 1fr 1fr;
+}
+
+.nameAge{
+    align-self: center;
 }
 
 .name {
-    font-size: 1.3rem;
     font-weight: bold;
-}
-
-.age {
-    font-size: 1rem;
-    font-weight: bold;
-    color: #666;
 
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
+.age{
+    font-size: 0.8rem;
+    color: #555;
 }
 
 .desc {
-    width: 90%;
-    margin: 1rem 0;
-    font-size: 0.8rem;
-    color: #666;
+    width: 60%;
+    font-size: 0.6rem;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    align-self: center;
 }

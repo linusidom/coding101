@@ -1,16 +1,39 @@
-import {Switch, Route} from 'react-router-dom'
-import Items from './components/Items';
-import Item from './components/Item'
-import NotFound from './pages/NotFound';
+import Card from "./UI/Card";
+import Button from "./UI/Button";
+import data from './data'
+import Items from './components/Items'
+import { useState } from "react";
+import {Route, Switch} from 'react-router-dom'
+import NotFound from "./pages/NotFound";
+import Item from "./components/Item";
 
 function App() {
+
+  // const [items, setItems] = useState(data)
+
+
+  // function clearItemsHandler(){
+  //   console.log('button clicked')
+  //   setItems([])
+  // }
+
   return (
+    // <Card>
+    //   <h1>{items.length} Birthdays Today</h1>
+    //   <Items items={items}/>
+    //   <div className='clearButton'>
+    //     <Button onClick={clearItemsHandler}>Clear All</Button>
+    //   </div>
+    // </Card>
+
+    <>
     <Switch>
       <Route path='/' exact><Items/></Route>
-      <Route path='/birthday/:birthdayID'><Item/></Route>
-      <Route path ='*'><NotFound/></Route>
+      <Route path='/birthday/:birthdayID'><Item /></Route>
+      {/* Error 404 Wildcard Route */}
+      <Route path='*'><NotFound/></Route>
     </Switch>
-    
+    </>
     
   );
 }
