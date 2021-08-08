@@ -7,8 +7,6 @@ export default function Leads(props){
     
     const leads = useSelector(state => state.lead.leads)
     const dispatch = useDispatch()
-    
-    // console.log(leads)    
 
     useEffect(() => {
         dispatch(getLeads())
@@ -31,6 +29,7 @@ export default function Leads(props){
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Owner</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Message</th>
@@ -42,6 +41,7 @@ export default function Leads(props){
                     return(
                         <tr key={lead.id}>
                             <td>{lead.id}</td>
+                            <td>{lead.owner}</td>
                             <td>{lead.name}</td>
                             <td>{lead.email}</td>
                             <td>{lead.message}</td>

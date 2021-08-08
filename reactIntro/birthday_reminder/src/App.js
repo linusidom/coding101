@@ -1,8 +1,4 @@
-import Card from "./UI/Card";
-import Button from "./UI/Button";
-import data from './data'
 import Items from './components/Items'
-import { useState } from "react";
 import {Route, Switch} from 'react-router-dom'
 import NotFound from "./pages/NotFound";
 import Item from "./components/Item";

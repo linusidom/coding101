@@ -1,23 +1,37 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
+import { alertSliceActions } from './AlertReducer'
 
 const url = 'http://127.0.0.1:8000/api/leads/'
 
-export const getLeads = createAsyncThunk('leads/getLeads',async () => {
-    return fetch(url)
-    .then(res => res.json())
-})
+export const getLeads = () => async (dispatch) => {
+    await fetch(url)
+    .then(res => {
+        
+        if(!res.ok){
+            dispatch(alertSliceActions.notLoggedIn('You must be logged in to request data'))
+            return []
+        }
+        return res.json()
+    })
+    .then(data => dispatch(leadSlice.actions.getLeads(data)))
+    .catch(err => console.log(err.message))
+}
 
 
-export const deleteLead = createAsyncThunk('leads/deleteLead',async (leadID) => {
-    return fetch(`${url}${leadID}`,{
+export const deleteLead = (leadID) => async (dispatch) => {
+    await fetch(`${url}${leadID}`,{
         method: 'DELETE'
     })
-    .then(res => leadID)
+    .then(res => res.json())
+    .then(data => {
+        dispatch(alertSliceActions.deleted('Item Deleted Successfully'))
+        dispatch(leadSlice.actions.deleteLead(data.id))
+    })
 
-})
+}
 
-export const createLead = createAsyncThunk('leads/createLead',async (lead) => {
-    return fetch(url,{
+export const createLead = (lead) => async (dispatch) => {
+    await fetch(url,{
         method: 'POST',
         headers:{
             'Content-type':'application/json'
@@ -25,19 +39,26 @@ export const createLead = createAsyncThunk('leads/createLead',async (lead) => {
         body: JSON.stringify(lead)
     })
     .then(res => {
-        if(!res.ok){
-            const err = res.json()
-            // console.log('error',err)
-            return Promise.reject('err')
-        }
+        
+        // if(!res.ok){
+        //     console.log(res.statusText)
+        //     throw new Error('Response had an issue', res)
+        // }
+
         return res.json()
+    
     })
-    // .catch(err => {
-    //     // console.log('error', err)
-    //     // console.dir(err.email)
-    //     return err
-    // })
-})
+    .then(data => {
+        if(Array.isArray(data.email)){
+            dispatch(alertSliceActions.emailTaken(data.email[0]))
+        }
+        else{
+            dispatch(leadSlice.actions.createLead(data))
+            dispatch(alertSliceActions.created('Item Created Successfully'))
+        }
+    })
+    .catch(err => console.dir(err))
+}
 
 
 const leadSlice = createSlice({
@@ -46,67 +67,24 @@ const leadSlice = createSlice({
         leads: [],
         status: ''
     },
-    extraReducers:{
-        [getLeads.pending]: (state, action) => {
-            state.status='loading'
-        },
-        [getLeads.fulfilled]: (state, action) => {
+    reducers:{
+        getLeads(state, action){
             state.status = 'success',
             state.leads = action.payload
         },
-        [getLeads.rejected]: (state, action) => {
-            state.status = 'failed'
-        },
-
-        // Delete
-        [deleteLead.pending]: (state, action) => {
-            state.status='loading'
-        },
-        [deleteLead.fulfilled]: (state, action) => {
+        deleteLead(state, action){
             state.status = 'success',
             state.leads = state.leads.filter((lead) => lead.id !== action.payload)
         },
-        [deleteLead.rejected]: (state, action) => {
-            state.status = 'failed'
-        },
-
-        // Create
-        [createLead.pending]: (state, action) => {
-            console.log('Create pending')
-            state.status='loading'
-        },
-        [createLead.fulfilled]: (state, action) => {
-            console.log('create fulfilled')
-            console.dir(action)
+        createLead(state, action){
             state.status = 'success',
             state.leads = state.leads.concat(action.payload)
-        },
-        [createLead.rejected]: (state, action) => {
-            console.log('Create rejected')
-            console.dir(action)
-            state.status = 'failed'
-        },
-
-        // builder.addCase(getLeads.fulfilled, (state, action) => {
-        //     // Add user to the state array
-        //     console.log(action.payload)
-        //     state.leads = action.payload
-        //   })
-        // builder.addCase(deleteLead.fulfilled, (state, action) => {
-        //     // Add user to the state array
-        //     console.log(action.payload)
-        //     state.leads = state.leads.filter((lead) => lead.id !== action.payload)
-        //   })
-        // builder.addCase(createLead.fulfilled, (state, action) => {
-        //     // Add user to the state array
-        //     console.log(action.payload)
-        //     state.leads = state.leads.concat(action.payload)
-        //   })
+        }
     }
 })
 
 
 export const leadSliceActions = leadSlice.actions
 
-export default leadSlice
+export default leadSlice.reducer
 

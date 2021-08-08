@@ -1,0 +1,64 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #212738;
+}
+
+.container {
+  width: 80%;
+  margin: 3rem auto
+}
+
+img{
+  width: 100%;
+  
+  border-radius: 1rem;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  font-size: 1rem;
+  margin: 1rem auto;
+}
+
+a{
+  text-decoration: none;
+  color: #564256;
+}
+
+.title{
+  color: white;
+  margin: 3rem auto;
+}
+.projects{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.links {
+  display: flex;
+}
+
+.customLink{
+  font-size: 0.5rem;
+}
+
+.notFound{
+  text-align: center;
+  color: white
+  
+}
+
+@media (max-width: 768px) {
+  .projects{
+    grid-template-columns: 1fr;
+  }
+}

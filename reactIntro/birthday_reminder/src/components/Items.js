@@ -1,6 +1,4 @@
 import Item from './Item'
-import data from '../data'
-import { useState } from 'react'
 import Card from '../UI/Card'
 import Button from '../UI/Button'
 import { useDispatch, useSelector } from 'react-redux'

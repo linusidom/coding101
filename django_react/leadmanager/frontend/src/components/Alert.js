@@ -1,13 +1,14 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 export default function AlertComponent(props){
     
-    const dispatch = useDispatch()
-    
+    const alert = useSelector(state => state.alert)
+    console.log(alert)
+
     return(
-        <div className={`alert ${state.alertVariant}`}>
-            {state.alertMessage}
+        <div className={`alert alert-${alert.variant}`}>
+            <p>Alert {alert.message}</p>
         </div>
     )
 }

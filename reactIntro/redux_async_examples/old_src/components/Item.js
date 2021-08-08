@@ -9,8 +9,13 @@ export default function Item(props){
     const dispatch = useDispatch()
     
     function addToCart(item){
-        console.log('clicked')
-        dispatch(cartSliceActions(item))
+        const newItem = {
+            ...item,
+            quantity: item.quantity + 1,
+            total: item.price * (item.quantity + 1)
+        }
+
+        dispatch(cartSliceActions.addToCart(newItem))
     }
 
 

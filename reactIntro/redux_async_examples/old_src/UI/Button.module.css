@@ -1,0 +1,8 @@
+.button {
+    padding: 0.5rem 1rem;
+    font-size: 1.3rem;
+    border-radius: 0.5rem;
+    background: steelblue;
+    align-content: center;
+    border: none;
+}

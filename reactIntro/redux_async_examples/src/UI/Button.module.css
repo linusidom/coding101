@@ -1,8 +1,10 @@
 .button {
-    padding: 0.5rem 1rem;
-    font-size: 1.3rem;
-    border-radius: 0.5rem;
-    background: steelblue;
-    align-content: center;
+    box-shadow: 5px 5px 8px;
+    border-radius: 1rem;
     border: none;
+    background: coral;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
 }

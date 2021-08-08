@@ -1,9 +1,7 @@
-import { useEffect, useState } from "react"
 import {Link, useParams, useRouteMatch } from "react-router-dom"
 import Card from "../UI/Card"
 import Button from "../UI/Button"
 import classes from './Item.module.css'
-import data from '../data'
 import { useSelector } from "react-redux"
 
 
@@ -48,7 +46,7 @@ export default function Item(props){
             ?
             <>
             <div className={classes.image}>
-                <img src={item.image}></img>
+                <img src={item.image} alt='image'></img>
             </div>
             {/* <Link to={`/birthday/${item.id}`}>
                 <div className={classes.text}>

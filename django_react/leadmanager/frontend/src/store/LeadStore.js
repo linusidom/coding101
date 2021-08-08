@@ -1,20 +1,17 @@
 import { combineReducers, createStore } from "redux";
 import leadReducer from './LeadReducer'
 import { configureStore } from '@reduxjs/toolkit'
-
+import alertReducer from "./AlertReducer";
+import authReducer from './AuthReducer'
   
 const store = configureStore({
     reducer: {
-        lead: leadReducer.reducer
+        lead: leadReducer,
+        alert: alertReducer,
+        auth: authReducer
     }
 })
 
-// const store = configureStore({
-//     reducer: {
-//     //   counter:counterReducer,
-//     //   toggle:toggleReducer
-//       lead: leadReducer.reducer
-//       }
-//   })
+
 
 export default store
