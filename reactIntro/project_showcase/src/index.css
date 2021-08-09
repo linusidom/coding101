@@ -9,14 +9,10 @@ body {
   background: #212738;
 }
 
-.container {
-  width: 80%;
-  margin: 3rem auto
-}
+
 
 img{
   width: 100%;
-  
   border-radius: 1rem;
 }
 

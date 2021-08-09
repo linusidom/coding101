@@ -2,11 +2,12 @@ import { Route, Switch } from "react-router-dom";
 import Projects from "./components/Projects";
 import NotFound from "./components/NotFound";
 import data from './data'
+import Layout from "./layout/Layout";
 
 function App() {
 
   return (
-    <div className='container'>
+    <Layout>
       {/* <h1 className='title'>Basic Projects</h1> */}
       
         <Switch>
@@ -14,8 +15,8 @@ function App() {
           <Route path='*'><NotFound/></Route>
           
         </Switch>
-      
-    </div>
+    </Layout>
+    
   );
 }
 

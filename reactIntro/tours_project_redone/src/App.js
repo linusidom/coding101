@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import {Switch, Route} from 'react-router-dom'
+import Layout from './layout/Layout';
+import Favorites from './pages/Favorites';
+import NotFound from './pages/NotFound';
+import Tours from './pages/Tours';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <Switch>
+        <Route path='/' exact><Tours/></Route>
+        <Route path='/favorites' ><Favorites/></Route>
+
+        {/* Default - Error 404 Page */}
+        <Route path='*' ><NotFound/></Route>
+      </Switch>
+      </Layout>
   );
 }
 

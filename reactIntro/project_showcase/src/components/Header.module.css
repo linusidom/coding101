@@ -1,0 +1,14 @@
+.header{
+    position: sticky;
+    top:0;
+    height: 5rem;
+    background: #121620; 
+    display: flex;
+}
+
+.logo {
+
+    margin: auto 2rem;
+    color: white;
+    
+}
