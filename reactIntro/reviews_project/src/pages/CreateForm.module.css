@@ -1,0 +1,5 @@
+.inputField, .textarea{
+    width: 100%;
+    padding: 1rem;
+    margin: 0.5rem auto;
+}

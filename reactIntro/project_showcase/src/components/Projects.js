@@ -5,17 +5,11 @@ export default function Projects(props){
         <div>
             <h1 className='title'>Tutorial / Roadmap - กวดวิชา / แผนงาน</h1>
             <div>
-                {props.projects.map((project) => {
-                    if(project.category === 'tutorial'){
-                    return <Project key={project.id} project={project}/>}
-                })}
+                {props.projects.map((project) => project.category === 'tutorial' && <Project key={project.id} project={project}/>)}
             </div>
             <h1 className='title'>Basic Projects - โครงการพื้นฐาน</h1>
             <div className='projects'>
-                {props.projects.map((project) => {
-                    if(project.category === 'basic'){
-                        return <Project key={project.id} project={project}/>}
-                })}
+                {props.projects.map((project) => project.category === 'basic' && <Project key={project.id} project={project}/>)}
             </div>
         </div>
     )

@@ -1,0 +1,7 @@
+.button{
+    color: skyblue;
+    background: rgb(218, 235, 242);
+    padding: 0.5rem 2rem;
+    border: none;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
+}

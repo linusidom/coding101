@@ -35,13 +35,23 @@ const data = [
     },
     {
         id: 4,
-        netlifyLink:'https://spotskillz-react-course-projects.netlify.app/',
+        netlifyLink:'https://www.youtube.com/watch?v=_fUR0Hf2BsE&list=PLA_Vc1i8J5NKpMca85O13d8vXd1Vm9Q9G',
         youtubeLink:'https://www.youtube.com/watch?v=_fUR0Hf2BsE&list=PLA_Vc1i8J5NKpMca85O13d8vXd1Vm9Q9G',
         githubLink:'https://github.com/linusidom/coding101/tree/main/reactIntro',
         imageLink:'../assets/ReactTutorial.png',
         title: 'React Full Stack Develpment',
         titleThai: 'React การพัฒนาเต็มกอง',
         category:'tutorial',
+    },
+    {
+        id: 5,
+        netlifyLink:'https://spotskillz-tours-project.netlify.app/',
+        youtubeLink:'https://www.youtube.com/watch?v=Ah9musT74Nk',
+        githubLink:'https://github.com/linusidom/coding101/tree/main/reactIntro/tours_project_redone',
+        imageLink:'../assets/ToursProject.png',
+        title: 'Tours Project',
+        titleThai: 'โครงการทัวร์',
+        category:'basic',
     },
     
 

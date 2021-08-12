@@ -2,7 +2,7 @@ import classes from './Favorite.module.css'
 import Card from "../UI/Card";
 import Button from "../UI/Button";
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { favoritesSliceActions } from '../store/FavoritesStore';
 
 export default function Favorite(props){

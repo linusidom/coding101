@@ -1,7 +1,5 @@
 import Tour from '../components/Tour'
-import { useState, useEffect } from 'react'
 import Button from '../UI/Button'
-import Card from '../UI/Card'
 import {useSelector, useDispatch} from 'react-redux'
 import { getToursFetchFunction, tourSliceActions } from '../store/TourStore'
 import AlertComponent from '../components/AlertComponent'
