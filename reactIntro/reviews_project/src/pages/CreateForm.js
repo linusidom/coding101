@@ -3,8 +3,11 @@ import Button from '../UI/Button'
 import Card from '../UI/Card'
 import classes from './CreateForm.module.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { createDataInFirebase } from '../store/ReviewStore'
+import { reviewSliceActions } from '../store/ReviewStore'
 import { useHistory } from 'react-router-dom'
+
+// If using firebase
+// import {createDataInFirebase} from '../store/ReviewStore'
 
 export default function CreateForm(){
 
@@ -33,8 +36,13 @@ export default function CreateForm(){
         }
 
         // console.log(newReview)
-        // dispatch(reviewSliceActions.createReview(newReview))
-        dispatch(createDataInFirebase(newReview))
+        
+        // If using firebase
+        // dispatch(createDataInFirebase(newReview))
+
+        dispatch(reviewSliceActions.createReview(newReview))
+        
+        
         history.push('/')
     }
 

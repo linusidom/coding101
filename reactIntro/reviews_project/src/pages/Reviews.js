@@ -1,6 +1,9 @@
 import Review from '../components/Review'
 import { useDispatch, useSelector } from 'react-redux'
-import { getDataFromFirebase, reviewSliceActions } from '../store/ReviewStore'
+import { reviewSliceActions } from '../store/ReviewStore'
+
+// if using firebase
+// import { getDataFromFirebase } from '../store/ReviewStore'
 
 export default function Reviews(){
 
@@ -79,17 +82,18 @@ export default function Reviews(){
     // const [review, setReview] = useState(reviews[0])
     const review = useSelector(state => state.review.review)
 
-    const initial = useSelector(state => state.review.initial)
 
-    if(initial){
-        dispatch(getDataFromFirebase())
+    // if using firebase
+    // const initial = useSelector(state => state.review.initial)
+    // if(initial){
+    //     dispatch(getDataFromFirebase())
 
-    }
+    // }
 
     
 
     function surpriseMe(){
-        console.log('surprise me')
+        // console.log('surprise me')
         // Random Number
         const nextReviewID = Math.floor(Math.random() * reviews.length)
         
@@ -112,7 +116,7 @@ export default function Reviews(){
     }
 
     function previousReview(reviewID){
-        console.log('previousReview')
+        // console.log('previousReview')
         const indexOf = reviews.indexOf(reviews.find(review => review.id === reviewID))
         const nextReviewID = indexOf === -1 || indexOf ===  0 ? reviews.length - 1 : indexOf - 1
         // setReview(reviews[nextReviewID])

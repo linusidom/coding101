@@ -1,5 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// For the purposes of hosting and examples I have reintroduced the local data store instead of Firebase
+import data from '../data'
+
 
 const url = 'https://reviews-64824-default-rtdb.firebaseio.com/reviews.json'
 
@@ -7,7 +10,7 @@ export const getDataFromFirebase = () => async (dispatch) => {
     await fetch(url)
     .then(response => response.json())
     .then(data => {
-        console.log(data)
+        // console.log(data)
         const tempReviewArr = []
         for(let key in data){
             const tempObject = {
@@ -16,7 +19,7 @@ export const getDataFromFirebase = () => async (dispatch) => {
             }
             tempReviewArr.push(tempObject)
         }
-        console.log(tempReviewArr)
+        // console.log(tempReviewArr)
         dispatch(reviewSlice.actions.loadReviews(tempReviewArr))
 
     })
@@ -32,7 +35,7 @@ export const createDataInFirebase = (newReview) => async (dispatch) => {
     })
     .then(res => res.json())
     .then(data => {
-        console.log(data)
+        // console.log(data)
         dispatch(reviewSlice.actions.createReview())
     })
 }
@@ -43,8 +46,12 @@ export const createDataInFirebase = (newReview) => async (dispatch) => {
 const reviewSlice = createSlice({
     name:'review',
     initialState:{
-        reviews:[],
-        review:{},
+        // Settings for Firebase
+        // reviews:[],
+        // review:{},
+        // initial: true
+        reviews: data,
+        review: data[0],
         initial: true
     },
     reducers:{
@@ -66,7 +73,11 @@ const reviewSlice = createSlice({
             state.review = state.reviews[action.payload]
         },
         createReview(state, action){
-            state.initial = true
+            // For Firebase
+            // state.initial = true
+            
+            // For Local
+            state.reviews = state.reviews.concat(action.payload)
         }
     }
 })

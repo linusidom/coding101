@@ -53,8 +53,19 @@ const data = [
         titleThai: 'โครงการทัวร์',
         category:'basic',
     },
+    {
+        id: 6,
+        netlifyLink:'https://spotskillz-reviews-project.netlify.app/',
+        youtubeLink:'https://www.youtube.com/watch?v=Ah9musT74Nk',
+        githubLink:'https://github.com/linusidom/coding101/tree/main/reactIntro/reviews_project',
+        imageLink:'../assets/ReviewsProject.png',
+        title: 'Reviews Project',
+        titleThai: 'รีวิวโครงการ',
+        category:'basic',
+    },
     
 
 ]
 
 export default data
+
