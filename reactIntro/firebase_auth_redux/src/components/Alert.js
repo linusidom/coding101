@@ -4,7 +4,6 @@ import { alertSliceActions } from "../store/AlertStore"
 export const Alert = () => {
 
     const alert = useSelector(state => state.alert)
-    console.log(alert)
     const dispatch = useDispatch()
 
     if(alert.showAlert){

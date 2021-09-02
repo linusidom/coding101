@@ -26,10 +26,7 @@ export const Register = () => {
         e.preventDefault()
         if(emailRef.current.value !== '' && passwordRef.current.value !== '' && confirmPasswordRef.current.value !== ''){
             if(passwordRef.current.value === confirmPasswordRef.current.value){
-                console.log('Everything looks good')
-                
-                
-                
+                                
                 try {
 
                     setLoadingButton(true)
@@ -50,13 +47,11 @@ export const Register = () => {
 
             }
             else{
-                console.log()
                 dispatch(alertSliceActions.showAlert({message:'Passwords must match', variant:'info'}))
 
             }
         }
         else{
-            console.log('All Fields Must be filled in')
             dispatch(alertSliceActions.showAlert({message:'All Fields must be filled in', variant:'info'}))
         }
         setLoadingButton(false)

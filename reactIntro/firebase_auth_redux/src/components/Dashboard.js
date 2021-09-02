@@ -13,7 +13,6 @@ export const Dashboard = () => {
     const dispatch = useDispatch()
 
     const logoutHandler = async () => {
-        console.log('Logout Handler')
         await dispatch(userLogout())
 
     }

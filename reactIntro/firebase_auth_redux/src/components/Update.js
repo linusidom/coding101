@@ -11,10 +11,7 @@ import { userUpdateEmail, userUpdatePassword } from "../store/AuthStore"
 
 export const Update = () => {
     
-
-
     const dispatch = useDispatch()
-
 
     const [loadingButton, setLoadingButton] = useState(false)
 
@@ -34,7 +31,6 @@ export const Update = () => {
 
             }
             else{
-                console.log()
                 dispatch(alertSliceActions.showAlert({message:'Passwords must match', variant:'danger'}))
             }
         }

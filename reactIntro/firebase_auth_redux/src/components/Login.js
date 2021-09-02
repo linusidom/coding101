@@ -44,7 +44,6 @@ export const Login = () => {
             }
         }
         else{
-            console.log('All Fields Must be filled in')
             dispatch(alertSliceActions.showAlert({message:'All Fields must be filled in', variant:'danger'}))
         }
         setLoadingButton(false)

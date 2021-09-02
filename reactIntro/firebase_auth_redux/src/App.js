@@ -22,7 +22,6 @@ const App = () => {
     const dispatch = useDispatch()
 
     const user = useSelector(state => state.auth)
-    console.log(user)
 
     const [loading, setLoading] = useState(true)
 
