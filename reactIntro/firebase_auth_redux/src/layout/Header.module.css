@@ -1,0 +1,27 @@
+.header {
+    min-height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 3rem;
+    margin-bottom: 3rem;
+    background: #333;
+    color: silver;
+}
+
+.logo{
+    align-self: center;
+}
+
+.listGroup{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+    align-self: center;
+
+}
+
+.listItem a, .logo a {
+    text-decoration: none;
+    color: inherit;
+}
