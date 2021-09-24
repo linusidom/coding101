@@ -23,6 +23,6 @@
 - Configure Get Express Route/Controller - done
 - Configure Get React Element - done
 - Configure Delete Express Route/Controller - done
-- Configure Delete React Element
-- Configure Update Express Route/Controller
-- Configure Update React Handler
+- Configure Delete React Element - done
+- Configure Update Express Route/Controller - done
+- Configure Update React Handler - done
