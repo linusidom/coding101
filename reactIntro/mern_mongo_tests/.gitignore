@@ -1,0 +1,10 @@
+venv*
+startBS
+migrations
+__pycache__
+db.sqlite3
+*.pyc
+omise*
+.DS_Store
+node_modules
+.env

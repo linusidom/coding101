@@ -4,19 +4,7 @@ const productCreateView = async (req, res) => {
 
     try {
         
-        const prodArr = [
-            {product: "toothbrush", total: 4.75, customer: "Mike"},
-            {product: "guitar", total: 199.99, customer: "Tom"},
-            {product: "milk", total: 11.33, customer: "Mike"},
-            {product: "pizza", total: 8.50, customer: "Karen"},
-            {product: "toothbrush", total: 4.75, customer: "Karen"},
-            {product: "pizza", total: 4.75, customer: "Dave"},
-            {product: "toothbrush", total: 4.75, customer: "Mike"},
-       ]
-
-    
-
-        const products = await Product.insertMany(prodArr)
+        const products = await Product.create(req.body)
         res.status(201).json(products)
 
     } catch (error) {
@@ -27,19 +15,7 @@ const productCreateView = async (req, res) => {
 const productQueryView = async (req, res) => {
     try {
         
-        const products = await Product.aggregate(
-            [
-                {$match: {customer: {$in:["Mike", "Karen"]}} },
-                {$group: {_id:"$customer", total:{$sum:"$total"} } },
-                {$sort:{total:1}}
-            ]
-        )
-
-
-        // 'comments.user': _id
-
-
-        // { status: "A", $or: [ { qty: { $lt: 30 } }, { item: /^p/ } ] }
+        const products = await Product.find().sort({_id: -1})
         res.status(200).json(products)
 
     } catch (error) {
@@ -47,9 +23,16 @@ const productQueryView = async (req, res) => {
     }
 }
 
-  // ./animals.js
-  require("./dog");
-  
-  const dog = new Dog();
 
-module.exports = {productCreateView, productQueryView}
+const productDeleteView = async (req, res) => {
+    try {
+        
+        const product = await Product.findByIdAndDelete(req.params.id)
+        res.status(200).json(product)
+
+    } catch (error) {
+        res.status(400).json({message:error.message})
+    }
+}
+
+module.exports = {productCreateView, productQueryView, productDeleteView}

@@ -1,16 +1,17 @@
 const mongoose = require('mongoose')
 
-
 const connectToDatabase = async (uri) => {
+
     try {
         
-
         const client = await new mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+        console.log(`Conneted to MongoDB: ${client.connection.host}`)
 
-        console.log(`Connected to MongoDB: ${client.connection.host}`)
     } catch (error) {
-        console.log(error)
+        console.log(error.message)
     }
+
 }
 
 module.exports = connectToDatabase
+
