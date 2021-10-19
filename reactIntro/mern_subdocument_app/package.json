@@ -1,0 +1,22 @@
+{
+  "name": "mern_subdocument_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "backend" : "nodemon backend/index.js",
+    "client" : "npm run start --prefix frontend",
+    "dev" : "concurrently \"npm run backend\" \"npm run client\"",
+    "start" : "node backend/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^6.3.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.11",
+    "nodemon": "^2.0.13"
+  }
+}
