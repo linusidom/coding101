@@ -1,73 +1,32 @@
-import { useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
+import './index.css'
 
+
+import { Home } from './components/Home'
+import { Login } from './components/Login';
+import { Posts } from './components/Posts';
+import { Register } from './components/Register';
+import { Layout } from './layout/Layout'
+import {Switch, Route} from 'react-router-dom'
+import { Profile } from './components/Profile';
+import { CreatePost } from './components/CreatePost';
+import { PostDetail } from './components/PostDetail';
+import { CreateComment } from './components/CreateComment';
 function App() {
-  
-  const [product, setProduct] = useState('')
-  const [total, setTotal] = useState('')
-  const [customer, setCustomer] = useState('')
-
-  const [posts, setPosts] = useState([])
-
-  useEffect(() => {
-    fetch('/products')
-    .then(res => res.json())
-    .then(data => setPosts(data))
-  }, [])
-
-  const deleteHandler = (postID) => {
-    fetch(`/products/${postID}`,{
-      method:'DELETE'
-    })
-    .then(res => res.json())
-    .then(data => setPosts(prevPosts => prevPosts.filter(post => post._id !== postID)))
-  }
-
-  const onSubmitHandler = (e) => {
-    e.preventDefault()
-    if(product !== '' && total !== '' && customer !== ''){
-      fetch('/products', {
-        method: "POST",
-        headers: {
-          'Content-type':'application/json'
-        },
-        body: JSON.stringify({product, total, customer})
-      })
-      .then(res => res.json())
-      .then(data => setPosts(prevPosts => prevPosts.concat(data)))
-    }
-  }
-
   return (
-    <div className='container'>
-      <form onSubmit={onSubmitHandler} className='form-group mt-5'>
-        <input className='form-control' type='text' placeholder='Enter Data' value={product} onChange={(e) => setProduct(e.target.value)}/>
-        <input className='form-control' type='text' placeholder='Enter Total' value={total} onChange={(e) => setTotal(e.target.value)}/>
-        <input className='form-control' type='text' placeholder='Enter customer' value={customer} onChange={(e) => setCustomer(e.target.value)}/>
-        <button className='btn btn-info' type='submit'>Submit</button>
-      </form>
-      <div className="row">
-      
-        {posts.map(post => {
-          return(
-            <div className="col-3">
-              <div key={post._id} className='card p-3 my-2 shadow'>
-                <div className="row">
-                  <div className="col-8">
-                    <p>{post._id}</p>
-                    <p>{post.product}</p>
-                    <p>{post.total}</p>
-                    <p>{post.customer}</p>
-                  </div>
-                  <div className="col-4">
-                    <button className='btn btn-danger' onClick={() => deleteHandler(post._id)}>Delete</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )
-        })}
-      </div>
+    <div>
+      <Layout>
+        <Switch>
+          <Route path='/' exact><Home/></Route>
+          <Route path='/login' exact><Login/></Route>
+          <Route path='/register' exact><Register/></Route>
+          <Route path='/posts' exact><Posts/></Route>
+          <Route path='/profile' exact><Profile/></Route>
+          <Route path='/create' exact><CreatePost/></Route>
+          <Route path='/createComment/:id' exact><CreateComment/></Route>
+          <Route path='/post/:id' exact><PostDetail/></Route>
+        </Switch>
+      </Layout>
     </div>
   );
 }

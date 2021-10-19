@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif !important;
+    box-sizing: border-box;
+}
+
+body{
+    background: #333 !important;
+}
+
+.card {
+    background: silver;
+}

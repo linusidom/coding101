@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './index.css';
 import App from './App';
-import {BrowserRouter} from 'react-router-dom'
-import store from './store/MainStore';
-import {Provider} from 'react-redux'
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store/MainStore'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,4 +16,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-

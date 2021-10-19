@@ -1,0 +1,30 @@
+{
+  "name": "sample_site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start":"node backend/index",
+    "backend": "nodemon backend/index",
+    "client": "npm run start --prefix frontend",
+    "dev":"concurrently \"npm run backend\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linusidom/spotskillz_university.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/linusidom/spotskillz_university/issues"
+  },
+  "homepage": "https://github.com/linusidom/spotskillz_university#readme",
+  "dependencies": {
+    "concurrently": "^6.3.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.10",
+    "nodemon": "^2.0.13"
+  }
+}
