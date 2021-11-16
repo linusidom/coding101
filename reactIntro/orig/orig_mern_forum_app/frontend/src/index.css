@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,500;1,600;1,700;1,800&display=swap');
+:root {
+  --color_0: 255,255,255;
+  --color_1: 255,255,255;
+  --color_2: 0,0,0;
+  --color_3: 237,28,36;
+  --color_4: 0,136,203;
+  --color_5: 255,203,5;
+  --color_6: 114,114,114;
+  --color_7: 176,176,176;
+  --color_8: 255,255,255;
+  --color_9: 114,114,114;
+  --color_10: 176,176,176;
+  --color_11: 255,255,255;
+  --color_12: 244,245,246;
+  --color_13: 166,166,166;
+  --color_14: 82,81,81;
+  --color_15: 21,21,21;
+  --color_16: 165,182,201;
+  --color_17: 101,123,148;
+  --color_18: 35,58,83;
+  --color_19: 28,46,66;
+  --color_20: 16,27,38;
+  --color_21: 173,198,248;
+  --color_22: 131,168,240;
+  --color_23: 21,93,233;
+  --color_24: 14,62,155;
+  --color_25: 7,31,78;
+  --color_26: 209,200,219;
+  --color_27: 173,162,184;
+  --color_28: 135,122,148;
+  --color_29: 92,73,112;
+  --color_30: 46,37,56;
+  --color_31: 183,218,220;
+  --color_32: 123,181,184;
+  --color_33: 92,136,138;
+  --color_34: 62,91,92;
+  --color_35: 31,45,46;
+  --font_0: normal normal normal 24px/1.4em 'Libre Franklin',sans-serif;
+  --font_1: normal normal normal 16px/1.4em 'Libre Franklin',sans-serif;
+  --font_2: normal normal normal 72px/1.4em 'Libre Franklin',sans-serif;
+  --font_3: normal normal 600 60px/1.4em 'Libre Franklin',sans-serif;
+  --font_4: normal normal normal 40px/1.4em 'Libre Franklin',sans-serif;
+  --font_5: normal normal normal 25px/1.4em 'Libre Franklin',sans-serif;
+  --font_6: normal normal normal 24px/1.4em 'Libre Franklin',sans-serif;
+  --font_7: normal normal normal 17px/1.4em 'Libre Franklin',sans-serif;
+  --font_8: normal normal normal 15px/1.4em 'Libre Franklin',sans-serif;
+  --font_9: normal normal normal 14px/1.4em 'Libre Franklin',sans-serif;
+  --font_10: normal normal normal 12px/1.4em 'Libre Franklin',sans-serif;
+  --wix-ads-height: 0px;
+  --wix-ads-top-height: 0px;
+  --site-width: 980px;
+  --above-all-z-index: 100000;
+  --minViewportSize: 320;
+  --maxViewportSize: 1920;
+}
+
+body{
+  background: #eee !important;
+}
+
+h1 {
+  font: var(--font_3) !important;
+}
+
+h2{
+  font: var(--font_4) !important;
+}
+
+h3 {
+  font: var(--font_5) !important;
+}
+
+h4 {
+  font: var(--font_6) !important;
+}
+
+h5 {
+  font: var(--font_7) !important;
+}
+
+h6 {
+  font: var(--font_8) !important;
+}
+
+.card {
+  margin: 3rem auto;
+  width: 70%;
+  padding: 3rem;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
+  border-radius: 0.5rem !important;
+}
+
+/* Showcase */
+.showcaseBg {
+  background: url('./assets/showcaseBg.jpeg') center/cover;
+  height: 20rem;
+}
+
+.showcaseText {
+  padding: 6rem;
+  color: #555 !important;
+}
+
+
+@media screen and (max-width: 600px) {
+  h1{
+    font: var(--font_4) !important;
+  }
+  h3{
+    font: var(--font_8) !important;
+    
+  }
+}
