@@ -1,17 +1,49 @@
 # Strings and Variables
 
-from numpy import var
+# print('This is a string')
+
+# print('This is a string'.upper())
+# print('This is a string'.lower())
 
 
-print('This is a string')
+# This is a variable of type String
+# Python is a top down synchronous language
+# Order matters
 
-# a = 'This is also a string'
-variable = 'A way to store data so that we can use it over and over again...If we want to'
-# print(variable)
-# print(f'{variable}')
-# print(variable.lower())
+# Variable naming is done 'snake_case'
+# Other languages use other naming conventions
+
+numbers_variable = '0123456789012345'
+variable = 'This is a string'
+this_is_also_a_poorly_named_variable = 'Do not name your variables like this'
+
+print(this_is_also_a_poorly_named_variable.upper())
+
+print(variable)
+
+# Methods that we can call on a String type variable
+
 # print(variable.upper())
-# print(variable.title())
-# print(variable.capitalize())
+# print(variable.lower())
 
-print(len(variable))
+# Most Commonly used Method on a String is Split
+# print(variable.split(' '))
+# print('How do I Print the word "is" from the variable')
+
+# String Indexing / List Indexing
+# With all programming languages
+# Indexing starts with 0
+
+# variable[start:'stop before we get here']
+# print(variable[start:stop before we get here:step])
+
+# Reverse direction
+# start = length of the string....?
+# print(len(variable))
+# print(variable[len(variable):-len(variable)-1:-1])
+# Fast shortcut to print in reverse
+# print(variable[::-1])
+
+
+# Omit letters from being printed
+print(variable[3:9])
