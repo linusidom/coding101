@@ -1,4 +1,4 @@
-# Day 1 - Printing Commenting
+# Day 1 - Printing / Commenting
 - Basic Introduction to Python
 
 - Printing and Commenting - Single Line

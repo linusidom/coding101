@@ -15,9 +15,9 @@
 
 numbers_variable = '0123456789012345'
 variable = 'This is a string'
-this_is_also_a_poorly_named_variable = 'Do not name your variables like this'
+# this_is_also_a_poorly_named_variable = 'Do not name your variables like this'
 
-print(this_is_also_a_poorly_named_variable.upper())
+# print(this_is_also_a_poorly_named_variable.upper())
 
 print(variable)
 
