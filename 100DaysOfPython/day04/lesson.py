@@ -1,52 +1,69 @@
-# If 
+# Data Types
 
-a = 4
-b = 5
 
-# # This is an 'if' block
-# # 4 components
-# # the word 'if'
-# # Comparison statement
-# # Closing 'colon' ':'
-# # Executable (indicated by indentation)
+# Division returns an automatic float
+print(type(10 / 2))
+
+# Floor Division returns an automatic int
+print(type(10 // 2))
+
+# There are 4 parts to an IF block
+# The word 'if' (lowercase)
+# The condition to check true or false
+# Colon (:) to indicate the end of the if statement
+# Executable code
+
+# If this is true, then execute
+a = 5
+b = 6
+
 # if a == b:
-#     print("The 'if' block executed")
-
-# # Elif...
-# # Same 4 rules as the 'if' block
-# # But we can have as many elif blocks as we want
-# elif a != b:
-#     print('a is not equal to b')
-# elif a < b:
-#     print('a is less than b')
-# elif a > b:
-#     print('a is greater than b')
-
-# # else
-# # 3 components required
-# # The word 'else'
-# # Closing 'colon' ':'
-# # Executable (indicated by indentation)
+#     print('statement must be indented under the if statement')
+#     print('Execute Statement, passed the test')
+# # If it's not true, then execute
+# # If the if statement is true, the else statement will NOT execute
 # else:
-#     print('This is inside an else block')
-#     print('Else block is a catch-all for any scenario that does not pass the if statement')
-#     print("Else block will only execute if the 'if' block fails")
+#     print('Execute Statement, failed the test')
+
+# If statements use comparison operators  in the check
+# Equal ==
+# Not Equal !=
+# Less Than <
+# Greater Than >
+# Less Than or Equal to <=
+# Greater than or equal to >=
 
 
-# all variables should be declared outside in the main area
-c = 0
+# age = 100
 
-if a == b:
-    # We should not create variables inside 'if' blocks
-    c = a
+# # If we use an if statement, elif and else are optional
+# # We cannot use an elif or else without an 'if' statement
 
-if c == a:
-    print(f'c is now equal to a: {c}')
-else:
-    print(f'c is equal to {c}')
+# if age < 18:
+#     print('Sorry but you are too young')
 
 
 
+# # Elif is optional
+# elif age >= 18 and age <= 55:
+#     print('Can Enter')
+
+# # Elif is optional
+# elif age > 55 and age <= 95:
+#     print('Can Enter because you are younger than 96')
+
+# # Else is optional
+# else:
+#     print('Sorry but you are too old')
 
 
+age = 18
+ticket = 'Denied'
+# If we are going to use a variable inside the if block
+# It's very good practice to declare it outside
 
+if age > 18:
+    ticket = 'Allowed'
+
+print(ticket)
+print('Age: ', age)

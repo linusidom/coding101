@@ -4,8 +4,6 @@
 - Printing and Commenting - Single Line
 - Printing and Commenting - Multi-line
 
-- Look up Stack Overflow
-
 - Print with "f"...?
 
 - Exercises with Print statements - correct the incorrect statements

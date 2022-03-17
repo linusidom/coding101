@@ -1,7 +1,11 @@
 # Day 4
-- Game: Age based discounts
+- Game: SpotSkillz Pizza
+
+- data types
 
 - if else, elif
 - comparison operators
 - scope and code blocks
 - indentation and nesting
+
+- Flowcharts

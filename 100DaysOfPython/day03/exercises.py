@@ -15,4 +15,4 @@ age = input('Enter your age: ')
 # What is the remainder of the age divided by 3?
 
 # Fix the following to get the original age
-print(age * age - age / age + age)
+original_age = age * age - age / age + age

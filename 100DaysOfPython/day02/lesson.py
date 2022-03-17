@@ -2,48 +2,44 @@
 
 # print('This is a string')
 
-# print('This is a string'.upper())
-# print('This is a string'.lower())
+# print('Anything inside of a quote or double quote is a string')
+
+# Variable
+
+# the purpose of coding is to get the computer to do what we want
+# The aim is to do it with the least amount of typing
 
 
-# This is a variable of type String
-# Python is a top down synchronous language
-# Order matters
+# Write one time, use many times :)
+# variable = 'Anything inside of a quote or double quote is a string'
 
-# Variable naming is done 'snake_case'
-# Other languages use other naming conventions
-
-numbers_variable = '0123456789012345'
-variable = 'This is a string'
-# this_is_also_a_poorly_named_variable = 'Do not name your variables like this'
-
-# print(this_is_also_a_poorly_named_variable.upper())
-
-print(variable)
-
-# Methods that we can call on a String type variable
-
+# print(variable)
 # print(variable.upper())
+# print(variable.title())
 # print(variable.lower())
 
-# Most Commonly used Method on a String is Split
-# print(variable.split(' '))
-# print('How do I Print the word "is" from the variable')
+# Variable naming
+# naming_variables = 'Variables are named using snake_case'
+# snake_case = 'This means if there is more than one word, then they should be \n separated by an _ (underscore)'
+# print(f'{naming_variables} {snake_case}')
 
-# String Indexing / List Indexing
-# With all programming languages
-# Indexing starts with 0
-
-# variable[start:'stop before we get here']
-# print(variable[start:stop before we get here:step])
-
-# Reverse direction
-# start = length of the string....?
-# print(len(variable))
-# print(variable[len(variable):-len(variable)-1:-1])
-# Fast shortcut to print in reverse
-# print(variable[::-1])
+# this_is_correct_but_really_bad_name_for_a_variable = 'Bad Variable name'
+# print(this_is_correct_but_really_bad_name_for_a_variable)
 
 
-# Omit letters from being printed
-print(variable[3:9])
+# three_words_maximum = 'All variables should be 3 words or less, less is best, one word is ideal'
+# print(three_words_maximum)
+
+# len function
+# name = 'Bob'
+# print(len(name))
+
+# Do not use this version, use the above len(name)
+# print(name.__len__())
+
+# Input function - Your first real function!!
+# Very rare, only used for learning python 
+# and providing some level of interactivity
+
+ice_cream = input('What is your favorite flavor of Ice Cream? ')
+print(f'You answered {ice_cream}, {ice_cream} has {len(ice_cream)} letters in it')

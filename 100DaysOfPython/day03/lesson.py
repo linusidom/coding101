@@ -1,60 +1,63 @@
-# Integers
+# Integers and string conversion
 
-# Base 10 - 0123456789
-string = 'This is a string'
-another_string = '23'
 
-# print(type(string))
-# print(type(another_string))
+# variable = 'This is a string'
+# print(variable)
+# num1 = 5
+# num2 = 10
+# print(num1 + num2)
 
-number = 5
-# print(type(number))
+# num3 = num1 + num2
+# print(num3)
 
-# What happens if we try to add a string to a number
-# We cannot add a string to a number...but...
-# We can convert a string to a number
-# This will not work - print(number + another_string)
+# Variables cannot start with anything except for a letter, uppercase or lowercase is okay
+# num3 = num1 + num2
+# print(num3)
 
-# String conversion to integer
-# print(number + int(another_string))
+# I want to add 5 to num2
+# num2 = num2 + 5
+# num2 += 5
+# print(num2)
 
-# Can we change the type?
-# print(number + float(another_string))
-
-# print(type(string.split())) # ['This','is','a','string']
-# print(type(string))
-
-# Math with Python
-# + - Add 
-# - - Subtract
+# Math in Python
+# + - Addition
+# - - Subtraction
+# / - Divide
 # * - Multiply
-# / - Divide - Changes to a float
-# // - Floor division - Keep it as an integer
-# ** - Exponent a^b
-# % - Modulo -> Return the remainder - Most commonly used to determine even or odd
+# ** - Exponent (a^b)
+# % - Modulo - returns remainder...??
 
-# Module Example
-print(6%4)
+# // - Floor division - No remainder, no decimal point, just the integer
 
-# Type is integer
-print(type(6 // 4))
 
-# type is float
-print(type(6 / 4))
+# num1 = 50
+# num2 = 20
+# print('Add: ',num1 + num2)
+# print('Subtract: ', num1 - num2)
+# print('Divide: ',num1 / num2)
+# print('Multiply: ',num1 * num2)
+# print('Exponent (50^20): ',num1 ** num2)
+# print('Modulo (return remainder): ',num1 % num2)
+# print('Floor Division: ',num1 // num2)
 
-# Order of Operation in Python Math - Left to Right
-# PEMDAS
+# Order of Operations
+# PEMDAS - Left to Right
 # Parentheses
 # Exponents
 # Multiple / Divide
-# Add / Subtract
+# Addition / Subtraction
+
+# print(50 + 20 * 10 - 100 / 50 ** 2)
 
 
+num1 = '5'
+num2 = '10'
 
+num1 = int(num1)
+num2 = int(num2)
+# Convert string to int
+print(int(num1) + int(num2))
 
-
-
-
-
-
+# We can use Multiply between strings and ints
+print(int(num1) * num2)
 

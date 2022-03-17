@@ -2,6 +2,9 @@
 Correct the following incorrect print statements
 """
 
+# Pause the video here and 
+# try to solve these on your own
+
 print(This is a sentence...but where is the problem)
 
 prnt('Hmmm...everything looks like...or does it')

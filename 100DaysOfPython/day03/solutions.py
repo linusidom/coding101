@@ -1,57 +1,58 @@
-# age = input('Enter your age: ')
+# age = int(input('Enter your age: '))
 
 # Check the data type of the age
-
 # print(type(age))
 
 # Convert the 'age' to a number
-# print(age)
-
 # age = int(age)
-
-# print(age)
 # print(type(age))
 
-
 # Double the age
-# print(age * 2) # we can do this with strings
-# print(age + 20) # Subtract, Divide, or add, or modulo, or exponent, cannot
+# print(age * 2)
 
-# Divide the age by 2
+
+# # Divide the age by 2
+# # Divide returns a float data type
 # print(age / 2)
 
-# What happens if you try floor division by 2?
+
+# # What happens if you try floor division by 2?
+# # floor division returns an int data type
 # print(age // 2)
 
-# What happens if you raise (exponent) the age to itself?
+# # What happens if you raise (exponent) the age to itself?
 # print(age ** age)
 
-# What is the remainder of the age divided by 3?
+# # What is the remainder of the age divided by 3?
 # print(age % 3)
 
+
 # Fix the following to get the original age
-# print(age * (age - age) / age + age)
+# original_age = age * (age - age) / age + age
+# print(original_age)
+# # If block
+# if original_age == age:
+#     print('Woohoo!!!')
+# else:
+#     print('Hmmm...try again')
 
-# print(age / 0) # Division by zero not allowed
-
-# 400 - 1 + 20 = 419
-# But we want 20
 
 # Tip Calculator
-print('Tip Calculator')
+print('Tip Calculator\n')
+
 total_bill = int(input('What is the total amount of the bill? '))
 people = int(input('How many people are splitting this bill? '))
 tip = int(input('What percentage tip would you like to leave? '))
 
-# tip_percentage = tip / 100
-# total_amount_with_tip = (tip_percentage + 1) * total_bill
-# # print(total_amount_with_tip)
-# per_person_total = total_amount_with_tip / people
+# tip is in a whole number, but normally tips are percentages
+# Convert the whole number to a percentage
+# tip_percent = tip / 100
 
-per_person_total = (total_bill * (1 + tip / 100)) / people
+# Add the tip to the total bill
+# total_w_tip = total_bill * (tip_percent + 1)
+# per_person_amount = total_w_tip / people
 
-print(f'''The total amount for a 
-${total_bill} bill
-splitting between {people} people
-with a {tip}% tip
-is ${per_person_total} per person''')
+per_person_amount = (total_bill * (1+ tip / 100))/ people
+
+
+print(f'\nThe total amount each person should leave is ${per_person_amount}')

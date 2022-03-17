@@ -1,32 +1,37 @@
-# string = 'How many letters are in this string'
+# string =   'How many letters are in this string'
+# # string = '01234567890123456789012345678901234'
+# # Pause the video here and we'll go through the solutions together.
 
+ 
 # # Solution here
-# print(len(string))
+# print('length of string', len(string))
 
-# # String method do not change the original variable
-# # print the string in uppercase
-# print(string.upper())
+# # # print the string in uppercase
+# print('upper()',string.upper())
 
-# # Title every word in the string
-# print(string.title())
 
+# # # Title every word in the string
+# print('title()', string.title())
+
+
+# # Google String indexing, getting specific letters from a string
 # # Print just the word 'letters' from the string
-# print(string[9:16])
+
+# # all positions/counting in programming, begins with 0
+# # print(string[start:stop])
+# print('Indexed 0 to 35',string[0:35])
 
 # # Reverse the entire String
-# print(string[::-1])
+# # print(string[start:stop:step])
+# print('Reversed',string[::-1])
 
 # # Split the string
-# # Default delimiter 'space'
-# print(string.split())
-
-
-# Game
+# print('Split', string.split())
 
 print('Lucky Number Generator')
+
 first_name = input('What is your first name? ')
 
-# IDE shortcut, CMD + d - press it for each instance you want to change
-last_name = input('What is your last name? ')
-# print(first_name, last_name)
+last_name = input('What is your last name?') 
+
 print(f'Well, {first_name} Your lucky number is {len(first_name)}{len(last_name)}')

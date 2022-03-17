@@ -1,66 +1,61 @@
-# Comments and print statement
+'''
+Comments 
 
-# The # symbol indicates in the program
-# to ignore this line
+AND 
+
+Print Statements
+'''
+
+# The # is the symbol for making comments
+# Lines with the # in front will not be printed in the output
+
+# This is the most common form of print statements
+print("We can print this statement in our terminal")
+print('This is using single quotes')
+
+# Why do we use double quotes or single quotes
+# print("Would you like to learn python, 'yes or 'no' ")
+# print('Would you like to learn python, "yes or "no" ')
+
+# What happens if we forget the end quote or the beginning quote
+# print('This is a broken print statement')
+
+# Multi-Line Statement
+'''
+This is a 
+Multiline Comment
+with Single quotes
+Triple Single Quotes on the opening
+Triple Single Quotes on the closing
+'''
 
 """
-3 Double quotes in a row  OR
+This is a 
+Multiline Comment
+with Double quotes
+Triple Double Quotes on the opening
+Triple Double Quotes on the closing
+
+Shortcut is: Mac CMD + d, Windows/Linux: ctrl + d
+
 """
 
-'''
-3 Single quotes in a row
+# Print statement multi-line
+# Not very common
+# print('''This is now
+# A Multiline
+# Print statement
+# ''')
 
-Either one allows for MUTLI-LINE COMMENTING
-
-Used at the top of the files
-'''
-
-# Used within the file
-
-# Print statements
-'''
-Print statement
-How to output data to the screen
-'''
-
-# These statements are the most common and you should be familiar with these
-# print('Hello World')
-# print('This is a Single Line print statement')
-# print("This is also a single line statement but with double quotes")
-# print("It's a very nice day today")
-
-# Keyboard shortcut for commenting - Mac CMD + /, Windows CTRL + /
+# print('This will use the\n \
+# newline and\n \
+# slash operator')
 
 
+a = 'This is a variable'
+b = 'inside of an f-string'
+c = 'print statement'
 
-# These are a lot less common and you can look up how to do these online
-# Multiline print statement
-# print('''This 
-# Is
-# A
-# Multiline
-# Print
-# Statement ''')
-
-# print('This \n\
-# Is\n\
-# A\n\
-# Multi-Line\n\
-# Statement\n\
-# As\n\
-# Well ')
-
-# Printing Variable
-# a = 'Hello'
-# b = 'World'
-
-# # print(a, b) # will print both with an automatic space for a separator
-# # print(a + b) # + Concatenates or joins 2 variables without spaces
-
-# # F String print Statement
-# # print(f'This is just another print statement')
-# print(f'{a} This is with variables {b}')
-# print(a, 'This is with variables', b )
-# print(a + ' This is with + sign concatenation ' + b)
-
-print('Is this okay?  Indendation is very important')
+# This is one of the most common forms of printing in python
+print(f'{a} {b} {c}')
+print('Start ' + a + ' ' + b + ' ' + c + ' End')
