@@ -1,4 +1,34 @@
 """
+Multiplication table of a given number up to 20
+
+"""
+# number = 23
+# for i in range(1,21):
+#     print(f'{number} * {i} = {number * i}')
+
+
+
+
+
+"""
+
+Count up and Count Down
+
+Create 2 for loops
+The first for loops counts up from 0 to 10
+the second for loop counts down from 10 to 0
+
+"""
+# Count up (increment)
+# for i in range(11):
+#     print(f'Count up: {i}')
+
+# Count Down
+# for i in range(-3, -10, -1):
+#     print(f'Count down: {i}')
+
+
+"""
 # Print the following pattern
 # [1]
 # [1, 2]
@@ -10,156 +40,68 @@
 # [1, 2]
 # [1]
 
-# Range 
+Store data in the list
+
 """
+
 # l_mountain = []
-# for i in range(1,6):
-#     l_mountain.append(i)
-#     print(l_mountain)
 
-# for i in range(len(l_mountain) - 1, 0, -1):
-#     l_mountain.pop()
-#     print(l_mountain)
+# # Create 2 For loops
 
-"""
-# Multiplication table of a given number up to 20
+# # Append Loop
+# count = 0
+# while count < 6:
+#     for i in range(1,6):
+#         l_mountain.append(i)
+#         print(l_mountain)
 
-# Range
-"""
-# base_number = 2 # Mutliplication table of 2
-# for i in range(1,21):
-#     print(f'{base_number} * {i} = {base_number * i}')
-
-
-"""
-# Create a random list of ten numbers between 0 and 100
-#  and then show only the numbers that are above 50
-"""
-# import random
-# l_random = []
-# for i in range(10):
-#     l_random.append(random.randint(0,100))
-# # print(len(l_random))
-# print(l_random)
-# for i in l_random:
-#     if i > 50:
-#         print(i)
-
-"""
-# Print the list in reverse order
-"""
-# l_reverse_me = [1,2,3,4,5, 'reversed?', 'I', 'Am']
-# print(l_reverse_me[::-1])
-
-# l_temp = []
-
-# for i in range(len(l_reverse_me) - 1, -1, -1):
-#     l_temp.append(l_reverse_me[i])
-# print(l_temp)
-
-"""
-# Find the Max, Min, Average, Sum
-"""
-
-list1 = [64, 78, 23, 16, 98, 74, 42, 9, 72, 52, 77, 48, 42, 31, 94, 73, 18, 32, 18, 12]
-
-# max_value = list1[0]
-# for i in list1:
-#     if max_value < i:
-#         max_value = i
-# print(max_value)
-
-# # Built in function
-# print(max(list1))
-
-# min_value = list1[0]
-# for i in list1:
-#     if min_value > i:
-#         min_value = i
-# print(min_value)
-# print(min(list1))
-
-
-# Avg = sum / number of elements
-# total = 0
-# for i in list1:
-#     total += i
-# print(total) # We solved the sum while calculating the average
-# print(sum(list1))
-
-# print(round(total / len(list1), 1))
-
-
-# Break me out!!  if a number in list1 is equal to 48 break out of the for loop
-# for i in list1:
-#     if i == 48:
-#         print('Found it!')
-#         break # is a way to break out of a loop (while or for)
-#     print(i)
+#     # Pop Loop
+#     for i in range(4,-1, -1):
+#         l_mountain.pop()
+#         print(l_mountain)
+    
+#     count += 1
 
 """
 Password Generator
-
 """
 
-print('Welcome the Password Generator')
+# Setup the lists that we want to pull data from
 
-# Import specific sections of a library
-import random
+# import random # not preferred but acceptable
+from random import choice, shuffle # this is the preferred because it's more specific
+
+
+# For letters
 from string import ascii_letters
+numbers_list = '0123456789'
+symbols_list = '!@#$%^&*()'
+# letters_list = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-number_list = '0123456789'
-special_characters = '!@#$%^&*()'
 
 
+
+
+print('Welcome the Password Generator\n')
 numbers = int(input('How many numbers would you like to use in your password: '))
 letters = int(input('How many letters would you like to use in your password: '))
-sp_char = int(input('How many special characters would you like to use in your password: '))
+symbols = int(input('How many special characters would you like to use in your password: '))
+
+# I'm not going to do the error checking for integers
+# Because I want to concentrate on the for loops
 
 password = []
 
 # Numbers for loop
 for i in range(numbers):
-    password.append(random.choice(number_list))
+    password.append(choice(numbers_list))
 
-print(password)
-
-# Letters for loop
 for i in range(letters):
-    password.append(random.choice(ascii_letters))
-print(password)
+    password.append(choice(ascii_letters))
 
-# Special characters for loop
-for i in range(sp_char):
-    password.append(random.choice(special_characters))
+for i in range(symbols):
+    password.append(choice(symbols_list))
 
-print(password)
+shuffle(password)
 
-
-# If we want to rearrange the elements
-# Use shuffle
-# Shuffle will change the original list
-random.shuffle(password)
-
-# Join 
 print(''.join(password))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

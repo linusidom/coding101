@@ -3,6 +3,8 @@
 
 - Review While loops
 
-- For loops - Part 1
+- For loops - Basics: Part 1
     - Range Command
-    - for i in list (foreach)
+
+The next challenge is to try typing the code
+in a regular text editor (notepad or TextEdit)

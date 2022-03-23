@@ -1,67 +1,51 @@
-# For loops vs while loops
+"""
+Review While Loop
+
+While loop - do something forever
 
 """
-# While Loop
-"""
-# print('While Loop')
+
+# while True:
+#     do something
+
 # count = 0
 # while count < 5:
-#     print(f'This is count number {count}')
+#     print(f'This is the current count: {count}')
 #     count += 1
+# print('Now we are out of the while loop')
 
 """
-# For loop
-# 6 Components in a for loop
-# The word 'for'
-# Temporary variable only avaiable inside the for loop (kind of)
-# The word 'in'
-# List element (range converts a number to a list element)
-# Closing colon ':'
-# Executable - indented as as other loops/conditionals
-"""
-# print('\nFor Loop')
-# for count in range(5):
-#     print(f'This is count number {count}')
+For loop
 
 
-# for item in list1:
-#     do something with item
-#     or
-#     do something with list[item]
+For loop - do someting for a finite amount
 
+6 Components in a for loop
 
-# While loop - do something forever
-# For loop - do someting for a finite amount
-
-# String indexing string[start:stop:step]
-# print(range(start, stop, step)) # start at 0, go until < 5
-
-# Range is not inclusive of the end number
-
-# for count in range(0, 11, 2):
-#     print(count)
+1. The word 'for'
+2. Temporary variable only avaiable inside the for loop (kind of)
+3. The word 'in'
+4. List element (range converts a number to a list element)
+5. Closing colon ':'
+6. Executable - indented as as other loops/conditionals
 
 """
-Lists and for loops
+# Indexing strings string[start:stop:step]
 
-The most common use case in coding
-
-'for i in list' is the most common way to iterate through a list
-
-"""
-
-l1 = [10,20,30,40,50]
-
-print('Using temp_var in range')
-for temp_var in range(5):
-    print(l1[temp_var])
-
-# OR we can use a for (foreach)
-
-# For lists specifically
-# For with List instead of Range
-print('\nUsing i in l1')
-for i in l1:
-    print(i)
+# for count in range(0, 5, 1):
+#     print(f'This is the current count: {count}')
+# print('Now we are out of the FOR loop')
 
 
+# for each element in the range or in the list
+# Incremental For loop
+for i in range(5):
+    # pass # this is okay as a placeholder
+    print(f'This is the current count: {i}')
+print('Now we are out of the FOR loop')
+
+
+# Decrementing For loop 
+for i in range(4, -1, -1):
+    print(f'This is the current count: {i}')
+print('Now we are out of the FOR loop')
