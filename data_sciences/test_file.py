@@ -1,5 +1,18 @@
-dict1 = {'a':1, 'b':2, 'c':'3', 'd':[4,5]}
-print(dict1['Not Found']) # Running it this way will crash the program
-# Try to use get all the time when using dictionaries; much safer
-# print(dict1.get('Not Found', 'Print this if not found'))
-print('This more code that I want to execute')
+# def tuple_wrapper(tup):
+
+def my_wrapper_function(arr):
+    for item in arr:
+        print(item)
+
+tuple1 = (1,2,'3', [4,5], {'a':1, 'b':2})
+tuple2 = (7,8,9)
+list1 = ['string', 'number', [1,2,3]]
+dict1 = {'a': 1, 'b':2, 'c': 3}
+
+my_wrapper_function(tuple1)
+my_wrapper_function(tuple2)
+my_wrapper_function(list1)
+my_wrapper_function(dict1)
+
+# for item in dict1:
+#     print(item)
