@@ -1,0 +1,15 @@
+Pandas is Excel for Python,,
+DATAFRAME - Multiple set of SERIES,,
+SERIES,SERIES,
+Series 1-dimensional array stacked on top of each other,,
+1 column,,
+Multiple Rows,,
+,,
+,,
+,,
+Data Series1,Data Series 2,
+1,10,11
+2,20,21
+3,30,33
+4,40,Nan
+,,Nan

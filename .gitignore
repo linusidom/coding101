@@ -8,4 +8,4 @@ omise*
 .DS_Store
 node_modules
 .env
-ipynb_checkpoints
+*.ipynb_checkpoints
